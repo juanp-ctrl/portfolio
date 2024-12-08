@@ -3,19 +3,33 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --black_alternative: #1e1e1e;
+  --white_alternative: #fafafa;
+  --yellow-alternative: #f2df6b;
+  --black: #292826;
+  --white: #f0f0f0;
+  --yellow: #f8d78f;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--white_alternative);
+}
+
+h1 {
+  font-family: var(--font-libre-baskerville);
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+p {
+  font-family: var(--font-josefin-sans);
+  font-style: light;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.main-content {
+  background-image: url('/images/bg_space.png');
+  color: var(--white_alternative);
 }

@@ -16,6 +16,8 @@ import Header from '@/components/Header'
 import { init } from 'next/dist/compiled/webpack/webpack'
 import Text from '@/components/Text'
 import Drawing from '@/components/Drawing'
+import Currently from '@/components/Currently'
+import BalloonsButton from '@/components/BalloonsButton'
 
 const libreBaskerville = localFont({
   src: [
@@ -55,7 +57,7 @@ export default function Home() {
     }, 4000)
   }, [])
 
-  const rotateAstronaut = useTransform(scrollY, [0, 500], [0, 360])
+  const rotateAstronaut = useTransform(scrollY, [0, 700], [0, 360])
 
   const anim = (variants: Variants) => ({
     initial: 'initial',
@@ -184,6 +186,18 @@ export default function Home() {
           </div>
           <Drawing />
           <Text phrase="I am a front-end engineer based in Medellin, Colombia, driven by a constant spirit of creation and improvement." />
+          <div className="bg-black-secondary">
+            <Currently />
+            <Text
+              customStyle="text-white mt-10 mb-10"
+              phrase="I have expertise in web application development with React, NextJS and TypeScript."
+            />
+            <Text
+              customStyle="text-white"
+              phrase="My goal is always to try to unite in harmony a logical and efficient solution with a unique artistic touch. Let’s try to achieve this!"
+            />
+            <BalloonsButton />
+          </div>
         </>
       )}
     </main>

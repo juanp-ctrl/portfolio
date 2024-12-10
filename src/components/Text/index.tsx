@@ -20,13 +20,19 @@ const lettersVariants: Variants = {
   },
 }
 
-export default function index({ phrase }: { phrase: string }) {
+export default function index({
+  phrase,
+  customStyle = 'text-black',
+}: {
+  phrase: string
+  customStyle?: string
+}) {
   const descriptionText = useRef<HTMLDivElement>(null)
   const isInView = useInView(descriptionText)
 
   return (
     <div ref={descriptionText} className={styles.description}>
-      <p className="text-3xl">
+      <p className={`text-3xl ${customStyle}`}>
         {phrase.split(' ').map((word, index) => {
           return (
             <span key={index} className={styles.mask}>

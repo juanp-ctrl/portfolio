@@ -1,8 +1,18 @@
 import localFont from 'next/font/local'
-import { animate, delay, easeInOut, motion, Variants } from 'framer-motion'
+import {
+  animate,
+  delay,
+  easeInOut,
+  motion,
+  useScroll,
+  useTransform,
+  Variants,
+} from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { clipPath } from 'framer-motion/client'
+import Image from 'next/image'
 import { exit } from 'process'
+import Header from '@/components/Header'
 
 const libreBaskerville = localFont({
   src: [
@@ -34,12 +44,15 @@ const josefinSans = localFont({
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
+  const { scrollY } = useScroll()
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 3000)
+    }, 4000)
   }, [])
+
+  const rotateAstronaut = useTransform(scrollY, [0, 500], [0, 360])
 
   const anim = (variants: Variants) => ({
     initial: 'initial',
@@ -48,16 +61,12 @@ export default function Home() {
     variants,
   })
 
-  const maskVariants: Variants = {
-    initial: {
-      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-    },
+  const lettersVariants: Variants = {
+    initial: { pathLength: 0, opacity: 0 },
     enter: {
-      transition: {
-        duration: 3,
-        transform: 0.6,
-        ease: [0, 0.55, 0.45, 1],
-      },
+      pathLength: 1,
+      opacity: 1,
+      transition: { duration: 3, ease: [0.36, 0, 0.66, -0.56] },
     },
   }
 
@@ -72,7 +81,7 @@ export default function Home() {
       ],
       transition: {
         duration: 2,
-        delay: 3,
+        delay: 4,
         ease: [0.45, 0, 0.55, 1],
         times: [0.5, 1],
       },
@@ -81,14 +90,11 @@ export default function Home() {
 
   return (
     <div
-      className={`${libreBaskerville.variable} ${josefinSans.variable} relative w-full h-screen overflow-hidden`}
+      className={`${libreBaskerville.variable} ${josefinSans.variable} relative w-full overflow-hidden`}
     >
       {isLoading && (
         <>
-          <motion.div
-            className="fixed inset-0 w-full h-screen bg-white_alternative z-50"
-            {...anim(maskVariants)}
-          >
+          <motion.div className="fixed inset-0 w-full h-screen bg-white_alternative">
             <svg
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24"
               viewBox="0 0 200 100"
@@ -101,9 +107,7 @@ export default function Home() {
                 stroke="var(--black_alternative)"
                 strokeWidth="4"
                 strokeLinecap="round"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 3, ease: 'easeInOut' }}
+                {...anim(lettersVariants)}
               />
 
               {/* Letra P */}
@@ -112,9 +116,7 @@ export default function Home() {
                 stroke="var(--black_alternative)"
                 strokeWidth="4"
                 strokeLinecap="round"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 3, ease: 'easeInOut' }}
+                {...anim(lettersVariants)}
               />
 
               {/* Linea horizontal */}
@@ -123,25 +125,37 @@ export default function Home() {
                 stroke="var(--black_alternative)"
                 strokeWidth="4"
                 strokeLinecap="round"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 3, ease: 'easeInOut' }}
+                {...anim(lettersVariants)}
               />
             </svg>
           </motion.div>
         </>
       )}
 
-      <motion.div
-        className="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 main-content"
-        {...anim(loadMainContent)}
-      >
-        <h1 className="text-center mb-6">Juan Pablo Jiménez</h1>
-        <p className="text-center max-w-2xl">
-          Hello there! welcome to my little space in the web, here i showcase my
-          works, experiments and projects related to web development.
-        </p>
-      </motion.div>
+      <motion.main className="main-content" {...anim(loadMainContent)}>
+        <div className="first-section-content">
+          <Header />
+          <div className="ml-10 welcoming-section">
+            <p className="welcoming-text">Hi! I'm</p>
+            <h1 className="mt-4">Juan Pablo Jiménez</h1>
+            <p className="role-text mr-6">Frontend Developer</p>
+          </div>
+        </div>
+        <motion.div
+          style={{
+            rotate: rotateAstronaut,
+          }}
+          className="relative -top-28 left-1/4 astronaut-image"
+        >
+          <Image
+            src="/images/free_astronaut.png"
+            alt="free astronaut"
+            width={300}
+            height={300}
+            className="w-full h-full object-contain"
+          />
+        </motion.div>
+      </motion.main>
     </div>
   )
 }

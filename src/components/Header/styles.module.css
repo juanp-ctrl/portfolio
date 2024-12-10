@@ -1,0 +1,10 @@
+.header p {
+  font-family: var(--font-libre-baskerville);
+  border-bottom: 1px solid var(--white_alternative);
+}
+
+.logo {
+  font-family: var(--font-libre-baskerville);
+  font-style: italic;
+  font-size: 2rem;
+}

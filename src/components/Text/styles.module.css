@@ -1,0 +1,14 @@
+.description {
+  padding: 0 2rem;
+}
+
+.mask {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  margin-right: 3px;
+}
+
+.word {
+  margin-right: 3px;
+}

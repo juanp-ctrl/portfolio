@@ -13,6 +13,9 @@ import { clipPath } from 'framer-motion/client'
 import Image from 'next/image'
 import { exit } from 'process'
 import Header from '@/components/Header'
+import { init } from 'next/dist/compiled/webpack/webpack'
+import Text from '@/components/Text'
+import Drawing from '@/components/Drawing'
 
 const libreBaskerville = localFont({
   src: [
@@ -88,8 +91,25 @@ export default function Home() {
     },
   }
 
+  const astronautVariants: Variants = {
+    initial: {
+      y: 200,
+      opacity: 0,
+    },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 2,
+        duration: 1.2,
+        type: 'spring',
+        ease: [0.45, 0, 0.55, 1],
+      },
+    },
+  }
+
   return (
-    <div
+    <main
       className={`${libreBaskerville.variable} ${josefinSans.variable} relative w-full overflow-hidden`}
     >
       {isLoading && (
@@ -132,7 +152,7 @@ export default function Home() {
         </>
       )}
 
-      <motion.main className="main-content" {...anim(loadMainContent)}>
+      <motion.div className="main-content" {...anim(loadMainContent)}>
         <div className="first-section-content">
           <Header />
           <div className="ml-10 welcoming-section">
@@ -141,21 +161,31 @@ export default function Home() {
             <p className="role-text mr-6">Frontend Developer</p>
           </div>
         </div>
-        <motion.div
-          style={{
-            rotate: rotateAstronaut,
-          }}
-          className="relative -top-28 left-1/4 astronaut-image"
-        >
-          <Image
-            src="/images/free_astronaut.png"
-            alt="free astronaut"
-            width={300}
-            height={300}
-            className="w-full h-full object-contain"
-          />
-        </motion.div>
-      </motion.main>
-    </div>
+      </motion.div>
+      {!isLoading && (
+        <>
+          <motion.div
+            style={{
+              rotate: rotateAstronaut,
+            }}
+            className="relative -top-28 left-1/4 astronaut-image"
+            {...anim(astronautVariants)}
+          >
+            <Image
+              src="/images/free_astronaut.png"
+              alt="free astronaut"
+              width={300}
+              height={300}
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
+          <div className="-mt-16">
+            <Text phrase="Hello there! welcome to my little space in the web, here i showcase my works, experiments and projects related to web development." />
+          </div>
+          <Drawing />
+          <Text phrase="I am a front-end engineer based in Medellin, Colombia, driven by a constant spirit of creation and improvement." />
+        </>
+      )}
+    </main>
   )
 }

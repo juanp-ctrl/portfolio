@@ -6,13 +6,6 @@ export default function index() {
   const ref = useRef(null)
   const isInView = useInView(ref) // once: true hace que la animación ocurra solo una vez
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'], // Controla cuando empieza y termina la animación
-  })
-
-  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1])
-
   return (
     <motion.div
       ref={ref}

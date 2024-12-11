@@ -5,10 +5,7 @@ import styles from './styles.module.css'
 export default function index() {
   const currentlyAt = 'Globant'
   const ref = useRef(null)
-  const isInView = useInView(ref, {
-    once: true,
-    margin: '-200px',
-  })
+  const isInView = useInView(ref, { once: true })
   const [displayText, setDisplayText] = useState('')
 
   useEffect(() => {

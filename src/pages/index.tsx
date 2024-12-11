@@ -18,6 +18,7 @@ import Text from '@/components/Text'
 import Drawing from '@/components/Drawing'
 import Currently from '@/components/Currently'
 import BalloonsButton from '@/components/BalloonsButton'
+import Footer from '@/components/Footer'
 
 const libreBaskerville = localFont({
   src: [
@@ -102,7 +103,7 @@ export default function Home() {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 2,
+        delay: 1,
         duration: 1.2,
         type: 'spring',
         ease: [0.45, 0, 0.55, 1],
@@ -198,6 +199,7 @@ export default function Home() {
             />
             <BalloonsButton />
           </div>
+          <Footer />
         </>
       )}
     </main>

@@ -41,7 +41,7 @@ p {
 }
 
 .welcoming-section {
-  margin-top: calc(var(--vh, 1vh) * 15);
+  padding-top: calc(var(--vh, 1vh) * 15);
 }
 
 .welcoming-text {

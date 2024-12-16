@@ -155,9 +155,9 @@ export default function Home() {
         </>
       )}
 
+      {!isLoading && <Header />}
       <motion.div className="main-content" {...anim(loadMainContent)}>
         <div className="first-section-content">
-          <Header />
           <div className="ml-10 welcoming-section">
             <p className="welcoming-text">Hi! I'm</p>
             <h1 className="mt-4">Juan Pablo Jiménez</h1>

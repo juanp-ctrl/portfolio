@@ -1,3 +1,12 @@
+.header {
+  width: 100%;
+  height: 94px;
+  background-color: transparent;
+  color: var(--white_alternative);
+  position: absolute;
+  z-index: 50;
+}
+
 .header p {
   font-family: var(--font-libre-baskerville);
   border-bottom: 1px solid var(--white_alternative);
@@ -7,4 +16,69 @@
   font-family: var(--font-libre-baskerville);
   font-style: italic;
   font-size: 2rem;
+}
+
+.header-menu {
+  transform: scale(0);
+  padding: 30px;
+  position: fixed;
+  right: 0;
+  z-index: 50;
+}
+
+.header-menu .button {
+  position: relative;
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+  background-color: var(--yellow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-menu .burger {
+  width: 100%;
+}
+
+.header-menu .burger::after,
+.header-menu .burger::before,
+.header-menu .burger div {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 40%;
+  margin: auto;
+  background-color: var(--black_alternative);
+  position: relative;
+  transition: transform 0.3s, top 0.3s;
+}
+
+.header-menu .burger::after {
+  top: -10px;
+}
+
+.header-menu .burger div {
+  top: 0px;
+}
+
+.header-menu .burger::before {
+  top: 10px;
+}
+
+.header-menu .burgerActive::after {
+  background-color: var(--white);
+  transform: rotate(45deg);
+  top: 0px;
+}
+
+.header-menu .burgerActive div {
+  opacity: 0;
+}
+
+.header-menu .burgerActive::before {
+  background-color: var(--white);
+  transform: rotate(-45deg);
+  top: 3px;
 }

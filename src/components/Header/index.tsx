@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import styles from './styles.module.css'
 import { useLayoutEffect, useRef, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import Nav from './Nav'
 
 export default function index() {
   const [isActive, setIsActive] = useState(false)
@@ -43,13 +44,20 @@ export default function index() {
       <Link href={'/'} className={styles.logo}>
         JP
       </Link>
-      <p className="italic text-base">Menu</p>
+      <p
+        className="italic text-base border-b-2 border-white_alternative"
+        onClick={() => {
+          setIsActive(!isActive)
+        }}
+      >
+        Menu
+      </p>
       <div ref={menuButton} className={styles['header-menu']}>
         <div
           onClick={() => {
             setIsActive(!isActive)
           }}
-          className={styles.button}
+          className={`${styles.button} ${isActive ? styles.active : ''}`}
         >
           <div
             className={`${styles.burger} ${
@@ -60,9 +68,7 @@ export default function index() {
           </div>
         </div>
       </div>
-      <AnimatePresence mode="wait">
-        {isActive && <div>Hola</div>}
-      </AnimatePresence>
+      <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
     </div>
   )
 }

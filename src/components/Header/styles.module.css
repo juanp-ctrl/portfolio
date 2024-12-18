@@ -9,7 +9,6 @@
 
 .header p {
   font-family: var(--font-libre-baskerville);
-  border-bottom: 1px solid var(--white_alternative);
 }
 
 .logo {
@@ -36,6 +35,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.header-menu .button.active {
+  background-color: var(--black_alternative);
 }
 
 .header-menu .burger {

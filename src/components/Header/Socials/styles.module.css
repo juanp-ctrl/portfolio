@@ -1,0 +1,29 @@
+.socials-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.header {
+  border-top: 1px solid var(--black_alternative);
+}
+
+.header p {
+  font-family: var(--font-josefin-sans);
+  font-size: 14px;
+  line-height: 2rem;
+  margin-top: 1rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+}
+
+.socials a {
+  text-decoration: none;
+  color: var(--black_alternative);
+  font-size: 1rem;
+  font-weight: 600;
+}

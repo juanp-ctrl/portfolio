@@ -1,9 +1,9 @@
-import Link from 'next/link'
 import Nav from './Nav'
 import styles from './styles.module.css'
 import { AnimatePresence } from 'framer-motion'
-import { gsap } from 'gsap'
 import { useLayoutEffect, useRef, useState } from 'react'
+import Link from 'next/link'
+import { gsap } from 'gsap'
 
 export default function Index() {
   const [isActive, setIsActive] = useState(false)
@@ -13,10 +13,13 @@ export default function Index() {
     import('gsap/ScrollTrigger').then((ScrollTrigger) => {
       gsap.registerPlugin(ScrollTrigger)
       gsap.to(menuButton.current, {
+        scale: isActive ? 1 : 0,
+        duration: 0.25,
+        ease: 'power1.out',
         scrollTrigger: {
           trigger: document.documentElement,
           start: 0,
-          end: window.innerHeight,
+          end: window.innerHeight - 100,
           onLeave: () => {
             gsap.to(menuButton.current, {
               scale: 1,
@@ -35,7 +38,7 @@ export default function Index() {
         },
       })
     })
-  }, [])
+  }, [isActive])
 
   return (
     <div
@@ -47,7 +50,14 @@ export default function Index() {
       <p
         className="italic text-base border-b-2 border-white_alternative"
         onClick={() => {
-          setIsActive(!isActive)
+          const newIsActive = !isActive
+          gsap.to(menuButton.current, {
+            scale: newIsActive ? 1 : 0,
+            duration: 0.25,
+            delay: 0.5,
+            ease: 'power1.out',
+          })
+          setIsActive(newIsActive)
         }}
       >
         Menu
@@ -55,7 +65,14 @@ export default function Index() {
       <div ref={menuButton} className={styles['header-menu']}>
         <div
           onClick={() => {
-            setIsActive(!isActive)
+            const newIsActive = !isActive
+            gsap.to(menuButton.current, {
+              scale: newIsActive ? 1 : window.scrollY < 300 ? 0 : 1,
+              duration: 0.25,
+              delay: 0.1,
+              ease: 'power1.out',
+            })
+            setIsActive(newIsActive)
           }}
           className={`${styles.button} ${isActive ? styles.active : ''}`}
         >

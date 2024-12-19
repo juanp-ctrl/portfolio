@@ -1,24 +1,13 @@
-import localFont from 'next/font/local'
-import {
-  animate,
-  delay,
-  easeInOut,
-  motion,
-  useScroll,
-  useTransform,
-  Variants,
-} from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
-import { clipPath } from 'framer-motion/client'
-import Image from 'next/image'
-import { exit } from 'process'
-import Header from '@/components/Header'
-import { init } from 'next/dist/compiled/webpack/webpack'
-import Text from '@/components/Text'
-import Drawing from '@/components/Drawing'
-import Currently from '@/components/Currently'
 import BalloonsButton from '@/components/BalloonsButton'
+import Currently from '@/components/Currently'
+import Drawing from '@/components/Drawing'
+import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Text from '@/components/Text'
+import { motion, useScroll, useTransform, Variants } from 'framer-motion'
+import localFont from 'next/font/local'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 const libreBaskerville = localFont({
   src: [

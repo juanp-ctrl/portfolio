@@ -3,9 +3,10 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:tailwindcss/recommended",
+    "eslint:recommended",
     "prettier"
   ],
-  "plugins": ["@typescript-eslint", "tailwindcss"],
+  "plugins": ["@typescript-eslint", "tailwindcss", "simple-import-sort"],
   "rules": {
     "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
     "react/jsx-sort-props": [
@@ -13,11 +14,11 @@
       {
         "callbacksLast": true,
         "shorthandFirst": true,
-        "noSortAlphabetically": false,
+        "noSortAlphabetically": true,
         "reservedFirst": true
       }
     ],
-    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/classnames-order": "off",
     "tailwindcss/no-custom-classname": "off"
   },
   "settings": {

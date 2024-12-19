@@ -2,7 +2,21 @@ import styles from './styles.module.css'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-export default function Index({ data, isActive, setSelectedIndicator }: any) {
+interface LinkProps {
+  data: {
+    title: string
+    path: string
+    index: number
+  }
+  isActive: boolean
+  setSelectedIndicator: (path: string) => void
+}
+
+export default function Index({
+  data,
+  isActive,
+  setSelectedIndicator,
+}: LinkProps) {
   const slide = {
     initial: { x: 80 },
     enter: (i: number) => ({

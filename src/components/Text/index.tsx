@@ -1,5 +1,5 @@
-import { useRef } from 'react'
 import styles from './styles.module.css'
+import { useRef } from 'react'
 import { motion, useInView, Variants } from 'framer-motion'
 
 const anim = (variants: Variants) => ({
@@ -20,7 +20,7 @@ const lettersVariants: Variants = {
   },
 }
 
-export default function index({
+export default function Index({
   phrase,
   customStyle = 'text-black',
 }: {

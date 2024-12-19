@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import { gsap } from 'gsap'
-import styles from './styles.module.css'
-import { useLayoutEffect, useRef, useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
 import Nav from './Nav'
+import styles from './styles.module.css'
+import { AnimatePresence } from 'framer-motion'
+import { gsap } from 'gsap'
+import { useLayoutEffect, useRef, useState } from 'react'
 
-export default function index() {
+export default function Index() {
   const [isActive, setIsActive] = useState(false)
   const menuButton = useRef(null)
 

@@ -1,12 +1,12 @@
+import styles from './styles.module.css'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
-import styles from './styles.module.css'
 
-export default function index() {
-  const currentlyAt = 'Globant'
+export default function Index() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
   const [displayText, setDisplayText] = useState('')
+  const isInView = useInView(ref, { once: true })
+  const currentlyAt = 'Globant'
 
   useEffect(() => {
     if (isInView) {

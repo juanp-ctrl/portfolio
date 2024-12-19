@@ -159,7 +159,7 @@ export default function Home() {
       <motion.div className="main-content" {...anim(loadMainContent)}>
         <div className="first-section-content">
           <div className="ml-10 welcoming-section">
-            <p className="welcoming-text">Hi! I'm</p>
+            <p className="welcoming-text">Hi! I&apos;m</p>
             <h1 className="mt-4">Juan Pablo Jiménez</h1>
             <p className="role-text mr-6">Frontend Developer</p>
           </div>

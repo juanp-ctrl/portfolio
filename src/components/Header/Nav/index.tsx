@@ -3,8 +3,8 @@ import Link from '../Link'
 import Socials from '../Socials'
 import styles from './styles.module.css'
 import { motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
@@ -34,7 +34,7 @@ const navItems = [
   },
 ]
 
-export default function index() {
+export default function Index() {
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
 

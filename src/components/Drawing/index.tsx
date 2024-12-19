@@ -1,10 +1,10 @@
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
-import { useRef } from 'react'
 import styles from './styles.module.css'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
-export default function index() {
+export default function Index() {
   const ref = useRef(null)
-  const isInView = useInView(ref) // once: true hace que la animación ocurra solo una vez
+  const isInView = useInView(ref)
 
   return (
     <motion.div

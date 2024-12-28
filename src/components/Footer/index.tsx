@@ -1,6 +1,21 @@
 import React from 'react'
 import styles from './styles.module.css'
 
+const socials = [
+  {
+    title: 'Linkedin',
+    path: 'https://www.linkedin.com/in/juan-pablo-jimenez-h/',
+  },
+  {
+    title: 'Github',
+    path: 'https://github.com/juanp-ctrl',
+  },
+  {
+    title: 'Instagram',
+    path: 'https://instagram.com/pabloj_h',
+  },
+]
+
 const Nav = () => {
   return (
     <div className={`flex flex-col gap-2 ${styles.nav}`}>
@@ -16,9 +31,15 @@ const Social = () => {
   return (
     <div className={`flex flex-col gap-1 ${styles.social}`}>
       <p>Socials</p>
-      <h4>Linkedin</h4>
-      <h4>Github</h4>
-      <h4>Instagram</h4>
+      {socials.map((data, index) => {
+        return (
+          <h4>
+            <a key={index} href={data.path} target="_blank" rel="noreferrer">
+              {data.title}
+            </a>
+          </h4>
+        )
+      })}
     </div>
   )
 }

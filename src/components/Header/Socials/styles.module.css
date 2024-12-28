@@ -11,7 +11,7 @@
 
 .header p {
   font-family: var(--font-josefin-sans);
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 2rem;
   margin-top: 1rem;
 }

@@ -7,10 +7,6 @@
   z-index: 50;
 }
 
-.header p {
-  font-family: var(--font-libre-baskerville);
-}
-
 .logo {
   font-family: var(--font-libre-baskerville);
   font-style: italic;
@@ -55,7 +51,9 @@
   margin: auto;
   background-color: var(--black_alternative);
   position: relative;
-  transition: transform 0.3s, top 0.3s;
+  transition:
+    transform 0.3s,
+    top 0.3s;
 }
 
 .header-menu .burger::after {

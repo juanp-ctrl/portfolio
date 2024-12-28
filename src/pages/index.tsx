@@ -61,7 +61,7 @@ export default function Home() {
     enter: {
       pathLength: 1,
       opacity: 1,
-      transition: { duration: 3, ease: [0.36, 0, 0.66, -0.56] },
+      transition: { duration: 4, ease: [0.36, 0, 0.66, -0.56] },
     },
   }
 
@@ -106,39 +106,41 @@ export default function Home() {
     >
       {isLoading && (
         <>
-          <motion.div className="fixed inset-0 w-full h-screen bg-white_alternative">
+          <motion.div className="flex justify-center items-center w-screen h-screen">
             <svg
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24"
+              className="w-24 h-24"
               viewBox="0 0 200 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Letra J */}
-              <motion.path
-                d="M40 20 L40 60 C40 70 35 75 25 75 L20 75"
-                stroke="var(--black_alternative)"
-                strokeWidth="4"
-                strokeLinecap="round"
-                {...anim(lettersVariants)}
-              />
+              <g transform="translate(30, 0)">
+                {/* Letra J */}
+                <motion.path
+                  d="M40 20 L40 60 C40 70 35 75 25 75 L20 75"
+                  stroke="var(--black_alternative)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  {...anim(lettersVariants)}
+                />
 
-              {/* Letra P */}
-              <motion.path
-                d="M80 20 L80 75 M80 20 L100 20 C110 20 120 25 120 35 C120 45 110 50 100 50 L80 50"
-                stroke="var(--black_alternative)"
-                strokeWidth="4"
-                strokeLinecap="round"
-                {...anim(lettersVariants)}
-              />
+                {/* Letra P */}
+                <motion.path
+                  d="M80 20 L80 75 M80 20 L100 20 C110 20 120 25 120 35 C120 45 110 50 100 50 L80 50"
+                  stroke="var(--black_alternative)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  {...anim(lettersVariants)}
+                />
 
-              {/* Linea horizontal */}
-              <motion.path
-                d="M20 100 L100 100"
-                stroke="var(--black_alternative)"
-                strokeWidth="4"
-                strokeLinecap="round"
-                {...anim(lettersVariants)}
-              />
+                {/* Linea horizontal */}
+                <motion.path
+                  d="M20 100 L100 100"
+                  stroke="var(--black_alternative)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  {...anim(lettersVariants)}
+                />
+              </g>
             </svg>
           </motion.div>
         </>
@@ -172,10 +174,10 @@ export default function Home() {
             />
           </motion.div>
           <div className="-mt-16">
-            <Text phrase="Hello there! welcome to my little space in the web, here i showcase my works, experiments and projects related to web development." />
+            <Text phrase="Hello there! welcome to my little space in the web, here I showcase my works, experiments and projects related to web development." />
           </div>
           <Drawing />
-          <Text phrase="I am a front-end engineer based in Medellin, Colombia, driven by a constant spirit of creation and improvement." />
+          <Text phrase="I am a frontend engineer based in Medellin, Colombia, driven by a constant spirit of creation and improvement." />
           <div className="bg-black-secondary">
             <Currently />
             <Text

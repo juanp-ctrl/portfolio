@@ -37,7 +37,7 @@ p {
   width: 100%;
   height: calc(var(--vh, 1vh) * 90);
   border-radius: 0 0 3.3rem 3.3rem;
-  box-shadow: 0 20px 50px #929292;
+  box-shadow: 0 20px 50px rgba(146, 146, 146, 0.5);
 }
 
 .welcoming-section {

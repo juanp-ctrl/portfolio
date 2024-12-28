@@ -30,7 +30,7 @@ export default function Index() {
   }, [isInView, currentlyAt])
 
   return (
-    <div className="flex flex-col items-center justify-center mt-20 mb-20">
+    <div className="flex flex-col items-center justify-center my-20">
       <h2 className="text-white-secondary font-libre text-4xl italic mt-14">
         Currently
       </h2>

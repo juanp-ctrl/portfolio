@@ -33,8 +33,8 @@ const Social = () => {
       <p>Socials</p>
       {socials.map((data, index) => {
         return (
-          <h4>
-            <a key={index} href={data.path} target="_blank" rel="noreferrer">
+          <h4 key={index}>
+            <a href={data.path} target="_blank" rel="noreferrer">
               {data.title}
             </a>
           </h4>

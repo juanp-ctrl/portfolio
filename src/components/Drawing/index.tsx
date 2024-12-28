@@ -9,7 +9,7 @@ export default function Index() {
   return (
     <motion.div
       ref={ref}
-      className={`flex flex-col items-center justify-center mt-20 mb-20 ${styles.container}`}
+      className={`flex flex-col items-center justify-center my-20 ${styles.container}`}
     >
       <p>Creative Dev +</p>
       <p>Engineer</p>

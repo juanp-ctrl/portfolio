@@ -108,7 +108,7 @@ export default function Home() {
         <>
           <motion.div className="flex justify-center items-center w-screen h-screen">
             <svg
-              className="w-24 h-24"
+              className="size-24"
               viewBox="0 0 200 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +170,7 @@ export default function Home() {
               alt="free astronaut"
               width={300}
               height={300}
-              className="w-full h-full object-contain"
+              className="size-full object-contain"
             />
           </motion.div>
           <div className="-mt-16">

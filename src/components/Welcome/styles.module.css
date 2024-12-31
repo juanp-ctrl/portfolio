@@ -1,0 +1,23 @@
+.first-section-content {
+  background-image: url('/images/space_bg.gif');
+  background-size: cover;
+  background-position: center;
+  color: var(--white_alternative);
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 85);
+  border-radius: 0 0 3.3rem 3.3rem;
+  box-shadow: 0 20px 50px rgba(146, 146, 146, 0.5);
+}
+
+.welcoming-section {
+  padding-top: calc(var(--vh, 1vh) * 25);
+}
+
+.role-text {
+  font-family: var(--font-libre-baskerville);
+  font-size: -webkit-xxx-large;
+  color: var(--yellow);
+  text-align: right;
+  margin-top: 25%;
+  line-height: 3.2rem;
+}

@@ -11,9 +11,13 @@ export default function Index() {
 
   useEffect(() => {
     if (isActive) {
-      document.body.style.overflow = 'hidden'
+      setTimeout(() => {
+        document.body.style.overflow = 'hidden'
+      }, 500)
     } else {
-      document.body.style.overflow = 'auto'
+      setTimeout(() => {
+        document.body.style.overflow = 'auto'
+      }, 500)
     }
   }, [isActive])
 
@@ -56,7 +60,7 @@ export default function Index() {
         JP
       </Link>
       <p
-        className="italic text-base border-b-2 border-white_alternative font-libre"
+        className="italic text-base border-b-2 border-white_alternative font-libre cursor-pointer"
         onClick={() => {
           const newIsActive = !isActive
           gsap.to(menuButton.current, {

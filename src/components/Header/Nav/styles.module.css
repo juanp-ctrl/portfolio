@@ -46,6 +46,7 @@
 .multilanguage-button {
   border: 1px solid var(--black_alternative);
   border-radius: 25px;
+  cursor: pointer;
 }
 
 .multilanguage-button p {

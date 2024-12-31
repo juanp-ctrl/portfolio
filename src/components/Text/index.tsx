@@ -12,7 +12,7 @@ const lettersVariants: Variants = {
   },
   open: (i) => ({
     y: '0%',
-    transition: { duration: 0.5, delay: 0.02 * i },
+    transition: { duration: 0.5, delay: 0.04 * i },
   }),
   closed: {
     y: '100%',

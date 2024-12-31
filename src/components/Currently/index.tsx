@@ -36,7 +36,11 @@ export default function Index() {
       </h2>
       <div className="flex gap-2 mt-4">
         <p className="font-libre text-yellow-primary text-4xl">@</p>
-        <div ref={ref} className={styles['input-container']}>
+        <div
+          ref={ref}
+          className={styles['input-container']}
+          onClick={() => window.open('https://www.globant.com', '_blank')}
+        >
           <span className="text-black-secondary text-4xl font-josefin font-bold">
             {displayText}
           </span>

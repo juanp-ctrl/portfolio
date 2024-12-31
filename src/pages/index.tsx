@@ -8,6 +8,7 @@ import { motion, useScroll, useTransform, Variants } from 'framer-motion'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import Welcome from '@/components/Welcome'
 
 const libreBaskerville = localFont({
   src: [
@@ -62,24 +63,6 @@ export default function Home() {
       pathLength: 1,
       opacity: 1,
       transition: { duration: 4, ease: [0.36, 0, 0.66, -0.56] },
-    },
-  }
-
-  const loadMainContent: Variants = {
-    initial: {
-      clipPath: 'polygon(45% 52.4%, 50% 52.4%, 50% 52.4%, 45% 52.4%)',
-    },
-    enter: {
-      clipPath: [
-        'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)',
-        'polygon(0 0, 100% 0%, 100% 100%, 0 100%)',
-      ],
-      transition: {
-        duration: 2,
-        delay: 4,
-        ease: [0.45, 0, 0.55, 1],
-        times: [0.5, 1],
-      },
     },
   }
 
@@ -147,22 +130,14 @@ export default function Home() {
       )}
 
       {!isLoading && <Header />}
-      <motion.div className="main-content" {...anim(loadMainContent)}>
-        <div className="first-section-content">
-          <div className="ml-10 welcoming-section">
-            <p className="welcoming-text">Hi! I&apos;m</p>
-            <h1 className="mt-4">Juan Pablo Jiménez</h1>
-            <p className="role-text mr-6">Frontend Developer</p>
-          </div>
-        </div>
-      </motion.div>
+      <Welcome />
       {!isLoading && (
         <>
           <motion.div
             style={{
               rotate: rotateAstronaut,
             }}
-            className="relative -top-28 left-1/4 astronaut-image"
+            className="relative -top-32 left-1/4 astronaut-image"
             {...anim(astronautVariants)}
           >
             <Image

@@ -45,7 +45,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 4000)
+    }, 3200)
   }, [])
 
   const rotateAstronaut = useTransform(scrollY, [0, 700], [0, 360])
@@ -62,7 +62,10 @@ export default function Home() {
     enter: {
       pathLength: 1,
       opacity: 1,
-      transition: { duration: 4, ease: [0.36, 0, 0.66, -0.56] },
+      transition: { duration: 3, ease: [0.32, 0, 0.67, 0] },
+    },
+    exit: {
+      opacity: 1,
     },
   }
 
@@ -91,7 +94,7 @@ export default function Home() {
         <>
           <motion.div className="flex justify-center items-center w-screen h-screen">
             <svg
-              className="size-24"
+              className="size-32"
               viewBox="0 0 200 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +164,7 @@ export default function Home() {
             />
             <Text
               customStyle="text-white"
-              phrase="My goal is always to try to unite in harmony a logical and efficient solution with a unique artistic touch. Let’s try to achieve this!"
+              phrase="My goal is always to try to unite in harmony a logical and efficient solution with a unique artistic touch. Let’s achieve this!"
             />
             <BalloonsButton />
           </div>

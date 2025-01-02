@@ -1,7 +1,7 @@
 import Nav from './Nav'
 import styles from './styles.module.css'
 import { AnimatePresence } from 'framer-motion'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 
@@ -9,17 +9,13 @@ export default function Index() {
   const [isActive, setIsActive] = useState(false)
   const menuButton = useRef(null)
 
-  useEffect(() => {
-    if (isActive) {
-      setTimeout(() => {
-        document.body.style.overflow = 'hidden'
-      }, 500)
-    } else {
-      setTimeout(() => {
-        document.body.style.overflow = 'auto'
-      }, 500)
-    }
-  }, [isActive])
+  // useEffect(() => {
+  //   if (isActive) {
+  //     document.body.style.overflow = 'hidden'
+  //   } else {
+  //     document.body.style.overflow = 'auto'
+  //   }
+  // }, [isActive])
 
   useLayoutEffect(() => {
     import('gsap/ScrollTrigger').then((ScrollTrigger) => {
@@ -60,7 +56,7 @@ export default function Index() {
         JP
       </Link>
       <p
-        className="italic text-base border-b-2 border-white_alternative font-libre cursor-pointer"
+        className="italic text-base border-b-2 border-white_alternative font-libre"
         onClick={() => {
           const newIsActive = !isActive
           gsap.to(menuButton.current, {

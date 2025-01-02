@@ -10,7 +10,7 @@ const anim = (variants: Variants) => ({
 
 const loadMainContent: Variants = {
   initial: {
-    clipPath: 'polygon(45% 52.4%, 50% 52.4%, 50% 52.4%, 45% 52.4%)',
+    clipPath: 'polygon(45% 63.4%, 50% 63.4%, 50% 63.4%, 45% 63.4%)',
   },
   enter: {
     clipPath: [
@@ -19,7 +19,7 @@ const loadMainContent: Variants = {
     ],
     transition: {
       duration: 2,
-      delay: 4,
+      delay: 3.3,
       ease: [0.45, 0, 0.55, 1],
       times: [0.5, 1],
     },

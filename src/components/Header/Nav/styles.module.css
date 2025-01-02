@@ -24,15 +24,16 @@
   font-size: 40px;
   line-height: 42px;
   gap: 44px;
-  margin-top: 15px;
+  margin-top: -90px;
 }
 
-.menu .body .nav .header {
+.menu .body .header {
   border-bottom: 1px solid var(--black_alternative);
-  padding-bottom: 12px;
+  padding-bottom: 2px;
+  margin-top: 1rem;
 }
 
-.menu .body .nav .header p {
+.menu .body .header p {
   font-family: var(--font-josefin-sans);
   font-size: 1rem;
   line-height: 2rem;

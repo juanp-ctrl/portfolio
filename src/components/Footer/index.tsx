@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './styles.module.css'
+import Link from 'next/link'
+import navItems from '@/constants/routes'
 
 const socials = [
   {
@@ -19,10 +21,12 @@ const socials = [
 const Nav = () => {
   return (
     <div className={`flex flex-col gap-2 ${styles.nav}`}>
-      <p>Home</p>
-      <p>About</p>
-      <p>Blog</p>
-      <p>Contact</p>
+      <p className={styles.hint}>Sitemap</p>
+      {navItems.map((data, index) => (
+        <p>
+          <Link href={data.path}>{data.title}</Link>
+        </p>
+      ))}
     </div>
   )
 }
@@ -64,7 +68,10 @@ const Section2 = () => {
       <h2 className="text-black-primary text-4xl font-libre italic">
         Juan Pablo <br /> Jiménez
       </h2>
-      <p className="text-black-secondary font-josefin text-3xl">Folio 2025</p>
+      <div className="flex flex-col gap-1">
+        <p className="text-[0.9rem]">Version</p>
+        <p className="text-black-secondary font-josefin text-2xl">Folio 2025</p>
+      </div>
     </div>
   )
 }
@@ -76,7 +83,7 @@ export default function Index() {
       style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
     >
       <div className="fixed bottom-0 h-[450px] w-full">
-        <div className="py-10 px-5 h-full w-full flex flex-col justify-between">
+        <div className="py-10 px-5 size-full flex flex-col justify-between">
           <Section1 />
           <Section2 />
         </div>

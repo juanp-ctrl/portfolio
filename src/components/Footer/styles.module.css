@@ -16,3 +16,8 @@
 .social p {
   font-size: 0.9rem;
 }
+
+.nav .hint {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+}

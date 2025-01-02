@@ -5,6 +5,7 @@ import styles from './styles.module.css'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
+import navItems from '@/constants/routes'
 
 const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
@@ -14,25 +15,6 @@ const menuSlide = {
     transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
   },
 }
-
-const navItems = [
-  {
-    title: 'Home',
-    path: '/',
-  },
-  {
-    title: 'About',
-    path: '/about',
-  },
-  {
-    title: 'Projects',
-    path: '/blog',
-  },
-  {
-    title: 'Contact',
-    path: '/contact',
-  },
-]
 
 export default function Index() {
   const pathname = usePathname()
@@ -47,15 +29,15 @@ export default function Index() {
       className={styles.menu}
     >
       <div className={styles.body}>
+        <div className={styles.header}>
+          <p>Menu</p>
+        </div>
         <div
           onMouseLeave={() => {
             setSelectedIndicator(pathname)
           }}
           className={styles.nav}
         >
-          <div className={styles.header}>
-            <p>Menu</p>
-          </div>
           {navItems.map((data, index) => {
             return (
               <Link

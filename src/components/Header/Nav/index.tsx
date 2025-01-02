@@ -7,6 +7,8 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import navItems from '@/constants/routes'
 
+import { useTranslation } from 'react-i18next'
+
 const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
   enter: { x: '0', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
@@ -17,8 +19,14 @@ const menuSlide = {
 }
 
 export default function Index() {
+  const { t, i18n } = useTranslation('common')
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
+
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === 'en' ? 'es' : 'en'
+    i18n.changeLanguage(newLanguage)
+  }
 
   return (
     <motion.div
@@ -50,8 +58,11 @@ export default function Index() {
           })}
         </div>
         <Socials />
-        <div className={styles['multilanguage-button']}>
-          <p>Change to Spanish</p>
+        <div
+          className={styles['multilanguage-button']}
+          onClick={toggleLanguage}
+        >
+          <p>{t('change_lng')}</p>
         </div>
       </div>
       <Curve />

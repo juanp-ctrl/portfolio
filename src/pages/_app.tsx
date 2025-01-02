@@ -1,9 +1,12 @@
 import Layout from '@/components/layout'
 import '@/styles/globals.css'
 import { AnimatePresence } from 'framer-motion'
+import { appWithTranslation } from 'next-i18next'
 import type { AppProps } from 'next/app'
+import '../../next-i18next.config'
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
+  
   return (
     <AnimatePresence mode="wait">
       <Layout>
@@ -12,3 +15,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </AnimatePresence>
   )
 }
+
+export default appWithTranslation(App);

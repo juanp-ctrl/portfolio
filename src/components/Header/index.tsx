@@ -4,8 +4,10 @@ import { AnimatePresence } from 'framer-motion'
 import { useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
+import { useTranslation } from 'react-i18next'
 
 export default function Index() {
+  const { t } = useTranslation('common')
   const [isActive, setIsActive] = useState(false)
   const menuButton = useRef(null)
 
@@ -68,7 +70,7 @@ export default function Index() {
           setIsActive(newIsActive)
         }}
       >
-        Menu
+        {t('menu')}
       </p>
       <div ref={menuButton} className={styles['header-menu']}>
         <div

@@ -1,4 +1,6 @@
 import { motion, Variants } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
+import { Suspense, useEffect, useState } from 'react'
 import styles from './styles.module.css'
 
 const anim = (variants: Variants) => ({
@@ -26,18 +28,31 @@ const loadMainContent: Variants = {
   },
 }
 
-const Welcome = () => (
-  <motion.div className="main-content" {...anim(loadMainContent)}>
-    <div className={styles['first-section-content']}>
-      <div className={`ml-10 ${styles['welcoming-section']}`}>
-        <p className="font-libre italic text-4xl">Hi! I&apos;m</p>
-        <h1 className="mt-3 text-[2.5rem]">Juan Pablo Jiménez</h1>
-      </div>
-      <div className="mr-10">
-        <p className={`${styles['role-text']}`}>Frontend Developer</p>
-      </div>
-    </div>
-  </motion.div>
-)
+export default function Index() {
+  const { t } = useTranslation('common')
+  const [isClient, setIsClient] = useState(false)
 
-export default Welcome
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  return (
+    <Suspense fallback={<div>...</div>}>
+      <motion.div className="main-content" {...anim(loadMainContent)}>
+        <div className={styles['first-section-content']}>
+          <div className={`ml-10 ${styles['welcoming-section']}`}>
+            <p className="font-libre italic text-4xl">
+              {isClient ? t('welcome_hi') : '...'}
+            </p>
+            <h1 className="mt-3 text-[2.5rem]">
+              {isClient ? t('welcome_name') : '...'}
+            </h1>
+          </div>
+          <div className="mr-10">
+            <p className={`${styles['role-text']}`}>Frontend Developer</p>
+          </div>
+        </div>
+      </motion.div>
+    </Suspense>
+  )
+}

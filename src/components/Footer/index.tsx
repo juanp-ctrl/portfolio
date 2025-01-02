@@ -23,7 +23,7 @@ const Nav = () => {
     <div className={`flex flex-col gap-2 ${styles.nav}`}>
       <p className={styles.hint}>Sitemap</p>
       {navItems.map((data, index) => (
-        <p>
+        <p key={index}>
           <Link href={data.path}>{data.title}</Link>
         </p>
       ))}

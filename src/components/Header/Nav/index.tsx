@@ -37,6 +37,7 @@ export default function Index() {
       className={styles.menu}
     >
       <div className={styles.body}>
+        <div className={styles.navigation}>
         <div className={styles.header}>
           <p>Menu</p>
         </div>
@@ -56,6 +57,7 @@ export default function Index() {
               ></Link>
             )
           })}
+        </div>
         </div>
         <Socials />
         <div

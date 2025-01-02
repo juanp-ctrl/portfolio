@@ -1,7 +1,7 @@
 import Nav from './Nav'
 import styles from './styles.module.css'
 import { AnimatePresence } from 'framer-motion'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { useTranslation } from 'react-i18next'
@@ -11,13 +11,13 @@ export default function Index() {
   const [isActive, setIsActive] = useState(false)
   const menuButton = useRef(null)
 
-  // useEffect(() => {
-  //   if (isActive) {
-  //     document.body.style.overflow = 'hidden'
-  //   } else {
-  //     document.body.style.overflow = 'auto'
-  //   }
-  // }, [isActive])
+  useEffect(() => {
+    if (isActive) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isActive])
 
   useLayoutEffect(() => {
     import('gsap/ScrollTrigger').then((ScrollTrigger) => {

@@ -18,7 +18,7 @@ const menuSlide = {
   },
 }
 
-export default function Index() {
+export default function Index({ inHeight }: { inHeight: number }) {
   const { t, i18n } = useTranslation('common')
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
@@ -38,26 +38,26 @@ export default function Index() {
     >
       <div className={styles.body}>
         <div className={styles.navigation}>
-        <div className={styles.header}>
-          <p>Menu</p>
-        </div>
-        <div
-          onMouseLeave={() => {
-            setSelectedIndicator(pathname)
-          }}
-          className={styles.nav}
-        >
-          {navItems.map((data, index) => {
-            return (
-              <Link
-                key={index}
-                data={{ ...data, index }}
-                isActive={selectedIndicator == data.path}
-                setSelectedIndicator={setSelectedIndicator}
-              ></Link>
-            )
-          })}
-        </div>
+          <div className={styles.header}>
+            <p>Menu</p>
+          </div>
+          <div
+            onMouseLeave={() => {
+              setSelectedIndicator(pathname)
+            }}
+            className={styles.nav}
+          >
+            {navItems.map((data, index) => {
+              return (
+                <Link
+                  key={index}
+                  data={{ ...data, index }}
+                  isActive={selectedIndicator == data.path}
+                  setSelectedIndicator={setSelectedIndicator}
+                ></Link>
+              )
+            })}
+          </div>
         </div>
         <Socials />
         <div
@@ -67,7 +67,7 @@ export default function Index() {
           <p>{t('change_lng')}</p>
         </div>
       </div>
-      <Curve />
+      <Curve inHeight={inHeight} />
     </motion.div>
   )
 }

@@ -10,6 +10,7 @@ export default function Index() {
   const { t } = useTranslation('common')
   const [isActive, setIsActive] = useState(false)
   const menuButton = useRef(null)
+  const inHeight = window.innerHeight
 
   useEffect(() => {
     if (isActive) {
@@ -95,7 +96,9 @@ export default function Index() {
           </div>
         </div>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isActive && <Nav inHeight={inHeight} />}
+      </AnimatePresence>
     </div>
   )
 }

@@ -1,8 +1,10 @@
 import styles from './styles.module.css'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export default function Index() {
+  const { t } = useTranslation('common')
   const ref = useRef(null)
   const [displayText, setDisplayText] = useState('')
   const isInView = useInView(ref, { once: true })
@@ -32,10 +34,10 @@ export default function Index() {
   return (
     <div className="flex flex-col items-center justify-center my-20">
       <h2 className="text-white-secondary font-libre text-4xl italic mt-14">
-        Currently
+        {t('currently')}
       </h2>
       <div className="flex gap-2 mt-4">
-        <p className="font-libre text-yellow-primary text-4xl">@</p>
+        <p className="font-libre text-yellow-primary text-4xl">{t('at')}</p>
         <div
           ref={ref}
           className={styles['input-container']}

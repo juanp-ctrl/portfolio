@@ -1,12 +1,11 @@
 import Curve from '../Curve'
 import Link from '../Link'
 import Socials from '../Socials'
+import navItems from '@/constants/routes'
 import styles from './styles.module.css'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import navItems from '@/constants/routes'
-
 import { useTranslation } from 'react-i18next'
 
 const menuSlide = {
@@ -23,7 +22,7 @@ export default function Index({ inHeight }: { inHeight: number }) {
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
 
-  const toggleLanguage = () => {
+  const handleChangingLng = () => {
     const newLanguage = i18n.language === 'en' ? 'es' : 'en'
     i18n.changeLanguage(newLanguage)
   }
@@ -39,7 +38,7 @@ export default function Index({ inHeight }: { inHeight: number }) {
       <div className={styles.body}>
         <div className={styles.navigation}>
           <div className={styles.header}>
-            <p>Menu</p>
+            <p>{t('menu')}</p>
           </div>
           <div
             onMouseLeave={() => {
@@ -62,7 +61,7 @@ export default function Index({ inHeight }: { inHeight: number }) {
         <Socials />
         <div
           className={styles['multilanguage-button']}
-          onClick={toggleLanguage}
+          onClick={handleChangingLng}
         >
           <p>{t('change_lng')}</p>
         </div>

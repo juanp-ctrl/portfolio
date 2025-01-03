@@ -1,20 +1,20 @@
 const navItems = [
   {
-    title: 'Home',
+    title: 'home',
     path: '/',
   },
   {
-    title: 'About',
+    title: 'about',
     path: '/about',
   },
   {
-    title: 'Projects',
+    title: 'projects',
     path: '/blog',
   },
   {
-    title: 'Contact',
+    title: 'contact',
     path: '/contact',
   },
 ]
 
-export default navItems;
+export default navItems

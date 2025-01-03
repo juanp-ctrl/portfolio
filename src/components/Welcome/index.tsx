@@ -49,7 +49,9 @@ export default function Index() {
             </h1>
           </div>
           <div className="mr-10">
-            <p className={`${styles['role-text']}`}>Frontend Developer</p>
+            <p className={`${styles['role-text']}`}>
+              {isClient ? t('dev_role') : '...'}
+            </p>
           </div>
         </div>
       </motion.div>

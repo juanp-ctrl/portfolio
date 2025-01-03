@@ -9,6 +9,7 @@ import localFont from 'next/font/local'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Welcome from '@/components/Welcome'
+import { useTranslation } from 'react-i18next'
 
 const libreBaskerville = localFont({
   src: [
@@ -39,6 +40,7 @@ const josefinSans = localFont({
 })
 
 export default function Home() {
+  const { t } = useTranslation('common')
   const [isLoading, setIsLoading] = useState(true)
   const { scrollY } = useScroll()
 
@@ -152,19 +154,19 @@ export default function Home() {
             />
           </motion.div>
           <div className="-mt-16">
-            <Text phrase="Hello there! welcome to my little space in the web, here I showcase my works, experiments and projects related to web development." />
+            <Text phrase={t('first_section_text_1')} />
           </div>
           <Drawing />
-          <Text phrase="I am a frontend engineer based in Medellin, Colombia, driven by a constant spirit of creation and improvement." />
+          <Text phrase={t('first_section_text_2')} />
           <div className="bg-black-secondary">
             <Currently />
             <Text
               customStyle="text-white mt-10 mb-10"
-              phrase="I have expertise in web application development with React, NextJS and TypeScript."
+              phrase={t('second_section_text_1')}
             />
             <Text
               customStyle="text-white"
-              phrase="My goal is always to try to unite in harmony a logical and efficient solution with a unique artistic touch. Let’s achieve this!"
+              phrase={t('second_section_text_2')}
             />
             <BalloonsButton />
           </div>

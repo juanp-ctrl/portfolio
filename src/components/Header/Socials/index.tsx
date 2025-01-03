@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import styles from './styles.module.css'
 
 const socials = [
@@ -15,11 +16,12 @@ const socials = [
   },
 ]
 
-export default function index() {
+export default function Index() {
+  const { t } = useTranslation('common')
   return (
     <div className={styles['socials-footer']}>
       <div className={styles.header}>
-        <p>Socials</p>
+        <p>{t('socials')}</p>
       </div>
       <div className={styles.socials}>
         {socials.map((data, index) => {

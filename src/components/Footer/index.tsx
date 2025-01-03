@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import Link from 'next/link'
 import navItems from '@/constants/routes'
+import { useTranslation } from 'react-i18next'
 
 const socials = [
   {
@@ -19,12 +20,13 @@ const socials = [
 ]
 
 const Nav = () => {
+  const { t } = useTranslation('common')
   return (
     <div className={`flex flex-col gap-2 ${styles.nav}`}>
       <p className={styles.hint}>Sitemap</p>
       {navItems.map((data, index) => (
         <p key={index}>
-          <Link href={data.path}>{data.title}</Link>
+          <Link href={data.path}>{t(data.title)}</Link>
         </p>
       ))}
     </div>
@@ -32,9 +34,10 @@ const Nav = () => {
 }
 
 const Social = () => {
+  const { t } = useTranslation('common')
   return (
     <div className={`flex flex-col gap-1 ${styles.social}`}>
-      <p>Socials</p>
+      <p>{t('socials')}</p>
       {socials.map((data, index) => {
         return (
           <h4 key={index}>
@@ -63,13 +66,14 @@ const Section1 = () => {
 }
 
 const Section2 = () => {
+  const { t } = useTranslation('common')
   return (
     <div className="flex justify-between items-end">
       <h2 className="text-black-primary text-4xl font-libre italic">
         Juan Pablo <br /> Jiménez
       </h2>
       <div className="flex flex-col gap-1">
-        <p className="text-[0.9rem]">Version</p>
+        <p className="text-[0.9rem]">{t('version')}</p>
         <p className="text-black-secondary font-josefin text-2xl">Folio 2025</p>
       </div>
     </div>

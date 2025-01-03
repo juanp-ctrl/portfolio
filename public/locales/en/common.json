@@ -2,5 +2,20 @@
   "menu": "Menu",
   "change_lng": "Change to Spanish",
   "welcome_hi": "Hi, I'm",
-  "welcome_name": "Juan Pablo Jiménez!"
+  "welcome_name": "Juan Pablo Jiménez!",
+  "dev_role": "Frontend Developer",
+  "home": "Home",
+  "about": "About",
+  "projects": "Projects",
+  "contact": "Contact",
+  "socials": "Socials",
+  "first_section_text_1": "Hello there! welcome to my little space in the web, here I showcase my works, experiments and projects related to web development.",
+  "creative": "Creative Dev +",
+  "engineer": "Engineer",
+  "first_section_text_2": "I am a frontend engineer based in Medellín, Colombia, driven by a constant passion for creation and improvement. I am enthusiastic about technology and always eager to embrace new challenges and opportunities to learn and grow.",
+  "currently": "Currently",
+  "at": "@",
+  "second_section_text_1": "I have expertise in web application development with React, NextJS and TypeScript.",
+  "second_section_text_2": "My goal is always to try to unite in harmony a logical and efficient solution with a unique artistic touch. Let’s achieve this!",
+  "version": "Version"
 }

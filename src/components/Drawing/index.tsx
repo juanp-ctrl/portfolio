@@ -1,8 +1,10 @@
 import styles from './styles.module.css'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export default function Index() {
+  const { t } = useTranslation('common')
   const ref = useRef(null)
   const isInView = useInView(ref)
 
@@ -11,8 +13,8 @@ export default function Index() {
       ref={ref}
       className={`flex flex-col items-center justify-center my-20 ${styles.container}`}
     >
-      <p>Creative Dev +</p>
-      <p>Engineer</p>
+      <p>{t('creative')}</p>
+      <p>{t('engineer')}</p>
       <svg
         className="mt-4 w-[300px]"
         viewBox="-50 0 300 50"

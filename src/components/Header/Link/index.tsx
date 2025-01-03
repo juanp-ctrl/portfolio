@@ -1,6 +1,7 @@
 import styles from './styles.module.css'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 interface LinkProps {
   data: {
@@ -17,6 +18,7 @@ export default function Index({
   isActive,
   setSelectedIndicator,
 }: LinkProps) {
+  const { t } = useTranslation('common')
   const slide = {
     initial: { x: 80 },
     enter: (i: number) => ({
@@ -48,7 +50,7 @@ export default function Index({
       animate="enter"
       exit="exit"
     >
-      <Link href={path}>{title}</Link>
+      <Link href={path}>{t(title)}</Link>
       <motion.div
         variants={scale}
         animate={isActive ? 'open' : 'closed'}

@@ -32,7 +32,3 @@ p {
 .astronaut-image {
   max-width: 50%;
 }
-
-.main-content {
-  background-color: var(--white_alternative);
-}

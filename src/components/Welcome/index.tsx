@@ -38,7 +38,7 @@ export default function Index() {
 
   return (
     <Suspense fallback={<div>...</div>}>
-      <motion.div className="main-content" {...anim(loadMainContent)}>
+      <motion.div className={styles['main-content']} {...anim(loadMainContent)}>
         <div className={styles['first-section-content']}>
           <div className={`ml-10 ${styles['welcoming-section']}`}>
             <p className="font-libre italic text-4xl">

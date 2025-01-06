@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import styles from './styles.module.css'
 import { motion, useInView } from 'framer-motion'
-import Link from 'next/link'
 import { useRef } from 'react'
+import router from 'next/router'
+import { useTranslation } from 'react-i18next'
 
 export default function Index() {
+  const { t } = useTranslation('common')
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false }) // once: true hace que la animación ocurra solo una vez
 
@@ -34,6 +36,7 @@ export default function Index() {
             className="absolute z-30 top-10 left-[112px]"
           />
         </div>
+
         <div className="flex absolute">
           <svg
             width="43"
@@ -114,12 +117,14 @@ export default function Index() {
         </div>
         <div ref={ref} className="relative">
           <div className="bg-white-secondary py-2 px-6 rounded-lg relative top-32 left-5 z-40">
-            <Link
-              href={'/about'}
+            <p
+              onClick={() => {
+                router.push('/about')
+              }}
               className="font-libre text-4xl underline text-black-primary italic"
             >
-              About me
-            </Link>
+              {t('about')}
+            </p>
           </div>
         </div>
       </div>

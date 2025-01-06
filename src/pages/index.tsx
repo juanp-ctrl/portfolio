@@ -5,39 +5,11 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Text from '@/components/Text'
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
-import localFont from 'next/font/local'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import Welcome from '@/components/Welcome'
 import { useTranslation } from 'react-i18next'
-
-const libreBaskerville = localFont({
-  src: [
-    {
-      path: './fonts/LibreBaskerville-Regular.ttf',
-      style: 'normal',
-    },
-    {
-      path: './fonts/LibreBaskerville-Italic.ttf',
-      style: 'italic',
-    },
-  ],
-  variable: '--font-libre-baskerville',
-})
-
-const josefinSans = localFont({
-  src: [
-    {
-      path: './fonts/JosefinSans-Light.ttf',
-      style: 'light',
-    },
-    {
-      path: './fonts/JosefinSans-Italic.ttf',
-      style: 'italic',
-    },
-  ],
-  variable: '--font-josefin-sans',
-})
+import Layout from '@/components/layout'
 
 export default function Home() {
   const { t } = useTranslation('common')
@@ -45,9 +17,14 @@ export default function Home() {
   const { scrollY } = useScroll()
 
   useEffect(() => {
-    setTimeout(() => {
+    if (!sessionStorage.getItem('pageLoaded')) {
+      setTimeout(() => {
+        setIsLoading(false)
+        sessionStorage.setItem('pageLoaded', 'true')
+      }, 3200)
+    } else {
       setIsLoading(false)
-    }, 3200)
+    }
   }, [])
 
   const rotateAstronaut = useTransform(scrollY, [0, 700], [0, 360])
@@ -89,9 +66,7 @@ export default function Home() {
   }
 
   return (
-    <main
-      className={`${libreBaskerville.variable} ${josefinSans.variable} relative w-full overflow-hidden`}
-    >
+    <Layout>
       {isLoading && (
         <>
           <motion.div className="flex justify-center items-center w-screen h-screen">
@@ -134,10 +109,10 @@ export default function Home() {
         </>
       )}
 
-      {!isLoading && <Header />}
-      <Welcome />
       {!isLoading && (
         <>
+          <Header />
+          <Welcome />
           <motion.div
             style={{
               rotate: rotateAstronaut,
@@ -173,6 +148,6 @@ export default function Home() {
           <Footer />
         </>
       )}
-    </main>
+    </Layout>
   )
 }

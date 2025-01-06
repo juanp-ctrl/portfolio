@@ -8,15 +8,9 @@
   ],
   "plugins": ["@typescript-eslint", "tailwindcss", "simple-import-sort"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
-    "react/jsx-sort-props": [
+    "@typescript-eslint/no-unused-vars": [
       "warn",
-      {
-        "callbacksLast": true,
-        "shorthandFirst": true,
-        "noSortAlphabetically": true,
-        "reservedFirst": true
-      }
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
     ],
     "tailwindcss/classnames-order": "off",
     "tailwindcss/no-custom-classname": "off"

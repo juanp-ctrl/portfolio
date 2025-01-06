@@ -32,7 +32,7 @@ export default function Index({
 
   return (
     <div ref={descriptionText} className={styles.description}>
-      <p className={`text-3xl ${customStyle}`}>
+      <p className={`text-2xl ${customStyle}`}>
         {phrase.split(' ').map((word, index) => {
           return (
             <span key={index} className={styles.mask}>

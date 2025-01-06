@@ -10,24 +10,6 @@ const anim = (variants: Variants) => ({
   variants,
 })
 
-const loadMainContent: Variants = {
-  initial: {
-    clipPath: 'polygon(45% 63.4%, 50% 63.4%, 50% 63.4%, 45% 63.4%)',
-  },
-  enter: {
-    clipPath: [
-      'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)',
-      'polygon(0 0, 100% 0%, 100% 100%, 0 100%)',
-    ],
-    transition: {
-      duration: 2,
-      delay: 3.3,
-      ease: [0.45, 0, 0.55, 1],
-      times: [0.5, 1],
-    },
-  },
-}
-
 export default function Index() {
   const { t } = useTranslation('common')
   const [isClient, setIsClient] = useState(false)
@@ -36,6 +18,23 @@ export default function Index() {
     setIsClient(true)
   }, [])
 
+  const loadMainContent: Variants = {
+    initial: {
+      clipPath: 'polygon(45% 63.4%, 50% 63.4%, 50% 63.4%, 45% 63.4%)',
+    },
+    enter: {
+      clipPath: [
+        'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)',
+        'polygon(0 0, 100% 0%, 100% 100%, 0 100%)',
+      ],
+      transition: {
+        duration: 2,
+        ease: [0.45, 0, 0.55, 1],
+        times: [0.5, 1],
+      },
+    },
+  }
+  
   return (
     <Suspense fallback={<div>...</div>}>
       <motion.div className={styles['main-content']} {...anim(loadMainContent)}>

@@ -55,7 +55,7 @@ const Section1 = () => {
   return (
     <div className="flex flex-col gap-8">
       <svg width="100%" height="1" viewBox="0 0 100% 1" fill="none">
-        <path d="M0 0 H1000" stroke="black" strokeWidth="2" />
+        <path d="M0 0 H10000" stroke="black" strokeWidth="2" />
       </svg>
       <div className="flex shrink-0 justify-between px-10">
         <Nav />

@@ -106,3 +106,9 @@
     margin-top: 3%;
   }
 }
+
+@media (max-height: 700px ) and ( max-width: 390px ){
+  .role-text p {
+    margin-top: 15%;
+  }
+}

@@ -19,60 +19,62 @@ export default function About() {
     variants,
   })
 
-    const shipVariants: Variants = {
-      initial: {
-        y: 200,
-        opacity: 0,
+  const shipVariants: Variants = {
+    initial: {
+      y: 200,
+      opacity: 0,
+    },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 1,
+        duration: 1.2,
+        type: 'spring',
+        ease: [0.45, 0, 0.55, 1],
       },
-      enter: {
-        y: 0,
-        opacity: 1,
-        transition: {
-          delay: 1,
-          duration: 1.2,
-          type: 'spring',
-          ease: [0.45, 0, 0.55, 1],
-        },
-      },
-    }
+    },
+  }
 
   return (
     <Layout>
       <Header />
       <div className={styles['main-container']}>
         <div className="w-full">
-          <h1 className="text-5xl italic font-libre border-t-2 w-fit leading-[4rem]">
+          <h1 className="text-[2.5rem] italic font-libre border-t-2 w-fit leading-[4rem]">
             {t('developer')}
           </h1>
         </div>
         <Image
           src={'/images/Profile_suit.jpeg'}
           alt="Profile picture"
-          width={300}
-          height={300}
-          className="my-10"
+          width={280}
+          height={280}
+          className={styles['profile-picture']}
         />
         <div className="w-full flex flex-row-reverse mb-6">
-          <h2 className="text-5xl italic font-libre text-yellow-primary border-b-2 border-yellow-primary w-fit leading-[4rem]">
+          <h2 className="text-[2.5rem] italic font-libre text-yellow-primary border-b-2 border-yellow-primary w-fit leading-[4rem]">
             {t('engineer')}
           </h2>
         </div>
       </div>
-      <motion.div
-        style={{
-          rotate: rotateShip,
-        }}
-        className="relative -top-20 left-1/4 astronaut-image"
-        {...anim(shipVariants)}
-      >
-        <Image
-          src="/images/spaceship.png"
-          alt="free astronaut"
-          width={300}
-          height={300}
-          className="size-full object-contain"
-        />
-      </motion.div>
+      <div className="flex justify-center">
+        <motion.div
+          style={{
+            rotate: rotateShip,
+          }}
+          className={`relative -top-20 max-w-fit md:-top-24 ${styles.spaceship}`}
+          {...anim(shipVariants)}
+        >
+          <Image
+            src="/images/spaceship.png"
+            alt="free astronaut"
+            width={200}
+            height={200}
+            className="object-contain md:w-60"
+          />
+        </motion.div>
+      </div>
       <Text phrase={t('about_me')} customStyle="-mt-4 mb-4" />
       <Text phrase={t('about_me_2')} />
       <Image
@@ -83,11 +85,11 @@ export default function About() {
         className="mx-auto my-16"
       />
       <div className="bg-black-secondary pb-12">
-        <Text phrase={t('skills')} customStyle='text-white pt-20 font-libre italic leading-[3rem]' />
-        <div
-          className={styles.contact}
-          onClick={() => {}}
-        >
+        <Text
+          phrase={t('skills')}
+          customStyle="text-white pt-20 font-libre italic leading-[3rem]"
+        />
+        <div className={styles.contact} onClick={() => {}}>
           <p>{t('contact')}</p>
         </div>
       </div>

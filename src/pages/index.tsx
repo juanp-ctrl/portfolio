@@ -4,8 +4,7 @@ import Drawing from '@/components/Drawing'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Text from '@/components/Text'
-import { motion, useScroll, useTransform, Variants } from 'framer-motion'
-import Image from 'next/image'
+import { motion, Variants } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Welcome from '@/components/Welcome'
 import { useTranslation } from 'react-i18next'
@@ -14,7 +13,7 @@ import Layout from '@/components/layout'
 export default function Home() {
   const { t } = useTranslation('common')
   const [isLoading, setIsLoading] = useState(true)
-  
+
   useEffect(() => {
     if (!sessionStorage.getItem('pageLoaded')) {
       setTimeout(() => {

@@ -4,13 +4,6 @@ import { Suspense, useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from './styles.module.css'
 
-const anim = (variants: Variants) => ({
-  initial: 'initial',
-  animate: 'enter',
-  exit: 'exit',
-  variants,
-})
-
 export default function Index() {
   const { t } = useTranslation('common')
   const [isClient, setIsClient] = useState(false)

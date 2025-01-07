@@ -83,3 +83,15 @@
   transform: rotate(-45deg);
   top: 3px;
 }
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 2.5rem 5rem;
+  }
+}
+
+@media (min-width: 1640px) {
+  .header {
+    padding: 4rem 7rem;
+  }
+}

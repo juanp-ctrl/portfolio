@@ -67,7 +67,7 @@ export default function Index() {
         JP
       </Link>
       <p
-        className="italic text-base border-b-2 border-white_alternative font-libre"
+        className="italic text-base border-b-2 border-white_alternative font-libre cursor-pointer"
         onClick={() => {
           const newIsActive = !isActive
           gsap.to(menuButton.current, {

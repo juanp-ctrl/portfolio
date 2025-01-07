@@ -14,8 +14,7 @@ import Layout from '@/components/layout'
 export default function Home() {
   const { t } = useTranslation('common')
   const [isLoading, setIsLoading] = useState(true)
-  const { scrollY } = useScroll()
-
+  
   useEffect(() => {
     if (!sessionStorage.getItem('pageLoaded')) {
       setTimeout(() => {
@@ -26,8 +25,6 @@ export default function Home() {
       setIsLoading(false)
     }
   }, [])
-
-  const rotateAstronaut = useTransform(scrollY, [0, 700], [0, 360])
 
   const anim = (variants: Variants) => ({
     initial: 'initial',
@@ -45,23 +42,6 @@ export default function Home() {
     },
     exit: {
       opacity: 1,
-    },
-  }
-
-  const astronautVariants: Variants = {
-    initial: {
-      y: 200,
-      opacity: 0,
-    },
-    enter: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        delay: 1,
-        duration: 1.2,
-        type: 'spring',
-        ease: [0.45, 0, 0.55, 1],
-      },
     },
   }
 
@@ -113,21 +93,6 @@ export default function Home() {
         <>
           <Header />
           <Welcome />
-          <motion.div
-            style={{
-              rotate: rotateAstronaut,
-            }}
-            className="relative -top-32 left-1/4 astronaut-image"
-            {...anim(astronautVariants)}
-          >
-            <Image
-              src="/images/free_astronaut.png"
-              alt="free astronaut"
-              width={300}
-              height={300}
-              className="size-full object-contain"
-            />
-          </motion.div>
           <div className="-mt-16">
             <Text phrase={t('first_section_text_1')} />
           </div>

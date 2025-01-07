@@ -16,14 +16,93 @@
 }
 
 .welcoming-section {
-  padding-top: calc(var(--vh, 1vh) * 25);
+  padding-top: calc(var(--vh, 1vh) * 20);
+  margin-left: 2.5rem;
 }
 
 .role-text {
+  margin-right: 2.5rem;
+}
+
+.role-text p {
   font-family: var(--font-libre-baskerville);
-  font-size: -webkit-xxx-large;
+  font-size: 3rem;
   color: var(--yellow);
   text-align: right;
   margin-top: 25%;
   line-height: 3.2rem;
+}
+
+@media (min-width: 500px) {
+  .role-text p {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    margin-top: 20%;
+  }
+}
+
+@media (min-width: 768px) {
+  .role-text p {
+    font-size: 3.5rem;
+    line-height: 4.5rem;
+    margin-top: 15%;
+  }
+  .welcoming-section p,
+  .welcoming-section h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .welcoming-section {
+    margin-left: 5rem;
+  }
+  .welcoming-section p,
+  .welcoming-section h1 {
+    font-size: 4rem;
+  }
+  .role-text {
+    margin-right: 5rem;
+  }
+  .role-text p {
+    font-size: 4rem;
+    margin-top: 10%;
+  }
+}
+
+@media (min-width: 1640px) {
+  .welcoming-section {
+    margin-left: 7rem;
+  }
+  .welcoming-section p,
+  .welcoming-section h1 {
+    font-size: 4.5rem;
+  }
+  .role-text {
+    margin-right: 7rem;
+  }
+  .role-text p {
+    font-size: 4.5rem;
+    margin-top: 8%;
+  }
+}
+
+@media (max-height: 700px) {
+  .astronaut {
+    top: -9rem;
+  }
+
+  .astronaut img {
+    width: 270px;
+  }
+
+  .role-text p {
+    margin-top: 5%;
+  }
+}
+
+@media (max-height: 650px) {
+  .role-text p {
+    margin-top: 3%;
+  }
 }

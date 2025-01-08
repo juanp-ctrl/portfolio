@@ -15,7 +15,8 @@
   "first_section_text_2": "I am a frontend engineer based in Medellín, Colombia, driven by a constant passion for creation and improvement. I am enthusiastic about technology and always eager to embrace new challenges and opportunities to learn and grow.",
   "currently": "Currently",
   "at": "@",
-  "second_section_text_1": "I have expertise in web application development with React, NextJS and TypeScript.",
-  "second_section_text_2": "My goal is always to try to unite in harmony a logical and efficient solution with a unique artistic touch. Let’s achieve this!",
+  "second_section_text_1": "I have been working as a UI Web Developer at Globant for the past year, contributing to a project where we implemented microfrontends using React and Webpack.",
+  "second_section_text_2": "Additionally, I have been involved in the development of a certificate management platform for a client using NextJS and TypeScript.",
+  "second_section_text_3": "Want to know more?",
   "version": "Version"
 }

@@ -107,6 +107,10 @@ export default function Home() {
               customStyle="text-white"
               phrase={t('second_section_text_2')}
             />
+            <Text
+              customStyle="text-white mt-10"
+              phrase={t('second_section_text_3')} 
+            />
             <BalloonsButton />
           </div>
           <Footer />

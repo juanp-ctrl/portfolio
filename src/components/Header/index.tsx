@@ -9,16 +9,7 @@ import { useTranslation } from 'react-i18next'
 export default function Index() {
   const { t } = useTranslation('common')
   const [isActive, setIsActive] = useState(false)
-  const [innerHeight, setInnerHeight] = useState(0)
   const menuButton = useRef(null)
-
-  useEffect(() => {
-    setInnerHeight(window.innerHeight)
-
-    return () => {
-      setInnerHeight(0)
-    }
-  }, [])
 
   useEffect(() => {
     if (isActive) {
@@ -105,7 +96,7 @@ export default function Index() {
         </div>
       </div>
       <AnimatePresence mode="wait">
-        {isActive && <Nav inHeight={innerHeight} />}
+        {isActive && <Nav />}
       </AnimatePresence>
     </div>
   )

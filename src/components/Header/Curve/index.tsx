@@ -2,9 +2,9 @@ import React from 'react'
 import styles from './styles.module.css'
 import { motion } from 'framer-motion'
 
-export default function Index({ inHeight }: { inHeight: number }) {
-  const initialPath = `M100 0 L200 0 L200 ${inHeight} L100 ${inHeight} Q-100 ${inHeight / 2} 100 0`
-  const targetPath = `M100 0 L200 0 L200 ${inHeight} L100 ${inHeight} Q100 ${inHeight / 2} 100 0`
+export default function Index() {
+  const initialPath = `M100 0 L200 0 L200 1000 L100 1000 Q-100 500 100 0`
+  const targetPath = `M100 0 L200 0 L200 1000 L100 1000 Q100 500 100 0`
 
   const curve = {
     initial: {

@@ -17,7 +17,7 @@ const menuSlide = {
   },
 }
 
-export default function Index({ inHeight }: { inHeight: number }) {
+export default function Index() {
   const { t, i18n } = useTranslation('common')
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
@@ -66,7 +66,7 @@ export default function Index({ inHeight }: { inHeight: number }) {
           <p>{t('change_lng')}</p>
         </div>
       </div>
-      <Curve inHeight={inHeight} />
+      <Curve />
     </motion.div>
   )
 }

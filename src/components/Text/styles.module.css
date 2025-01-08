@@ -12,3 +12,15 @@
 .word {
   margin-right: 3px;
 }
+
+@media (min-width: 768px) {
+  .description {
+    padding: 0 10rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .description {
+    padding: 0 12rem;
+  }
+}

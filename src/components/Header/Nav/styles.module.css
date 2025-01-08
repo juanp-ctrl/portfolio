@@ -47,6 +47,7 @@
 .menu .body .nav a {
   text-decoration: none;
   font-weight: 600;
+  width: 100%;
 }
 
 .multilanguage-button {

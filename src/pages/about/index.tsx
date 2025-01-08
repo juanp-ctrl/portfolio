@@ -70,12 +70,12 @@ export default function About() {
             src="/images/spaceship.png"
             alt="free astronaut"
             width={200}
-            height={200}
+            height={400}
             className="object-contain md:w-60"
           />
         </motion.div>
       </div>
-      <Text phrase={t('about_me')} customStyle="-mt-4 mb-4" />
+      <Text phrase={t('about_me')} customStyle="-mt-2 mb-10" />
       <Text phrase={t('about_me_2')} />
       <Image
         src="/images/example art.gif"
@@ -87,7 +87,7 @@ export default function About() {
       <div className="bg-black-secondary pb-12">
         <Text
           phrase={t('skills')}
-          customStyle="text-white pt-20 font-libre italic leading-[3rem]"
+          customStyle="text-white pt-20 pb-5 font-libre italic leading-[3rem] md:leading-[4rem] md:text-[1.6rem]"
         />
         <div className={styles.contact} onClick={() => {}}>
           <p>{t('contact')}</p>

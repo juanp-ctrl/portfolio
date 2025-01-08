@@ -14,6 +14,7 @@
 
 .profile-picture {
   margin: 2.5rem 0;
+  box-shadow: 0 8px 10px 2px var(--yellow);
 }
 
 .contact {
@@ -31,6 +32,18 @@
   line-height: 2rem;
   padding: 12px;
   text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .main-container {
+    padding: 150px 8rem 0 8rem;
+  }
+
+  .main-container h1,
+  .main-container h2 {
+    font-size: 3.5rem;
+    line-height: 5rem;
+  }
 }
 
 @media (min-height: 850px) {

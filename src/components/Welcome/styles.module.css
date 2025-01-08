@@ -107,7 +107,7 @@
   }
 }
 
-@media (max-height: 700px ) and ( max-width: 390px ){
+@media (max-height: 700px ) and ( max-width: 580px ){
   .role-text p {
     margin-top: 15%;
   }

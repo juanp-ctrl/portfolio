@@ -9,7 +9,7 @@ const navItems = [
   },
   {
     title: 'projects',
-    path: '/blog',
+    path: '/projects',
   },
   {
     title: 'contact',

@@ -1,7 +1,9 @@
 import Curve from '../Curve'
+import Image from 'next/image'
 import Link from '../Link'
 import Socials from '../Socials'
 import navItems from '@/constants/routes'
+import globalSVG from '../../../../public/images/global.svg'
 import styles from './styles.module.css'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
@@ -47,6 +49,13 @@ export default function Index() {
             className={styles.nav}
           >
             {navItems.map((data, index) => {
+              if (data.path === '/contact') {
+                return (
+                  <a key={index} href="mailto:juanpablojimenez.dev@gmail.com">
+                    {t(data.title)}
+                  </a>
+                )
+              } else {
               return (
                 <Link
                   key={index}
@@ -54,7 +63,7 @@ export default function Index() {
                   isActive={selectedIndicator == data.path}
                   setSelectedIndicator={setSelectedIndicator}
                 ></Link>
-              )
+              )}
             })}
           </div>
         </div>
@@ -63,6 +72,7 @@ export default function Index() {
           className={styles['multilanguage-button']}
           onClick={handleChangingLng}
         >
+          <Image src={globalSVG} alt="Global icon" width={18} height={18} />
           <p>{t('change_lng')}</p>
         </div>
       </div>

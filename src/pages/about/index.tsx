@@ -52,7 +52,7 @@ export default function About() {
           height={280}
           className={styles['profile-picture']}
         />
-        <div className="w-full flex flex-row-reverse mb-6">
+        <div className="w-full flex flex-row-reverse mb-6 mt-2">
           <h2 className="text-[2.5rem] italic font-libre text-yellow-primary border-b-2 border-yellow-primary w-fit leading-[4rem]">
             {t('engineer')}
           </h2>

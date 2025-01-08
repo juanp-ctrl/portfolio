@@ -121,7 +121,7 @@ export default function Index() {
               onClick={() => {
                 router.push('/about')
               }}
-              className="font-libre text-4xl underline text-black-primary italic"
+              className="font-libre text-4xl underline text-black-primary italic cursor-pointer"
             >
               {t('about')}
             </p>

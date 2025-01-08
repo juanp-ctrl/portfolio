@@ -53,13 +53,17 @@
 .multilanguage-button {
   border: 1px solid var(--black_alternative);
   border-radius: 25px;
+  background-color: #fafafade;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 .multilanguage-button p {
   font-family: var(--font-josefin-sans);
   font-size: 1rem;
+  font-weight: 800;
   line-height: 2rem;
-  padding: 12px;
+  padding: 12px 12px 10px 12px;
   text-align: center;
 }

@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import Welcome from '@/components/Welcome'
 import { useTranslation } from 'react-i18next'
 import Layout from '@/components/layout'
+import Conceptual from '@/components/Conceptual'
 
 export default function Home() {
   const { t } = useTranslation('common')
@@ -112,6 +113,7 @@ export default function Home() {
               phrase={t('second_section_text_3')} 
             />
             <BalloonsButton />
+            <Conceptual />
           </div>
           <Footer />
         </>

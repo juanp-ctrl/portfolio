@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import styles from './styles.module.css'
 import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
+import Head from 'next/head'
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
 
 export default function About() {
@@ -38,6 +39,11 @@ export default function About() {
 
   return (
     <Layout>
+      <Head>
+        <title>{t('about_title')}</title>
+        <meta name="description" content={t('about_description')} />
+        <link rel="canonical" href="https://www.juanpablojimenez.dev/about" />
+      </Head>
       <Header />
       <div className={styles['main-container']}>
         <div className="w-full">

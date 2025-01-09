@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import Welcome from '@/components/Welcome'
 import { useTranslation } from 'react-i18next'
 import Layout from '@/components/layout'
+import Head from 'next/head'
 
 export default function Home() {
   const { t } = useTranslation('common')
@@ -46,6 +47,20 @@ export default function Home() {
 
   return (
     <Layout>
+      <Head>
+        <title>{t('home_title')}</title>
+        <meta name="description" content={t('home_description')} />
+        <link rel="canonical" href="https://www.juanpablojimenez.dev/" />
+        <meta property="og:title" content={t('home_title_og')} />
+        <meta property="og:description" content={t('home_description')} />
+        <meta property="og:url" content="https://www.juanpablojimenez.dev/" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://juanpablojimenez.dev/_next/image?url=%2Fimages%2Ffree_astronaut.png"
+        />
+        <meta property="og:image:alt" content="Website image" />
+      </Head>
       {isLoading && (
         <>
           <motion.div className="flex justify-center items-center w-screen h-screen">
@@ -109,7 +124,7 @@ export default function Home() {
             />
             <Text
               customStyle="text-white mt-10"
-              phrase={t('second_section_text_3')} 
+              phrase={t('second_section_text_3')}
             />
             <BalloonsButton />
           </div>

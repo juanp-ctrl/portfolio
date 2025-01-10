@@ -51,8 +51,11 @@ export default function Home() {
         <title>{t('home_title')}</title>
         <meta name="description" content={t('home_description')} />
         <link rel="canonical" href="https://www.juanpablojimenez.dev/" />
-        <meta property="og:title" content={t('home_title_og')} />
-        <meta property="og:description" content={t('home_description')} />
+        <meta property="og:title" content="Juan Pablo Jiménez | Frontend" />
+        <meta
+          property="og:description"
+          content="The little space in the web of Juan Pablo Jiménez, where he showcases his works, experiments, and projects related to web development. A space where you can get to know better who is Juan Pablo Jiménez, frontend and creative developer. From Medellín to the world!"
+        />
         <meta property="og:url" content="https://www.juanpablojimenez.dev/" />
         <meta property="og:type" content="website" />
         <meta

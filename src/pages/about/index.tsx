@@ -95,8 +95,10 @@ export default function About() {
           phrase={t('skills')}
           customStyle="text-white pt-20 pb-5 font-libre italic leading-[3rem] md:leading-[4rem] md:text-[1.6rem]"
         />
-        <div className={styles.contact} onClick={() => {}}>
-          <p>{t('contact')}</p>
+        <div className={styles.contact}>
+          <a href="mailto:juanpablojimenez.dev@gmail.com">
+            <p>{t('contact')}</p>
+          </a>
         </div>
       </div>
       <Footer />

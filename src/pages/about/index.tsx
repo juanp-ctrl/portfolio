@@ -91,9 +91,10 @@ export default function About() {
         className="mx-auto my-16"
       />
       <div className="bg-black-secondary pb-12">
+        <h2 className='text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48'>Skills</h2>
         <Text
           phrase={t('skills')}
-          customStyle="text-white pt-20 pb-5 font-libre italic leading-[3rem] md:leading-[4rem] md:text-[1.6rem]"
+          customStyle="text-white pt-4 pb-5 font-libre italic leading-[3rem] md:leading-[4rem] md:text-[1.6rem]"
         />
         <div className={styles.contact}>
           <a href="mailto:juanpablojimenez.dev@gmail.com">

@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import styles from './styles.module.css'
 import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
+import Head from 'next/head'
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
 
 export default function About() {
@@ -38,6 +39,11 @@ export default function About() {
 
   return (
     <Layout>
+      <Head>
+        <title>{t('about_title')}</title>
+        <meta name="description" content={t('about_description')} />
+        <link rel="canonical" href="https://www.juanpablojimenez.dev/about" />
+      </Head>
       <Header />
       <div className={styles['main-container']}>
         <div className="w-full">
@@ -85,12 +91,15 @@ export default function About() {
         className="mx-auto my-16"
       />
       <div className="bg-black-secondary pb-12">
+        <h2 className='text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48'>Skills</h2>
         <Text
           phrase={t('skills')}
-          customStyle="text-white pt-20 pb-5 font-libre italic leading-[3rem] md:leading-[4rem] md:text-[1.6rem]"
+          customStyle="text-white pt-4 pb-5 font-libre italic leading-[3rem] md:leading-[4rem] md:text-[1.6rem]"
         />
-        <div className={styles.contact} onClick={() => {}}>
-          <p>{t('contact')}</p>
+        <div className={styles.contact}>
+          <a href="mailto:juanpablojimenez.dev@gmail.com">
+            <p>{t('contact')}</p>
+          </a>
         </div>
       </div>
       <Footer />

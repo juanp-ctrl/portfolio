@@ -10,6 +10,7 @@ import Welcome from '@/components/Welcome'
 import { useTranslation } from 'react-i18next'
 import Layout from '@/components/layout'
 import Conceptual from '@/components/Conceptual'
+import Head from 'next/head'
 
 export default function Home() {
   const { t } = useTranslation('common')
@@ -47,6 +48,23 @@ export default function Home() {
 
   return (
     <Layout>
+      <Head>
+        <title>{t('home_title')}</title>
+        <meta name="description" content={t('home_description')} />
+        <link rel="canonical" href="https://www.juanpablojimenez.dev/" />
+        <meta property="og:title" content="Juan Pablo Jiménez | Frontend" />
+        <meta
+          property="og:description"
+          content="The little space in the web of Juan Pablo Jiménez, where he showcases his works, experiments, and projects related to web development. A space where you can get to know better who is Juan Pablo Jiménez, frontend and creative developer. From Medellín to the world!"
+        />
+        <meta property="og:url" content="https://www.juanpablojimenez.dev/" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://juanpablojimenez.dev/_next/image?url=%2Fimages%2Ffree_astronaut.png"
+        />
+        <meta property="og:image:alt" content="Website image" />
+      </Head>
       {isLoading && (
         <>
           <motion.div className="flex justify-center items-center w-screen h-screen">
@@ -110,7 +128,7 @@ export default function Home() {
             />
             <Text
               customStyle="text-white mt-10"
-              phrase={t('second_section_text_3')} 
+              phrase={t('second_section_text_3')}
             />
             <BalloonsButton />
             <Conceptual />

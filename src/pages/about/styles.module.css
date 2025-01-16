@@ -22,6 +22,9 @@
   border-radius: 25px;
   cursor: pointer;
   margin: 2rem;
+  background-color: transparent;
+  transition: background-color 0.8s;
+  
 }
 
 .contact p {
@@ -32,6 +35,15 @@
   line-height: 2rem;
   padding: 12px;
   text-align: center;
+}
+
+.contact:hover {
+  background-color: var(--yellow);
+}
+
+.contact:hover p {
+  color: var(--black);
+  font-weight: 800;
 }
 
 @media (min-width: 1024px) {

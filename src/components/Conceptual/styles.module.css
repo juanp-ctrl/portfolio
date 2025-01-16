@@ -7,11 +7,39 @@
   font-style: italic;
   font-family: var(--font-libre-baskerville);
   color: var(--white_alternative);
-  line-height: 3rem;
+  line-height: 4.5rem;
 }
 
 .container p {
   font-size: 1rem;
   font-family: var(--font-josefin-sans);
-  color: var(--white_alternative)
+  color: var(--white_alternative);
+}
+
+.quote {
+    padding: 3.5rem 0;
+  }
+
+@media (min-width: 768px) {
+  .container {
+    padding: 4rem 10rem;
+  }
+
+  .container h2 {
+    font-size: 4.5rem;
+  }
+
+  .container p {
+    font-size: 2rem;
+  }
+
+  .quote {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 4rem 12rem;
+  }
 }

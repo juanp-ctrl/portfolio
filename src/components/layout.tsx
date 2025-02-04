@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { motion, Variants } from 'framer-motion'
 import localFont from 'next/font/local'
 import React from 'react'
@@ -45,9 +45,11 @@ const perspective = {
     scale: 0.9,
     y: -150,
     opacity: 0.5,
+    filter: 'blur(10px)',
+    backgroundColor: '#1e1e1e',
     transition: {
       duration: 1.5,
-      ease: [0.76, 0, 0.24, 1],
+      ease: [0.33, 1, 0.68, 1],
     },
   },
 }
@@ -82,7 +84,6 @@ const opacity = {
     opacity: 1,
   },
 }
-
 
 const anim = (variants: Variants) => {
   return {

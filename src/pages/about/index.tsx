@@ -56,8 +56,8 @@ export default function About() {
         <Image
           src={'/images/Profile_suit.jpeg'}
           alt="Profile picture"
-          width={280}
-          height={280}
+          width={300}
+          height={300}
           className={styles['profile-picture']}
         />
         <div className="w-full flex flex-row-reverse mb-6 mt-2">

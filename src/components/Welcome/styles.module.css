@@ -1,6 +1,5 @@
 .main-content {
-  background-color: var(--white);
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .first-section-content {
@@ -107,7 +106,7 @@
   }
 }
 
-@media (max-height: 700px ) and ( max-width: 580px ){
+@media (max-height: 700px) and (max-width: 580px) {
   .role-text p {
     margin-top: 15%;
   }

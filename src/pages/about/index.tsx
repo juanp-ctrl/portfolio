@@ -1,3 +1,4 @@
+'use client'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Text from '@/components/Text'
@@ -7,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 import Head from 'next/head'
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
+import TrailImages from '@/components/TrailImages'
 
 export default function About() {
   const { t } = useTranslation('about')
@@ -91,7 +93,10 @@ export default function About() {
         className="mx-auto my-16"
       />
       <div className="bg-black-secondary pb-12">
-        <h2 className='text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48'>Skills</h2>
+        <TrailImages />
+        <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48">
+          {t('skills_title')}
+        </h2>
         <Text
           phrase={t('skills')}
           customStyle="text-white pt-4 pb-5 font-libre italic leading-[3rem] md:leading-[4rem] md:text-[1.6rem]"

@@ -54,8 +54,8 @@ export default function About() {
         <Image
           src={'/images/Profile_suit.jpeg'}
           alt="Profile picture"
-          width={280}
-          height={280}
+          width={300}
+          height={300}
           className={styles['profile-picture']}
         />
         <div className="w-full flex flex-row-reverse mb-6 mt-2">
@@ -91,7 +91,9 @@ export default function About() {
         className="mx-auto my-16"
       />
       <div className="bg-black-secondary pb-12">
-        <h2 className='text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48'>Skills</h2>
+        <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48">
+          Skills
+        </h2>
         <Text
           phrase={t('skills')}
           customStyle="text-white pt-4 pb-5 font-libre italic leading-[3rem] md:leading-[4rem] md:text-[1.6rem]"

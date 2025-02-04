@@ -19,7 +19,7 @@ export default function Index() {
       <div className={`flex flex-col items-end ${styles.quote}`}>
         <h2>IS</h2>
         <h2>CHANGE</h2>
-        <p>Quote (Marco Aurelio, Book IV) </p>
+        <p>Quote (Marcus Aurelius, Book IV) </p>
       </div>
     </div>
   )

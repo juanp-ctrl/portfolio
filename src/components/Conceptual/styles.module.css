@@ -16,6 +16,10 @@
   color: var(--white_alternative);
 }
 
+.container img {
+  box-shadow: 0 0 35px white;
+}
+
 .quote {
     padding: 3.5rem 0;
   }

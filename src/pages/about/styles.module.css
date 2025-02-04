@@ -14,7 +14,8 @@
 
 .profile-picture {
   margin: 2.5rem 0;
-  box-shadow: 0 8px 10px 2px var(--yellow);
+  border-radius: 30%;
+  box-shadow: 0 0 25px 2px var(--yellow);
 }
 
 .contact {
@@ -24,7 +25,6 @@
   margin: 2rem;
   background-color: transparent;
   transition: background-color 0.8s;
-  
 }
 
 .contact p {

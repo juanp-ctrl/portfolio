@@ -12,6 +12,7 @@ export default function Index() {
         <Image
           src="/images/change.gif"
           alt="Change GIF"
+          unoptimized
           width={300}
           height={300}
         />

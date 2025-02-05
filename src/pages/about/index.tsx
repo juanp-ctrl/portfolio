@@ -87,11 +87,11 @@ export default function About() {
       <Text phrase={t('about_me')} customStyle="-mt-2 mb-10" />
       <Text phrase={t('about_me_2')} />
       <Image
-        src="/images/example art.gif"
-        alt="Art example"
+        src="/images/IMG_18.webp"
+        alt="Medellin city"
         width={300}
         height={400}
-        className="mx-auto my-16"
+        className={`mx-auto my-16 ${styles.infoImage}`}
       />
       <div className="bg-black-secondary pb-12">
         <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48">

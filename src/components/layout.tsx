@@ -44,7 +44,7 @@ const perspective = {
   exit: {
     scale: 0.9,
     y: -150,
-    opacity: 0.5,
+    opacity: 0,
     filter: 'blur(10px)',
     backgroundColor: '#1e1e1e',
     transition: {

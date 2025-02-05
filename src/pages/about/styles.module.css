@@ -46,6 +46,10 @@
   font-weight: 800;
 }
 
+.infoImage {
+  box-shadow: 0 0 10px black;
+}
+
 @media (min-width: 1024px) {
   .main-container {
     padding: 150px 8rem 0 8rem;

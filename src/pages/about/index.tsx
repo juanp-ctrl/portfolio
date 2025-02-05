@@ -47,6 +47,7 @@ export default function About() {
         <link rel="canonical" href="https://www.juanpablojimenez.dev/about" />
       </Head>
       <Header />
+      <TrailImages />
       <div className={styles['main-container']}>
         <div className="w-full">
           <h1 className="text-[2.5rem] italic font-libre border-t-2 w-fit leading-[4rem]">
@@ -93,7 +94,6 @@ export default function About() {
         className="mx-auto my-16"
       />
       <div className="bg-black-secondary pb-12">
-        <TrailImages />
         <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48">
           {t('skills_title')}
         </h2>

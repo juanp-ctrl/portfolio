@@ -49,7 +49,7 @@ const perspective = {
     backgroundColor: '#1e1e1e',
     transition: {
       duration: 1.5,
-      ease: [0.33, 1, 0.68, 1],
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 }

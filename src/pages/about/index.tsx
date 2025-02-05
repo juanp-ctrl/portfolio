@@ -1,3 +1,4 @@
+'use client'
 import Header from '@/components/Header'
 import Layout from '@/components/layout'
 import Text from '@/components/Text'
@@ -7,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 import Head from 'next/head'
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
+import TrailImages from '@/components/TrailImages'
 
 export default function About() {
   const { t } = useTranslation('about')
@@ -45,6 +47,7 @@ export default function About() {
         <link rel="canonical" href="https://www.juanpablojimenez.dev/about" />
       </Head>
       <Header />
+      <TrailImages />
       <div className={styles['main-container']}>
         <div className="w-full">
           <h1 className="text-[2.5rem] italic font-libre border-t-2 w-fit leading-[4rem]">
@@ -92,7 +95,7 @@ export default function About() {
       />
       <div className="bg-black-secondary pb-12">
         <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48">
-          Skills
+          {t('skills_title')}
         </h2>
         <Text
           phrase={t('skills')}

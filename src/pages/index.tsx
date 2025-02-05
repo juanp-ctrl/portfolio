@@ -1,3 +1,4 @@
+'use client'
 import BalloonsButton from '@/components/BalloonsButton'
 import Currently from '@/components/Currently'
 import Drawing from '@/components/Drawing'

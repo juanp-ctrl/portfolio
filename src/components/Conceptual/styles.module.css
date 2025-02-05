@@ -21,8 +21,8 @@
 }
 
 .quote {
-    padding: 3.5rem 0;
-  }
+  padding: 3.5rem 0;
+}
 
 @media (min-width: 768px) {
   .container {
@@ -31,10 +31,6 @@
 
   .container h2 {
     font-size: 4.5rem;
-  }
-
-  .container p {
-    font-size: 2rem;
   }
 
   .quote {

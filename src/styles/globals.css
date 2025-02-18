@@ -13,6 +13,7 @@
 
 body {
   background-color: var(--white);
+  cursor: none;
 }
 
 h1 {
@@ -28,4 +29,3 @@ p {
   font-size: 1.2rem;
   line-height: 1.5;
 }
-

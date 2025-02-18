@@ -1,0 +1,14 @@
+.cursor {
+  position: fixed;
+  width: 50px; /* Ajusta el tamaño según tus necesidades */
+  height: 50px;
+  background: url('/images/moon.png') no-repeat center center;
+  background-size: contain;
+  pointer-events: none; /* Evita que interfiera con eventos del mouse */
+  z-index: 9999; /* Asegura que esté encima de otros elementos */
+  transform: translate(-50%, -50%);
+  transition:
+    transform 0.2s ease-out,
+    width 0.2s ease-out,
+    height 0.2s ease-out;
+}

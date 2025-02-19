@@ -5,4 +5,5 @@
   background-color: var(--white);
   border-radius: 0.5rem;
   padding: 5px 10px 0 10px;
+  cursor: pointer;
 }

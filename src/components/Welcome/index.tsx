@@ -83,6 +83,7 @@ export default function Index() {
           <Image
             src="/images/free_astronaut.png"
             alt="free astronaut"
+            priority
             width={208}
             height={208}
             className="object-contain md:w-80"

@@ -5,11 +5,18 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { gsap } from 'gsap'
 import { useTranslation } from 'react-i18next'
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
+import Image from 'next/image'
 
 export default function Index() {
-  const { t } = useTranslation('common')
+  const { t, i18n } = useTranslation('common')
   const [isActive, setIsActive] = useState(false)
   const menuButton = useRef(null)
+
+  const handleChangingLng = () => {
+    const newLanguage = i18n.language === 'en' ? 'es' : 'en'
+    i18n.changeLanguage(newLanguage)
+  }
 
   useEffect(() => {
     if (isActive) {
@@ -57,41 +64,63 @@ export default function Index() {
       <Link href={'/'} className={styles.logo}>
         JP
       </Link>
-      <p
-        className="italic text-base border-b-2 border-white_alternative font-libre cursor-pointer"
-        onClick={() => {
-          const newIsActive = !isActive
-          gsap.to(menuButton.current, {
-            scale: newIsActive ? 1 : 0,
-            duration: 0.25,
-            delay: 0.5,
-            ease: 'power1.out',
-          })
-          setIsActive(newIsActive)
-        }}
-      >
-        {t('menu')}
-      </p>
-      <div ref={menuButton} className={styles['header-menu']}>
-        <div
+      <div className="flex gap-8">
+        <Popover>
+          <PopoverTrigger>
+            <Image
+              src="/images/globe.svg"
+              alt="Globe"
+              width={20}
+              height={20}
+              className="border-b-2 border-white"
+            />
+          </PopoverTrigger>
+          <PopoverContent className="bg-[#ffffff3d] text-center w-30 p-3 mt-2">
+            <p
+              className="text-white font-libre cursor-pointer text-base"
+              onClick={handleChangingLng}
+            >
+              {t('change_lng')}
+            </p>
+          </PopoverContent>
+        </Popover>
+        <p
+          className="italic text-base border-b-2 border-white_alternative font-libre cursor-pointer"
           onClick={() => {
             const newIsActive = !isActive
             gsap.to(menuButton.current, {
-              scale: newIsActive ? 1 : window.scrollY < 300 ? 0 : 1,
+              scale: newIsActive ? 1 : 0,
               duration: 0.25,
-              delay: 0.1,
+              delay: 0.5,
               ease: 'power1.out',
             })
             setIsActive(newIsActive)
           }}
-          className={`${styles.button} ${isActive ? styles.active : ''}`}
         >
+          {t('menu')}
+        </p>
+
+        <div ref={menuButton} className={styles['header-menu']}>
           <div
-            className={`${styles.burger} ${
-              isActive ? styles.burgerActive : ''
-            }`}
+            onClick={() => {
+              const newIsActive = !isActive
+              gsap.to(menuButton.current, {
+                scale: newIsActive ? 1 : window.scrollY < 300 ? 0 : 1,
+                duration: 0.25,
+                delay: 0.1,
+                ease: 'power1.out',
+              })
+              setIsActive(newIsActive)
+            }}
+            className={`${styles.button} ${isActive ? styles.active : ''}`}
           >
-            <div></div>
+            <div
+              className={`${styles.burger} ${
+                isActive ? styles.burgerActive : ''
+              }`}
+            >
+              <div></div>
+            </div>
           </div>
         </div>
       </div>

@@ -10,10 +10,12 @@ function App({ Component, pageProps, router }: AppProps) {
   const { isMobile } = useMedia()
 
   return (
-    <AnimatePresence mode="wait">
+    <>
       {!isMobile && <CustomCursor />}
-      <Component key={router.route} {...pageProps} />
-    </AnimatePresence>
+      <AnimatePresence mode="wait">
+        <Component key={router.route} {...pageProps} />
+      </AnimatePresence>
+    </>
   )
 }
 

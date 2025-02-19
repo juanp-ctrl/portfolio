@@ -1,12 +1,15 @@
 import Image from 'next/image'
 import styles from './styles.module.css'
+import { useTranslation } from 'react-i18next'
 
 export default function Index() {
+  const { t } = useTranslation('common')
+
   return (
     <div className={styles.container}>
       <div className="pb-14">
-        <h2>THE</h2>
-        <h2>UNIVERSE</h2>
+        <h2>{t('the')}</h2>
+        <h2>{t('universe')}</h2>
       </div>
       <div className="flex justify-center items-center">
         <Image
@@ -18,9 +21,9 @@ export default function Index() {
         />
       </div>
       <div className={`flex flex-col items-end ${styles.quote}`}>
-        <h2>IS</h2>
-        <h2>CHANGE</h2>
-        <p>Quote (Marcus Aurelius, Book IV) </p>
+        <h2>{t('is')}</h2>
+        <h2>{t('change')}</h2>
+        <p>{t('quote')}</p>
       </div>
     </div>
   )

@@ -29,3 +29,9 @@ p {
   font-size: 1.2rem;
   line-height: 1.5;
 }
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}

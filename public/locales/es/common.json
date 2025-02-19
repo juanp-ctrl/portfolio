@@ -21,5 +21,10 @@
     "second_section_text_1": "He estado trabajando como Desarrollador Web de UI en Globant durante el último año, contribuyendo a un proyecto donde implementamos microfrontends usando React y Webpack.",
   "second_section_text_2": "Además, he participado en el desarrollo de una plataforma de gestión de certificados para un cliente usando NextJS y TypeScript.",
   "second_section_text_3": "¿Quieres saber más?",
-  "version": "Versión"
+  "version": "Versión",
+  "the": "EL",
+  "universe": "UNIVERSO",
+  "is": "ES",
+  "change": "CAMBIO",
+  "quote": "Cita (Marco Aurelio, Libro IV)"
 }

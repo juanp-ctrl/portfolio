@@ -9,15 +9,18 @@ i18n
   .use(initReactI18next) // Vincula i18next con React
   .init({
     fallbackLng: 'en',
-    lng: 'en', 
+    detection: {
+      order: ['navigator', 'htmlTag', 'path', 'subdomain'],
+      caches: ['localStorage', 'cookie'],
+    },
     debug: process.env.NODE_ENV === 'development',
     ns: ['common'],
     defaultNS: 'common',
     interpolation: {
-      escapeValue: false, 
+      escapeValue: false,
     },
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json', 
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
   })
 

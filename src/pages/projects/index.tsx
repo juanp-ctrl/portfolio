@@ -74,13 +74,13 @@ export default function Projects() {
         />
       </Head>
       <Header />
-      <div className="bg-black-secondary h-full w-full">
+      <div className="bg-black-secondary size-full">
         <div className="flex flex-col justify-center items-center pt-32">
           <motion.div
             className="flex flex-col justify-center items-center"
             {...anim(upperVariants)}
           >
-            <h1 className="text-white mb-2 text-[4rem]">
+            <h1 className="text-white mb-2 md:text-[4rem] text-5xl">
               {projects[projectIndex].name}
             </h1>
             <a
@@ -93,20 +93,20 @@ export default function Projects() {
             </a>
           </motion.div>
           <motion.div
-            className={`w-3/4 max-w-[950px] h-[60vh] mb-8 ${styles.carousel}`}
+            className={`p-0 w-3/4 max-w-[950px] h-[60vh] mb-8 ${styles.carousel}`}
             {...anim(upperVariants)}
           >
             <Carousel
               setApi={setApi}
               className={`w-full`}
-              opts={{ loop: true }}
+              opts={{ align: 'start', loop: true }}
             >
               <CarouselContent>
-                {projects.map((_, index) => (
+                {projects.map((project, index) => (
                   <CarouselItem key={index}>
-                    <div className="p-1">
+                    <div className="p-1 relative">
                       <Card>
-                        <CardContent className="flex items-center justify-center p-6 h-[60vh]">
+                        <CardContent className="p-0 h-[60vh]">
                           <a
                             className="text-4xl font-semibold"
                             href={projects[projectIndex].url}
@@ -114,11 +114,11 @@ export default function Projects() {
                             rel="noreferrer"
                           >
                             <Image
-                              src={projects[projectIndex].images[0]}
+                              src={project.images[0]}
                               priority
                               alt="Profile picture"
                               fill
-                              className="object-cover rounded-3xl"
+                              className="object-cover rounded-xl"
                             />
                           </a>
                         </CardContent>
@@ -157,12 +157,12 @@ export default function Projects() {
           {projects[projectIndex].description.map((desc, index) => (
             <>
               {index === 0 && (
-                <div className="w-full md:pl-[12rem] pl-8 mb-[-1rem]">
+                <div className="w-full md:pl-48 -mb-4 pl-8">
                   <h1 className="text-white">{t('overview')}</h1>
                 </div>
               )}
               {index === 2 && (
-                <div className="w-full md:pl-[12rem] pl-8 mb-[-1rem] md:mt-16 mt-20">
+                <div className="w-full md:pl-48 -mb-4 pl-8 md:mt-16 mt-20">
                   <h1 className="text-white">{t('purpose')}</h1>
                 </div>
               )}
@@ -174,7 +174,7 @@ export default function Projects() {
             </>
           ))}
         </div>
-        <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-around gap-4 w-full md:px-[12rem] py-14 px-[2rem]">
+        <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row justify-around gap-4 w-full md:px-48 py-14 px-8">
           {projects[projectIndex].images.map(
             (img, index) =>
               index > 0 && (
@@ -189,27 +189,29 @@ export default function Projects() {
               ),
           )}
         </div>
-        <div className="flex flex-col md:flex-row md:pl-[12rem] pl-8 pb-16">
-          <h3 className="font-libre italic text-white text-2xl mr-8">
-            {t('developedWith')}
-          </h3>
-          {projects[projectIndex].collaborators.map((friend, index) => (
-            <>
-              <div className="mt-4 md:mt-0">
-                <a
-                  href={friend.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-josefin text-white text-xl border-b-2"
-                >
-                  {friend.name}
-                </a>
-                <p className="text-white text-lg">{friend.role}</p>
-              </div>
-              {!isMobile && <p className="text-white px-8">|</p>}
-            </>
-          ))}
-        </div>
+        {projects[projectIndex].collaborators && (
+          <div className="flex flex-col md:flex-row md:pl-48 pl-8 pb-16">
+            <h3 className="font-libre italic text-white text-2xl mr-8">
+              {t('developedWith')}
+            </h3>
+            {projects[projectIndex].collaborators.map((friend, index) => (
+              <>
+                <div className="mt-4 md:mt-0" key={index}>
+                  <a
+                    href={friend.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-josefin text-white text-xl border-b-2"
+                  >
+                    {friend.name}
+                  </a>
+                  <p className="text-white text-lg">{friend.role}</p>
+                </div>
+                {!isMobile && <p className="text-white px-8">|</p>}
+              </>
+            ))}
+          </div>
+        )}
       </div>
       <Footer />
     </Layout>

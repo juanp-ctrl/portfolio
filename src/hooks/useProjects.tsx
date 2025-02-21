@@ -14,7 +14,7 @@ export interface Project {
   techHighlights: string[]
   techStack: string[]
   url: string
-  collaborators: Friend[]
+  collaborators?: Friend[]
 }
 
 const useProjects = () => {
@@ -60,6 +60,15 @@ const useProjects = () => {
           role: 'DevOps Engineer',
         },
       ],
+    },
+    {
+      name: t('name_soon'),
+      images: ['/images/IMG_8.webp'],
+      description: ['We will explore'],
+      impact: t('impact_rq'),
+      techHighlights: [t('tech_highlight_rq_1')],
+      techStack: ['NextJS', 'TypeScript', '.....?'],
+      url: 'https://www.juanpablojimenez.dev/',
     },
   ]
 

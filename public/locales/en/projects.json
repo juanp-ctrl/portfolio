@@ -1,5 +1,8 @@
 {
   "projects": "Projects",
+  "techStack": "Tech Stack:",
+  "overview": "Overview:",
+  "developedWith": "Developed with:",
   "name_rq": "Random-Q",
   "description_rq_1": "Random-Q is a dynamic web application designed to spark engaging conversations through a diverse collection of thought-provoking questions. Whether you're looking to deepen connections on a date, liven up social gatherings, or simply explore intriguing topics, Random-Q provides the perfect conversation starter for every occasion.", 
   "description_rq_2": "Thoughtfully Categorized Questions: Random-Q organizes its questions into distinct categories, catering to a variety of interests and social contexts: Philosophical inquiries for deep, reflective discussions. Spicy ice-breakers to add a playful twist to any interaction. Nerdy and geek-inspired prompts for pop culture enthusiasts and trivia lovers. Curious and offbeat queries to ignite creativity and curiosity.",

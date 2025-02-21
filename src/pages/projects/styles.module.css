@@ -1,0 +1,10 @@
+@media (max-width: 768px) {
+  .carousel {
+    height: 55vh;
+    margin-bottom: 5rem;
+  }
+
+  .carousel img {
+    object-position: 32%;
+  }
+}

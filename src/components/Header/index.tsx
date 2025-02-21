@@ -76,9 +76,9 @@ export default function Index() {
               <Image
                 src="/images/globe.svg"
                 alt="Globe"
-                width={20}
-                height={20}
-                className={isMobile ? 'border-b-2 border-white' : ''}
+                width={22}
+                height={26}
+                className={`w-[22px] h-[26px] ${isMobile ? 'border-b-2 border-white' : 'pt-px'}`}
               />
             </div>
           </PopoverTrigger>

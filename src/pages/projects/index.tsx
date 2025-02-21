@@ -20,6 +20,7 @@ import React from 'react'
 import Image from 'next/image'
 import Footer from '@/components/Footer'
 import useMedia from '@/hooks/useMedia'
+import { motion, Variants } from 'framer-motion'
 
 export default function Projects() {
   const { t } = useTranslation('projects')
@@ -28,13 +29,35 @@ export default function Projects() {
   const [api, setApi] = useState<CarouselApi>()
   const [projectIndex, setProjectIndex] = useState<number>(0)
 
+  const anim = (variants: Variants) => ({
+    initial: 'initial',
+    animate: 'enter',
+    exit: 'exit',
+    variants,
+  })
+
+  const upperVariants: Variants = {
+    initial: {
+      y: 200,
+      opacity: 0,
+    },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 1,
+        duration: 1.2,
+        type: 'spring',
+        ease: [0.45, 0, 0.55, 1],
+      },
+    },
+  }
+
   useEffect(() => {
     if (!api) {
       return
     }
-
     setProjectIndex(api.selectedScrollSnap())
-
     api.on('select', () => {
       setProjectIndex(api.selectedScrollSnap())
     })
@@ -53,52 +76,65 @@ export default function Projects() {
       <Header />
       <div className="bg-black-secondary h-full w-full">
         <div className="flex flex-col justify-center items-center pt-32">
-          <h1 className="text-white mb-2 text-[4rem]">
-            {projects[projectIndex].name}
-          </h1>
-          <a
-            href={projects[projectIndex].url}
-            target="_blank"
-            rel="noreferrer"
-            className="font-josefin text-white text-lg border-b-2 mb-12"
+          <motion.div
+            className="flex flex-col justify-center items-center"
+            {...anim(upperVariants)}
           >
-            {projects[projectIndex].url}
-          </a>
-          <Carousel
-            setApi={setApi}
+            <h1 className="text-white mb-2 text-[4rem]">
+              {projects[projectIndex].name}
+            </h1>
+            <a
+              href={projects[projectIndex].url}
+              target="_blank"
+              rel="noreferrer"
+              className="font-josefin text-white text-lg border-b-2 mb-12"
+            >
+              {projects[projectIndex].url}
+            </a>
+          </motion.div>
+          <motion.div
             className={`w-3/4 max-w-[950px] h-[60vh] mb-8 ${styles.carousel}`}
-            opts={{ loop: true }}
+            {...anim(upperVariants)}
           >
-            <CarouselContent>
-              {projects.map((_, index) => (
-                <CarouselItem key={index}>
-                  <div className="p-1">
-                    <Card>
-                      <CardContent className="flex items-center justify-center p-6 h-[60vh]">
-                        <a
-                          className="text-4xl font-semibold"
-                          href={projects[projectIndex].url}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <Image
-                            src={projects[projectIndex].images[0]}
-                            priority
-                            alt="Profile picture"
-                            fill
-                            className="object-cover rounded-3xl"
-                          />
-                        </a>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-          <div className="flex flex-col md:flex-row justify-start flex-wrap w-3/4 max-w-[950px] mb-20 text-white">
+            <Carousel
+              setApi={setApi}
+              className={`w-full`}
+              opts={{ loop: true }}
+            >
+              <CarouselContent>
+                {projects.map((_, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex items-center justify-center p-6 h-[60vh]">
+                          <a
+                            className="text-4xl font-semibold"
+                            href={projects[projectIndex].url}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <Image
+                              src={projects[projectIndex].images[0]}
+                              priority
+                              alt="Profile picture"
+                              fill
+                              className="object-cover rounded-3xl"
+                            />
+                          </a>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </motion.div>
+          <motion.div
+            className="flex flex-col md:flex-row justify-start flex-wrap w-3/4 max-w-[950px] mb-16 text-white"
+            {...anim(upperVariants)}
+          >
             <h3 className="font-libre italic text-2xl mr-4">
               {t('techStack')}
             </h3>
@@ -117,12 +153,17 @@ export default function Projects() {
                 </>
               ))}
             </div>
-          </div>
+          </motion.div>
           {projects[projectIndex].description.map((desc, index) => (
             <>
               {index === 0 && (
                 <div className="w-full md:pl-[12rem] pl-8 mb-[-1rem]">
                   <h1 className="text-white">{t('overview')}</h1>
+                </div>
+              )}
+              {index === 2 && (
+                <div className="w-full md:pl-[12rem] pl-8 mb-[-1rem] md:mt-16 mt-20">
+                  <h1 className="text-white">{t('purpose')}</h1>
                 </div>
               )}
               <Text

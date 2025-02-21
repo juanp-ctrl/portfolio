@@ -13,6 +13,7 @@
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.5.2",
     "framer-motion": "12.0.0-alpha.1",
     "gsap": "^3.12.5",
     "i18next": "^24.2.0",

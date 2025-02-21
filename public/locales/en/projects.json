@@ -1,0 +1,17 @@
+{
+  "projects": "Projects",
+  "techStack": "Tech Stack:",
+  "overview": "Overview:",
+  "developedWith": "Developed with:",
+  "purpose": "Purpose and Impact:",
+  "name_rq": "Random-Q",
+  "description_rq_1": "Random-Q is a dynamic web application designed to spark engaging conversations through a diverse collection of thought-provoking questions. Whether you're looking to deepen connections on a date, liven up social gatherings, or simply explore intriguing topics, Random-Q provides the perfect conversation starter for every occasion.", 
+  "description_rq_2": "Thoughtfully Categorized Questions: Random-Q organizes its questions into distinct categories, catering to a variety of interests and social contexts: Philosophical inquiries for deep, reflective discussions. Spicy ice-breakers to add a playful twist to any interaction. Nerdy and geek-inspired prompts for pop culture enthusiasts and trivia lovers. Curious and offbeat queries to ignite creativity and curiosity.",
+  "description_rq_3": "The app features a carefully curated selection of bilingual (Spanish and English) questions, ensuring inclusivity and accessibility for a wider audience. Each question is enriched with intuitive design elements, including category-specific icons, color-coded tags, and an intensity slider that allows users to filter questions based on their comfort level or mood.",
+  "impact_rq": "Random-Q is more than just a question generator—it’s a tool for connection. By blending thoughtful design, intuitive functionality, and a diverse range of topics, the app empowers users to break the ice, reflect deeply, and engage meaningfully in any social setting. Its bilingual support and customizable features make it a versatile companion for individuals and groups alike, fostering curiosity and dialogue across cultures and contexts.",
+  "tech_highlight_rq_1": "Next.js Framework: Leveraged for its server-side rendering (SSR) and static site generation (SSG) capabilities, ensuring optimal performance and SEO optimization.",
+  "tech_highlight_rq_2": "Firebase Firestore: Used as the backend database to manage the like system and store question data efficiently.",
+  "tech_highlight_rq_3": "Firebase Hosting: Deployed the app with Firebase's robust hosting solution, ensuring fast load times and scalability.",
+  "tech_highlight_rq_4": "CI/CD Pipeline: Automated workflows via GitHub Actions streamline the development and deployment process, enabling rapid iteration and consistent delivery.",
+  "name_soon": "Coming soon..."
+}

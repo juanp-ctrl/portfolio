@@ -45,7 +45,7 @@ export default function Projects() {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 1,
+        delay: 0.5,
         duration: 1.2,
         type: 'spring',
         ease: [0.45, 0, 0.55, 1],

@@ -57,10 +57,6 @@ export default function Projects() {
     if (!api) {
       return
     }
-    setProjectIndex(api.selectedScrollSnap())
-    api.on('select', () => {
-      setProjectIndex(api.selectedScrollSnap())
-    })
   }, [api])
 
   return (
@@ -72,6 +68,21 @@ export default function Projects() {
           rel="canonical"
           href="https://www.juanpablojimenez.dev/projects"
         />
+        <meta property="og:title" content="Juan Pablo Jiménez's Projects" />
+        <meta
+          property="og:description"
+          content="The projects of Juan Pablo Jiménez, frontend and creative developer!"
+        />
+        <meta
+          property="og:url"
+          content="https://www.juanpablojimenez.dev/projects"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://juanpablojimenez.dev/_next/image?url=%2Fimages%2Ffree_astronaut.png"
+        />
+        <meta property="og:image:alt" content="Website image" />
       </Head>
       <Header />
       <div className="bg-black-secondary size-full">
@@ -102,7 +113,7 @@ export default function Projects() {
               opts={{ align: 'start', loop: true }}
             >
               <CarouselContent>
-                {projects.map((project, index) => (
+                {projects[projectIndex].images.map((image, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1 relative">
                       <Card>
@@ -114,7 +125,7 @@ export default function Projects() {
                             rel="noreferrer"
                           >
                             <Image
-                              src={project.images[0]}
+                              src={image}
                               priority
                               alt="Profile picture"
                               fill
@@ -212,6 +223,23 @@ export default function Projects() {
             ))}
           </div>
         )}
+        <div className="pb-8">
+          <div
+            className={styles['continue-button']}
+            onClick={() => {
+              setProjectIndex((currIndex) =>
+                currIndex + 1 === projects.length ? 0 : currIndex + 1,
+              )
+              window.scrollTo({ top: 0, behavior: 'smooth' })
+            }}
+          >
+            <p>
+              {projectIndex + 1 === projects.length
+                ? 'Previous project'
+                : 'Next project'}
+            </p>
+          </div>
+        </div>
       </div>
       <Footer />
     </Layout>

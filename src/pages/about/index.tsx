@@ -45,6 +45,21 @@ export default function About() {
         <title>{t('about_title')}</title>
         <meta name="description" content={t('about_description')} />
         <link rel="canonical" href="https://www.juanpablojimenez.dev/about" />
+        <meta property="og:title" content="Who is Juan Pablo Jiménez" />
+        <meta
+          property="og:description"
+          content="Juan Pablo Jiménez is a frontend developer and creative engineer, passionate about web development and design, he enjoys trasforming ideas into reality, solving each problem in the way with creativity and innovation..."
+        />
+        <meta
+          property="og:url"
+          content="https://www.juanpablojimenez.dev/about"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://juanpablojimenez.dev/_next/image?url=%2Fimages%2Fspaceship.png"
+        />
+        <meta property="og:image:alt" content="Website image" />
       </Head>
       <Header />
       <TrailImages />

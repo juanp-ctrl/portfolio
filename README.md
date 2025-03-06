@@ -1,40 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Juan Pablo Jiménez - Portfolio ☺️
 
-## Getting Started
+## Overview 📖
 
-First, run the development server:
+This is my personal portfolio website, designed to showcase my skills, projects, and professional journey as a Frontend Developer. The site features a modern, interactive design with smooth transitions, multilingual support, and responsive layouts.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Live Site 🌐
+
+[👨‍🚀 juanpablojimenez.dev](https://www.juanpablojimenez.dev)
+
+## Technologies Used 💻
+
+- **Next.js** - React framework for server-side rendering and static site generation
+- **TypeScript** - For type-safe code
+- **Framer Motion** - For advanced animations and transitions
+- **Tailwind CSS** - For utility-first styling
+- **i18next** - For internationalization (English/Spanish)
+- **GSAP** - For complex animations
+- **Custom Cursor** - Enhanced user experience with custom cursor effects
+- **Responsive Design** - Mobile-first approach for all device compatibility
+
+## Features 🌱
+
+- **Animated Page Transitions** - Smooth transitions between pages using Framer Motion
+- **Bilingual Support** - Complete English and Spanish translations
+- **Interactive UI** - Engaging user interface with custom animations
+- **Project Showcase** - Detailed display of projects with images and descriptions
+- **Custom Fonts** - Using Libre Baskerville and Josefin Sans for typography
+- **Cookie Consent** - GDPR compliant cookie consent management
+- **PWA Support** - Progressive Web App capabilities
+- **SEO Optimized** - Meta tags and structured data for better search engine visibility
+
+## Project Structure
+
+```
+├── public
+│   ├── fonts             # Custom fonts
+│   ├── images            # Site images
+│   ├── locales           # Translation files
+│   └── service-worker.js # PWA service worker
+├── src
+│   ├── components        # Reusable UI components
+│   ├── hooks             # Custom React hooks
+│   ├── pages             # Next.js pages
+│   └── styles            # Global styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Featured Projects
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- **Random-Q** - A dynamic web application for generating conversation starters
+  - Technologies: NextJS, TypeScript, Firebase Firestore, Firebase App Hosting, CI/CD via GitHub
+  - Visit: [random-q.com](https://www.random-q.com/)
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Getting Started 🚀
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js (v18 or higher)
+- pnpm package manager
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository
+2. Install dependencies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+```bash
+pnpm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Start the development server
 
-## Deploy on Vercel
+```bash
+pnpm dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Open [http://localhost:3000](http://localhost:3000) to view the site
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### Building for Production
+
+```bash
+pnpm build
+pnpm start
+```
+
+## Deployment
+
+This site is configured for easy deployment on platforms like Vercel or through standard NextJS deployment procedures.
+
+## Contact 📧
+
+Feel free to reach out to me through the contact section on my website or connect with me on social media.
+
+## License 🔍
+
+All rights reserved. This code is not open for reuse without permission.
+
+This portfolio and its code are published for educational and non-commercial purposes only. You may view and learn from the code, but not use it for commercial purposes or republish it without explicit written permission from the author.

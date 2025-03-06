@@ -71,13 +71,13 @@ const CookieConsent = () => {
       variants={cookieConsentVariants}
     >
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-        <p className="mb-4 md:mb-0 font-josefin">
+        <p className="mb-4 md:mb-0 font-libre italic text-lg">
           {t(
             'cookies.message',
             'Este sitio utiliza cookies para analizar el tráfico. ¿Aceptas el uso de cookies?',
           )}
         </p>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 ">
           <button
             onClick={handleAccept}
             className="px-4 py-2 bg-yellow-primary text-black-primary rounded hover:opacity-90 font-josefin transition-opacity"

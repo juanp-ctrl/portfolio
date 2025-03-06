@@ -27,5 +27,10 @@
   "is": "ES",
   "change": "CAMBIO",
   "quote": "Cita (Marco Aurelio, Libro IV)",
-  "lng": "ES"
+  "lng": "ES",
+  "cookies": {
+    "message": "Este sitio utiliza cookies para analizar el tráfico. ¿Aceptas el uso de cookies?",
+    "accept": "Aceptar",
+    "reject": "Rechazar"
+  }
 }

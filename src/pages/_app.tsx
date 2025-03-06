@@ -1,5 +1,7 @@
 import '@/styles/globals.css'
 import CustomCursor from '@/components/Cursor'
+import CookieConsent from '@/components/CookieConsent'
+import GoogleAnalytics from '@/components/GoogleAnalytics.tsx'
 import useMedia from '@/hooks/useMedia'
 import { AnimatePresence } from 'framer-motion'
 import { appWithTranslation } from 'next-i18next'
@@ -12,10 +14,12 @@ function App({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
+      <GoogleAnalytics />
       {!isMobile && <CustomCursor />}
       <AnimatePresence mode="wait">
         <Component key={router.route} {...pageProps} />
       </AnimatePresence>
+      <CookieConsent />
     </>
   )
 }

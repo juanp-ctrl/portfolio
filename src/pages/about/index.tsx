@@ -72,6 +72,7 @@ export default function About() {
         <Image
           src={'/images/about_juan_pablo_jimenez.webp'}
           alt="Profile picture"
+          priority
           width={400}
           height={400}
           className={styles['profile-picture']}
@@ -108,7 +109,6 @@ export default function About() {
         alt="Medellin city"
         width={300}
         height={400}
-        priority
         className={`mx-auto my-16 ${styles.infoImage}`}
       />
       <div className="bg-black-secondary pb-12">

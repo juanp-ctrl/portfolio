@@ -108,10 +108,11 @@ export default function About() {
         alt="Medellin city"
         width={300}
         height={400}
+        priority
         className={`mx-auto my-16 ${styles.infoImage}`}
       />
       <div className="bg-black-secondary pb-12">
-        <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 md:pl-40 lg:pl-48">
+        <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 pb-4 md:pl-40 lg:pl-48">
           {t('skills_title')}
         </h2>
         <Text

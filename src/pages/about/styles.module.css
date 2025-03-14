@@ -152,7 +152,7 @@
   }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 370px) and (max-height: 780px) {
   .profile-picture {
     width: 200px;
   }

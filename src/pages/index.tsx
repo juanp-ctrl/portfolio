@@ -69,6 +69,7 @@ export default function Home() {
       </Head>
       {isLoading && (
         <>
+          {/* Mask Effect :) */}
           <motion.div className="flex justify-center items-center w-screen h-screen">
             <svg
               className="size-32"
@@ -77,7 +78,7 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <g transform="translate(30, 0)">
-                {/* Letra J */}
+                {/* Letter J */}
                 <motion.path
                   d="M40 20 L40 60 C40 70 35 75 25 75 L20 75"
                   stroke="var(--black_alternative)"
@@ -86,7 +87,7 @@ export default function Home() {
                   {...anim(lettersVariants)}
                 />
 
-                {/* Letra P */}
+                {/* Letter P */}
                 <motion.path
                   d="M80 20 L80 75 M80 20 L100 20 C110 20 120 25 120 35 C120 45 110 50 100 50 L80 50"
                   stroke="var(--black_alternative)"
@@ -95,7 +96,7 @@ export default function Home() {
                   {...anim(lettersVariants)}
                 />
 
-                {/* Linea horizontal */}
+                {/* Horizontal line */}
                 <motion.path
                   d="M20 100 L100 100"
                   stroke="var(--black_alternative)"
@@ -122,6 +123,7 @@ export default function Home() {
             alt="Image of Juan Pablo Jiménez"
             width={2850}
             height={3188}
+            priority
             className={`mx-auto my-16 shadow-[0_5px_10px_black] w-[300px] md:w-[400px] `}
           />
           <Text phrase={t('first_section_text_2')} />

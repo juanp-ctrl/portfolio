@@ -64,19 +64,21 @@ export default function About() {
       <Header />
       <TrailImages />
       <div className={styles['main-container']}>
-        <div className="w-full">
+        <div>
           <h1 className="text-[2.5rem] italic font-libre border-t-2 w-fit leading-[4rem]">
             {t('developer')}
           </h1>
         </div>
         <Image
-          src={'/images/Profile_suit.jpeg'}
+          src={'/images/about_juan_pablo_jimenez.webp'}
           alt="Profile picture"
-          width={300}
-          height={300}
+          width={400}
+          height={400}
           className={styles['profile-picture']}
         />
-        <div className="w-full flex flex-row-reverse mb-6 mt-2">
+        <div
+          className={`flex flex-row-reverse mb-6 mt-2 ${styles['second-title']}`}
+        >
           <h2 className="text-[2.5rem] italic font-libre text-yellow-primary border-b-2 border-yellow-primary w-fit leading-[4rem]">
             {t('engineer')}
           </h2>

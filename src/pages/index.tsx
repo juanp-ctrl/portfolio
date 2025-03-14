@@ -3,6 +3,7 @@ import BalloonsButton from '@/components/BalloonsButton'
 import Currently from '@/components/Currently'
 import Drawing from '@/components/Drawing'
 import Header from '@/components/Header'
+import Image from 'next/image'
 import Footer from '@/components/Footer'
 import Text from '@/components/Text'
 import { motion, Variants } from 'framer-motion'
@@ -116,6 +117,13 @@ export default function Home() {
             <Text phrase={t('first_section_text_1')} />
           </div>
           <Drawing />
+          <Image
+            src="/images/juan_pablo_jimenez.webp"
+            alt="Image of Juan Pablo Jiménez"
+            width={2850}
+            height={3188}
+            className={`mx-auto my-16 shadow-[0_5px_10px_black] w-[300px] md:w-[400px] `}
+          />
           <Text phrase={t('first_section_text_2')} />
           <div className="bg-black-secondary">
             <Currently />

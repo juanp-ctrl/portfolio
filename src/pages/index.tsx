@@ -122,8 +122,8 @@ export default function Home() {
             src="/images/juan_pablo_jimenez.webp"
             alt="Image of Juan Pablo Jiménez"
             priority
-            width={850}
-            height={1188}
+            width={450}
+            height={788}
             className={`mx-auto my-16 shadow-[0_5px_10px_black] w-[300px] md:w-[400px] `}
           />
           <Text phrase={t('first_section_text_2')} />

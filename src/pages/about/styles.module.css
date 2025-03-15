@@ -79,7 +79,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .main-container {
     padding-top: 130px;
     flex-direction: column;
@@ -134,7 +134,7 @@
   }
 
   .profile-picture {
-    width: 200px;
+    width: 250px;
   }
 
   .spaceship {
@@ -150,10 +150,20 @@
   .main-container {
     height: calc(var(--vh, 1vh) * 65);
   }
+
+  .profile-picture {
+    width: 250px;
+  }
 }
 
-@media (max-width: 370px) and (max-height: 780px) {
+@media (max-width: 380px) and (max-height: 740px) {
+  .main-container h1,
+  .main-container h2 {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+
   .profile-picture {
-    width: 200px;
+    width: 220px;
   }
 }

@@ -14,6 +14,7 @@
 body {
   background-color: var(--white);
   cursor: none;
+  scroll-behavior: smooth;
 }
 
 h1 {

@@ -29,7 +29,7 @@
   "quote": "Quote (Marcus Aurelius, Book IV)",
   "lng": "EN",
   "cookies": {
-    "message": "This site uses cookies to analyze traffic. Do you accept the use of cookies?",
+    "message": "This site uses cookies to analyze web traffic. Do you accept the use of cookies?",
     "accept": "Accept",
     "reject": "Decline"
   }

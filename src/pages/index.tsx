@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>{t('home_title')}</title>
+        <title>{t('JP')}</title>
         <meta name="description" content={t('home_description')} />
         <link rel="canonical" href="https://www.juanpablojimenez.dev/" />
         <meta property="og:title" content="Juan Pablo Jiménez | Frontend" />
@@ -138,7 +138,7 @@ export default function Home() {
               phrase={t('second_section_text_2')}
             />
             <Text
-              customStyle="text-white mt-10"
+              customStyle="text-white mt-10 font-bold md:text-[2.1rem]"
               phrase={t('second_section_text_3')}
             />
             <BalloonsButton />

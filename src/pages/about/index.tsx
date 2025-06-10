@@ -103,7 +103,8 @@ export default function About() {
         </motion.div>
       </div>
       <Text phrase={t('about_me')} customStyle="-mt-2 mb-10" />
-      <Text phrase={t('about_me_2')} />
+      <Text phrase={t('about_me_3')} customStyle="mb-10" />
+      <Text phrase={t('about_me_4')} customStyle="mb-10" />
       <Image
         src="/images/IMG_18.webp"
         alt="Medellin city"
@@ -111,6 +112,7 @@ export default function About() {
         height={400}
         className={`mx-auto my-16 ${styles.infoImage}`}
       />
+      <Text phrase={t('about_me_2')} customStyle="mb-24" />
       <div className="bg-black-secondary pb-12">
         <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 pb-4 md:pl-40 lg:pl-48">
           {t('skills_title')}

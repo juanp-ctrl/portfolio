@@ -126,11 +126,11 @@ export default function Home() {
             height={788}
             className={`mx-auto my-16 shadow-[0_5px_10px_black] w-[300px] md:w-[400px] `}
           />
-          <Text phrase={t('first_section_text_2')} />
+          <Text phrase={t('first_section_text_2')} customStyle="mb-32 mt-24" />
           <div className="bg-black-secondary">
             <Currently />
             <Text
-              customStyle="text-white mt-10 mb-10"
+              customStyle="text-white mt-32 mb-10"
               phrase={t('second_section_text_1')}
             />
             <Text

@@ -4,7 +4,7 @@ import Layout from '@/components/layout'
 import Text from '@/components/Text'
 import Footer from '@/components/Footer'
 import styles from './styles.module.css'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import Head from 'next/head'
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
@@ -130,4 +130,19 @@ export default function About() {
       <Footer />
     </Layout>
   )
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  const { serverSideTranslations } = await import(
+    'next-i18next/serverSideTranslations'
+  )
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'about'], null, [
+        'en',
+        'es',
+      ])),
+    },
+  }
 }

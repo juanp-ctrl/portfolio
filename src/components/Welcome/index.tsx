@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { Suspense, useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from './styles.module.css'

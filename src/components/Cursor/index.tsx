@@ -5,6 +5,12 @@ export default function Index() {
   const cursorRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    if (cursorRef.current) {
+      const centerX = window.innerWidth / 2
+      cursorRef.current.style.left = `${centerX}px`
+      cursorRef.current.style.top = `-100px`
+    }
+
     const handleMouseMove = (event: MouseEvent) => {
       if (cursorRef.current) {
         cursorRef.current.style.left = `${event.clientX}px`

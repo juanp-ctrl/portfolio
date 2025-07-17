@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './styles.module.css'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 export default function Index() {
   const { t } = useTranslation('common')

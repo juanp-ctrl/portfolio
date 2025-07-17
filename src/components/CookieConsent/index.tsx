@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { motion, Variants } from 'framer-motion'
 
 const CookieConsent = () => {
@@ -65,7 +65,7 @@ const CookieConsent = () => {
 
   return (
     <motion.div
-      className="fixed bottom-0 left-0 right-0 bg-black-secondary text-white-primary p-4 z-50"
+      className="fixed bottom-0 inset-x-0 bg-black-secondary text-white-primary p-4 z-50"
       initial="hidden"
       animate="visible"
       variants={cookieConsentVariants}

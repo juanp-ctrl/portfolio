@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import Link from 'next/link'
 import navItems from '@/constants/routes'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 const socials = [
   {

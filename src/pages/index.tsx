@@ -1,18 +1,31 @@
 'use client'
-import BalloonsButton from '@/components/BalloonsButton'
-import Currently from '@/components/Currently'
-import Drawing from '@/components/Drawing'
-import Header from '@/components/Header'
 import Image from 'next/image'
-import Footer from '@/components/Footer'
-import Text from '@/components/Text'
 import { motion, Variants } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Welcome from '@/components/Welcome'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import Layout from '@/components/layout'
-import Conceptual from '@/components/Conceptual'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
+import Text from '@/components/Text'
+import Header from '@/components/Header'
+
+// Dynamic imports for heavy components
+const BalloonsButton = dynamic(() => import('@/components/BalloonsButton'), {
+  loading: () => <div className="h-32" />,
+})
+const Currently = dynamic(() => import('@/components/Currently'), {
+  loading: () => <div className="h-24" />,
+})
+const Drawing = dynamic(() => import('@/components/Drawing'), {
+  loading: () => <div className="h-16" />,
+})
+const Conceptual = dynamic(() => import('@/components/Conceptual'), {
+  loading: () => <div className="h-48" />,
+})
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-32" />,
+})
 
 export default function Home() {
   const { t } = useTranslation('common')
@@ -149,4 +162,16 @@ export default function Home() {
       )}
     </Layout>
   )
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  const { serverSideTranslations } = await import(
+    'next-i18next/serverSideTranslations'
+  )
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'], null, ['en', 'es'])),
+    },
+  }
 }

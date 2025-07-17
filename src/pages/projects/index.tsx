@@ -13,7 +13,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Card, CardContent } from '@/components/ui/card'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import useProjects, { Project } from '@/hooks/useProjects'
 import { useEffect, useState } from 'react'
 import React from 'react'
@@ -244,4 +244,19 @@ export default function Projects() {
       <Footer />
     </Layout>
   )
+}
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  const { serverSideTranslations } = await import(
+    'next-i18next/serverSideTranslations'
+  )
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'projects'], null, [
+        'en',
+        'es',
+      ])),
+    },
+  }
 }

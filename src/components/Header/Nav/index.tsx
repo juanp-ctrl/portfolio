@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
@@ -56,14 +56,15 @@ export default function Index() {
                   </a>
                 )
               } else {
-              return (
-                <Link
-                  key={index}
-                  data={{ ...data, index }}
-                  isActive={selectedIndicator == data.path}
-                  setSelectedIndicator={setSelectedIndicator}
-                ></Link>
-              )}
+                return (
+                  <Link
+                    key={index}
+                    data={{ ...data, index }}
+                    isActive={selectedIndicator == data.path}
+                    setSelectedIndicator={setSelectedIndicator}
+                  ></Link>
+                )
+              }
             })}
           </div>
         </div>

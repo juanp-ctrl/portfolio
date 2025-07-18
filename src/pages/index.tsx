@@ -26,6 +26,9 @@ const Conceptual = dynamic(() => import('@/components/Conceptual'), {
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-32" />,
 })
+const DownloadButton = dynamic(() => import('@/components/DownloadButton'), {
+  loading: () => <div className="h-16" />,
+})
 
 export default function Home() {
   const { t } = useTranslation('common')
@@ -139,7 +142,8 @@ export default function Home() {
             height={788}
             className={`mx-auto my-16 shadow-[0_5px_10px_black] w-[300px] md:w-[400px] `}
           />
-          <Text phrase={t('first_section_text_2')} customStyle="mb-32 mt-24" />
+          <Text phrase={t('first_section_text_2')} customStyle="mb-24 mt-24" />
+          <DownloadButton />
           <div className="bg-black-secondary">
             <Currently />
             <Text

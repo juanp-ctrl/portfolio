@@ -116,12 +116,12 @@ export default function Index() {
           </svg>
         </div>
         <div ref={ref} className="relative">
-          <div className="bg-white-secondary py-2 px-6 rounded-lg relative top-32 left-5 z-40">
+          <div className={`${styles.aboutButton} top-32 left-5`}>
             <p
               onClick={() => {
                 router.push('/about')
               }}
-              className="font-libre text-4xl underline text-black-primary italic cursor-pointer"
+              className={styles.aboutText}
             >
               {t('about')}
             </p>

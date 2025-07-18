@@ -32,5 +32,6 @@
     "message": "Este sitio utiliza cookies para analizar el tráfico web. ¿Aceptas el uso de cookies?",
     "accept": "Aceptar",
     "reject": "Rechazar"
-  }
+  },
+  "download_cv": "Descargar CV"
 }

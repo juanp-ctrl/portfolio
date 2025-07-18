@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Block access to private files
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Allow important assets
+Allow: /images/
+Allow: /fonts/
+Allow: /cv/
+
+# Sitemap location
+Sitemap: https://www.juanpablojimenez.dev/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1 

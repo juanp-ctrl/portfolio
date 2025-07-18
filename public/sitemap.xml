@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.juanpablojimenez.dev/</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.juanpablojimenez.dev/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.juanpablojimenez.dev/" />
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://www.juanpablojimenez.dev/about</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.juanpablojimenez.dev/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.juanpablojimenez.dev/about" />
+  </url>
+  
+  <!-- Projects Page -->
+  <url>
+    <loc>https://www.juanpablojimenez.dev/projects</loc>
+    <lastmod>2025-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/projects" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.juanpablojimenez.dev/projects" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.juanpablojimenez.dev/projects" />
+  </url>
+
+</urlset> 

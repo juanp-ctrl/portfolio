@@ -69,19 +69,91 @@ export default function Home() {
       <Head>
         <title>{t('JP')}</title>
         <meta name="description" content={t('home_description')} />
-        <link rel="canonical" href="https://www.juanpablojimenez.dev/" />
-        <meta property="og:title" content="Juan Pablo Jiménez | Frontend" />
         <meta
-          property="og:description"
-          content="The little space in the web of Juan Pablo Jiménez, where he showcases his works, experiments, and projects related to web development. A space where you can get to know better who is Juan Pablo Jiménez, frontend and creative developer. From Medellín to the world!"
+          name="keywords"
+          content="frontend developer, react developer, nextjs developer, typescript developer, web developer, UI developer, creative developer, medellín developer, colombia developer, javascript developer, web applications, user interface, user experience, modern web development"
         />
+        <meta name="author" content="Juan Pablo Jiménez" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="en" />
+        <meta name="geo.region" content="CO-ANT" />
+        <meta name="geo.placename" content="Medellín, Colombia" />
+        <link rel="canonical" href="https://www.juanpablojimenez.dev/" />
+
+        <meta property="og:title" content={t('home_title_og')} />
+        <meta property="og:description" content={t('home_description')} />
         <meta property="og:url" content="https://www.juanpablojimenez.dev/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://juanpablojimenez.dev/_next/image?url=%2Fimages%2Ffree_astronaut.png"
+          content="https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp"
         />
-        <meta property="og:image:alt" content="Website image" />
+        <meta
+          property="og:image:alt"
+          content="Juan Pablo Jiménez - Frontend Developer & Creative Engineer"
+        />
+        <meta property="og:image:width" content="450" />
+        <meta property="og:image:height" content="788" />
+        <meta property="og:site_name" content="Juan Pablo Jiménez Portfolio" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="es_ES" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t('home_title_og')} />
+        <meta name="twitter:description" content={t('home_description')} />
+        <meta
+          name="twitter:image"
+          content="https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Juan Pablo Jiménez - Frontend Developer"
+        />
+        <meta name="twitter:creator" content="@JuanPabloJim_" />
+
+        {/* Structured Data - JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Juan Pablo Jiménez',
+              jobTitle: 'Frontend Developer & Creative Engineer',
+              description:
+                'Frontend Developer and Creative Engineer from Medellín, Colombia, specializing in React, Next.js, and TypeScript',
+              url: 'https://www.juanpablojimenez.dev',
+              image:
+                'https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Medellín',
+                addressRegion: 'Antioquia',
+                addressCountry: 'Colombia',
+              },
+              knowsAbout: [
+                'React',
+                'Next.js',
+                'TypeScript',
+                'JavaScript',
+                'Frontend Development',
+                'Web Development',
+                'UI/UX Design',
+                'Creative Development',
+                'Modern Web Technologies',
+              ],
+              alumniOf: {
+                '@type': 'Organization',
+                name: 'Universidad Pontificia Bolivariana',
+              },
+              worksFor: {
+                '@type': 'Organization',
+                name: 'Globant',
+              },
+            }),
+          }}
+        />
       </Head>
       {isLoading && (
         <>

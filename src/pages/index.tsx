@@ -71,7 +71,7 @@ export default function Home() {
         <meta name="description" content={t('home_description')} />
         <meta
           name="keywords"
-          content="frontend developer, react developer, nextjs developer, typescript developer, web developer, UI developer, creative developer, medellín developer, colombia developer, javascript developer, web applications, user interface, user experience, modern web development"
+          content="frontend developer, react developer, nextjs developer, typescript developer, web developer, UI developer, creative developer, medellín developer, colombia developer, javascript developer, web applications, user interface, user experience, modern web development, jpj dev"
         />
         <meta name="author" content="Juan Pablo Jiménez" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -87,7 +87,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp"
+          content="https://juanpablojimenez.dev/_next/image?url=%2Fimages%2Ffree_astronaut.png"
         />
         <meta
           property="og:image:alt"
@@ -104,7 +104,7 @@ export default function Home() {
         <meta name="twitter:description" content={t('home_description')} />
         <meta
           name="twitter:image"
-          content="https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp"
+          content="https://juanpablojimenez.dev/_next/image?url=%2Fimages%2Fjuan_pablo_jimenez.webp"
         />
         <meta
           name="twitter:image:alt"
@@ -125,7 +125,7 @@ export default function Home() {
                 'Frontend Developer and Creative Engineer from Medellín, Colombia, specializing in React, Next.js, and TypeScript',
               url: 'https://www.juanpablojimenez.dev',
               image:
-                'https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp',
+                'https://juanpablojimenez.dev/_next/image?url=%2Fimages%2Fjuan_pablo_jimenez.webp',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Medellín',

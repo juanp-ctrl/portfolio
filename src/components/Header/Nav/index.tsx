@@ -49,22 +49,14 @@ export default function Index() {
             className={styles.nav}
           >
             {navItems.map((data, index) => {
-              if (data.path === '/contact') {
-                return (
-                  <a key={index} href="mailto:juanpablojimenez.dev@gmail.com">
-                    {t(data.title)}
-                  </a>
-                )
-              } else {
-                return (
-                  <Link
-                    key={index}
-                    data={{ ...data, index }}
-                    isActive={selectedIndicator == data.path}
-                    setSelectedIndicator={setSelectedIndicator}
-                  ></Link>
-                )
-              }
+              return (
+                <Link
+                  key={index}
+                  data={{ ...data, index }}
+                  isActive={selectedIndicator == data.path}
+                  setSelectedIndicator={setSelectedIndicator}
+                ></Link>
+              )
             })}
           </div>
         </div>

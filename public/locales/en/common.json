@@ -33,5 +33,12 @@
     "accept": "Accept",
     "reject": "Decline"
   },
-  "download_cv": "Download CV"
+  "download_cv": "Download CV",
+  "404_title": "Houston, we have a problem!",
+  "404_description": "The page you're looking for seems to have drifted into space. Let's get you back to a safe orbit.",
+  "404_button_1": "Return to Home Base",
+  "404_button_2": "Explore Projects",
+  "404_contact_me": "Contact me",
+  "404_contact_me_text_1": "Or you can",
+  "404_contact_me_text_2": "if you think this is an error."
 }

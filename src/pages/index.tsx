@@ -80,6 +80,21 @@ export default function Home() {
         <meta name="geo.region" content="CO-ANT" />
         <meta name="geo.placename" content="Medellín, Colombia" />
         <link rel="canonical" href="https://www.juanpablojimenez.dev/" />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://www.juanpablojimenez.dev/"
+        />
+        <link
+          rel="alternate"
+          hrefLang="es"
+          href="https://www.juanpablojimenez.dev/"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://www.juanpablojimenez.dev/"
+        />
 
         <meta property="og:title" content={t('home_title_og')} />
         <meta property="og:description" content={t('home_description')} />

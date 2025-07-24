@@ -24,19 +24,11 @@ const Nav = () => {
   return (
     <div className={`flex flex-col gap-2 ${styles.nav}`}>
       <p className={styles.hint}>Sitemap</p>
-      {navItems.map((data, index) =>
-        data.path === '/contact' ? (
-          <p key={index}>
-            <a key={index} href="mailto:juanpablojimenez.dev@gmail.com">
-              {t(data.title)}
-            </a>
-          </p>
-        ) : (
-          <p key={index}>
-            <Link href={data.path}>{t(data.title)}</Link>
-          </p>
-        ),
-      )}
+      {navItems.map((data, index) => (
+        <p key={index}>
+          <Link href={data.path}>{t(data.title)}</Link>
+        </p>
+      ))}
     </div>
   )
 }

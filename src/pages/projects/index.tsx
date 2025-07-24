@@ -68,6 +68,21 @@ export default function Projects() {
           rel="canonical"
           href="https://www.juanpablojimenez.dev/projects"
         />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href="https://www.juanpablojimenez.dev/projects"
+        />
+        <link
+          rel="alternate"
+          hrefLang="es"
+          href="https://www.juanpablojimenez.dev/projects"
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://www.juanpablojimenez.dev/projects"
+        />
         <meta property="og:title" content="Juan Pablo Jiménez's Projects" />
         <meta
           property="og:description"

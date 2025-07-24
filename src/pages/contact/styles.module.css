@@ -1,0 +1,62 @@
+/* Contact page specific styles */
+.contactContainer {
+  min-height: 100vh;
+  padding: 5rem 1rem;
+}
+
+.socialCard {
+  background-color: var(--black_alternative);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #374151;
+  transition: all 0.3s ease;
+}
+
+.socialCard:hover {
+  border-color: var(--yellow);
+  transform: scale(1.05);
+}
+
+.socialTitle {
+  color: var(--yellow);
+  font-family: var(--font-josefin-sans);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.socialValue {
+  color: var(--white);
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  font-family: monospace;
+}
+
+.socialDescription {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.ctaButton {
+  background-color: var(--yellow);
+  color: var(--black);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-josefin-sans);
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #eab308;
+}
+
+@media (max-width: 768px) {
+  .contactContainer {
+    padding: 3rem 1rem;
+  }
+
+  .socialCard {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,486 @@
+---
+alwaysApply: true
+---
+
+# Juan Pablo Portfolio Website - Comprehensive Development Guide
+
+## Role & Approach
+You are an expert in React, Next.js SSR/SSG, TypeScript, CSS Modules, Tailwind CSS, Framer Motion, GSAP, and Locomotive Scroll.
+
+**Workflow Protocol:**
+1. **Plan First**: Analyze the task and create a detailed implementation plan
+2. **Review**: Critically evaluate the plan for potential issues
+3. **Iterate**: Refine the plan if needed before implementation
+4. **Execute**: Apply changes only after plan approval
+5. **Verify**: Check for linting errors and test the implementation
+
+**Communication:**
+- Always ask the user to test the dev environment after significant changes
+- Never implement untested or speculative solutions
+- Use pnpm exclusively for package management
+
+---
+
+## Project Architecture
+
+### Tech Stack
+- **Framework**: Next.js 15.2.3 (Pages Router, not App Router)
+- **Runtime**: React 18.3.1
+- **Language**: TypeScript 5.8.3 (strict mode enabled)
+- **Package Manager**: pnpm (required)
+- **Build Tool**: Turbopack (dev mode)
+- **Rendering**: SSG with getStaticProps (prefer static generation)
+
+### Key Dependencies
+- **Animation**: Framer Motion 12.0.0-alpha.1, GSAP 3.13.0, Locomotive Scroll 5.0.0-beta.21
+- **Styling**: Tailwind CSS 3.4.17 + CSS Modules
+- **UI Components**: Radix UI primitives (shadcn/ui pattern)
+- **Internationalization**: next-i18next 15.4.2 (en, es)
+- **Icons**: Lucide React
+- **Utilities**: clsx, tailwind-merge, class-variance-authority
+
+### Project Structure
+```
+src/
+├── components/          # Feature components with CSS Modules
+│   ├── [Component]/
+│   │   ├── index.tsx
+│   │   └── styles.module.css
+│   └── ui/             # Reusable UI primitives (shadcn/ui)
+├── pages/              # Next.js Pages Router
+│   ├── _app.tsx        # App wrapper with Locomotive Scroll
+│   ├── _document.tsx   # HTML document setup
+│   └── [page]/         # Page components
+├── hooks/              # Custom React hooks
+├── constants/          # Constants and routes
+├── lib/               # Utilities (utils.ts)
+└── styles/            # Global styles
+public/
+├── locales/           # i18n translations (en, es)
+│   ├── en/
+│   └── es/
+├── images/            # Optimized images (WebP preferred)
+├── fonts/             # Custom fonts
+└── cv/               # Downloadable files
+```
+
+---
+
+## Code Quality Standards
+
+### TypeScript Guidelines
+- **Strict Mode**: Always enabled
+- **Type Safety**: No `any` without explicit comment justification
+- **Imports**: Use `@/*` path aliases (configured in tsconfig)
+- **Interface vs Type**: Prefer interfaces for objects, types for unions/intersections
+- **Null Safety**: Handle null/undefined explicitly
+
+### Component Patterns
+```typescript
+// ✅ Preferred pattern for components
+import styles from './styles.module.css'
+import { useTranslation } from 'next-i18next'
+import { motion } from 'framer-motion'
+
+interface ComponentProps {
+  // Props definition
+}
+
+export default function Component({ prop }: ComponentProps) {
+  const { t } = useTranslation('namespace')
+  
+  return (
+    <div className={styles.container}>
+      {/* Component JSX */}
+    </div>
+  )
+}
+```
+
+### File Naming Conventions
+- **Components**: PascalCase folders with `index.tsx` + `styles.module.css`
+- **Hooks**: camelCase files prefixed with `use` (e.g., `useMedia.tsx`)
+- **Pages**: kebab-case or lowercase
+- **Types**: PascalCase interfaces/types
+- **Constants**: UPPER_SNAKE_CASE for constants, camelCase for files
+
+---
+
+## Styling Standards
+
+### CSS Architecture
+**Hybrid Approach**: Tailwind CSS + CSS Modules
+- **Tailwind**: Utility classes for layout, spacing, responsive design
+- **CSS Modules**: Component-specific styles, animations, complex selectors
+- **No Inline Styles**: Avoid unless necessary for dynamic values
+
+### Color System
+```css
+/* CSS Variables (globals.css) */
+:root {
+  --black_alternative: #1e1e1e;
+  --white_alternative: #fafafa;
+  --yellow-alternative: #f2df6b;
+  --black: #292826;
+  --white: #f0f0f0;
+  --yellow: #f8d78f;
+}
+
+/* Tailwind Classes */
+.black-primary    /* #292826 */
+.white-primary    /* #f0f0f0 */
+.yellow-primary   /* #f8d78f */
+.black-secondary  /* #1e1e1e */
+.white-secondary  /* #fafafa */
+.yellow-secondary /* #f2df6b */
+```
+
+### Typography
+- **Headings**: Libre Baskerville (italic, 2.25rem)
+- **Body**: Josefin Sans (light, 1.2rem)
+- **Font Variables**: `--font-libre-baskerville`, `--font-josefin-sans`
+- **Tailwind Classes**: `font-libre`, `font-josefin`
+
+### Responsive Design
+- **Mobile-First**: Always start with mobile layout
+- **Breakpoints**: Use Tailwind defaults (sm, md, lg, xl, 2xl)
+- **Testing**: Test on multiple screen sizes
+
+### CSS Module Naming
+```css
+/* styles.module.css - Use BEM-like naming */
+.container { }
+.container__element { }
+.container--modifier { }
+```
+
+---
+
+## Animation Guidelines
+
+### Framer Motion
+- **Page Transitions**: Use `<AnimatePresence mode="wait">`
+- **Scroll Animations**: Integrate with Locomotive Scroll attributes
+- **Variants Pattern**: Define animation variants for reusability
+- **Performance**: Use `layoutId` for shared element transitions
+- **Hardware Acceleration**: Animate transform and opacity only when possible
+
+```typescript
+// ✅ Preferred animation pattern
+const variants = {
+  initial: { opacity: 0, y: 20 },
+  enter: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  exit: { opacity: 0, transition: { duration: 0.3 } }
+}
+
+<motion.div
+  initial="initial"
+  animate="enter"
+  exit="exit"
+  variants={variants}
+>
+```
+
+### Locomotive Scroll
+- **Container**: `data-scroll-container` attribute required
+- **Elements**: Use `data-scroll`, `data-scroll-speed` attributes
+- **Configuration**: Set in `_app.tsx` (smooth: true, lerp: 0.1)
+- **Cleanup**: Always destroy on unmount
+
+### GSAP
+- **Use Cases**: Complex timeline animations, scroll triggers
+- **Performance**: Use GSAP for performance-critical animations
+- **Cleanup**: Clear animations on component unmount
+
+---
+
+## Performance Optimization
+
+### Image Optimization
+- **Format**: WebP preferred, fallback to PNG/JPG
+- **Next Image**: Always use `next/image` component
+- **Priority**: Add `priority` prop to above-the-fold images
+- **Sizing**: Provide width and height props
+
+### Code Splitting
+- **Dynamic Imports**: Use for heavy components not immediately visible
+```typescript
+const Component = dynamic(() => import('@/components/Component'), {
+  loading: () => <div className="h-24" /> // Maintain layout
+})
+```
+
+### Loading States
+- **Session Storage**: Use to skip intro animation on subsequent visits
+- **Skeleton Loaders**: Provide loading fallbacks for dynamic imports
+- **Suspense**: Consider for future React 19 upgrade
+
+### Bundle Size
+- **Tree Shaking**: Import only needed functions
+- **Analyze**: Run `pnpm build` and check bundle size
+- **Lazy Load**: Defer non-critical components
+
+---
+
+## Internationalization (i18n)
+
+### Structure
+- **Locales**: `public/locales/{locale}/{namespace}.json`
+- **Supported**: English (en - default), Spanish (es)
+- **Namespaces**: common, about, projects, contact
+
+### Implementation
+```typescript
+// Page component
+import { useTranslation } from 'next-i18next'
+
+export default function Page() {
+  const { t } = useTranslation('namespace')
+  return <h1>{t('key')}</h1>
+}
+
+// getStaticProps (required for each page)
+export async function getStaticProps({ locale }) {
+  const { serverSideTranslations } = await import('next-i18next/serverSideTranslations')
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['namespace'], null, ['en', 'es']))
+    }
+  }
+}
+```
+
+### Translation Keys
+- **Naming**: Use snake_case (e.g., `home_title`, `about_description`)
+- **Structure**: Organize by feature/section
+- **Fallbacks**: Always provide English as default
+
+---
+
+## SEO Best Practices
+
+### Meta Tags (Required for Every Page)
+```typescript
+<Head>
+  {/* Basic Meta */}
+  <title>{t('page_title')}</title>
+  <meta name="description" content={t('page_description')} />
+  <meta name="keywords" content="..." />
+  <meta name="author" content="Juan Pablo Jiménez" />
+  <link rel="canonical" href="https://www.juanpablojimenez.dev/page" />
+  
+  {/* Open Graph */}
+  <meta property="og:title" content="..." />
+  <meta property="og:description" content="..." />
+  <meta property="og:url" content="..." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="..." />
+  
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="..." />
+  <meta name="twitter:description" content="..." />
+  <meta name="twitter:image" content="..." />
+  
+  {/* Structured Data */}
+  <script type="application/ld+json">
+    {JSON.stringify(structuredData)}
+  </script>
+</Head>
+```
+
+### SEO Checklist
+- ✅ Unique title and description per page
+- ✅ Alt text for all images
+- ✅ Semantic HTML (h1, h2, nav, main, footer)
+- ✅ Canonical URLs
+- ✅ robots.txt and sitemap.xml
+- ✅ Structured data (JSON-LD)
+- ✅ hreflang for multilingual content
+- ✅ Mobile-friendly and responsive
+- ✅ Fast loading (Web Vitals)
+
+---
+
+## Development Workflow
+
+### Commands
+```bash
+pnpm dev          # Start dev server with Turbopack
+pnpm build        # Production build
+pnpm start        # Start production server
+pnpm lint         # Run ESLint
+```
+
+### Git Workflow
+- **Husky**: Pre-commit hooks configured
+- **Commits**: Write clear, descriptive commit messages
+- **Branches**: Feature branches for new features
+
+### Code Review Checklist
+- [ ] TypeScript: No type errors
+- [ ] Linting: No ESLint warnings/errors
+- [ ] Styling: Follows Tailwind + CSS Modules pattern
+- [ ] i18n: All text is translatable
+- [ ] SEO: Meta tags and structured data present
+- [ ] Performance: Images optimized, components lazy-loaded
+- [ ] Accessibility: Semantic HTML, ARIA labels
+- [ ] Animations: Smooth, performant (60fps)
+- [ ] Responsive: Works on mobile, tablet, desktop
+- [ ] Testing: Manual testing completed
+
+---
+
+## Component Development Best Practices
+
+### Component Checklist
+1. **Structure**: Create folder with `index.tsx` + `styles.module.css`
+2. **Types**: Define props interface
+3. **i18n**: Use `useTranslation` for text content
+4. **Styling**: Tailwind for layout, CSS Modules for custom styles
+5. **Animation**: Use Framer Motion or GSAP consistently
+6. **Performance**: Consider dynamic import if heavy
+7. **Accessibility**: Add ARIA labels, keyboard navigation
+8. **Responsiveness**: Test on multiple breakpoints
+
+### State Management
+- **Local State**: useState for component-specific state
+- **URL State**: Use Next.js router for shareable state
+- **Global State**: Use Context API if needed (currently not used)
+- **Server State**: Use getStaticProps/getServerSideProps
+
+### Error Handling
+- **Try-Catch**: Wrap async operations
+- **Fallbacks**: Provide error boundaries for critical components
+- **Logging**: Console errors in development only
+- **User Feedback**: Show user-friendly error messages
+
+---
+
+## Special Features
+
+### Custom Cursor
+- Implemented in `src/components/Cursor`
+- Global: `cursor: none` in body
+- Replaces default cursor with custom component
+
+### Locomotive Scroll
+- Initialized in `_app.tsx`
+- Container: Must have `data-scroll-container` attribute
+- Smooth scrolling with lerp: 0.1, multiplier: 1.8
+
+### Service Worker
+- PWA capabilities via `serviceWorkerRegistration.ts`
+- Caching strategy for offline support
+
+### Google Analytics
+- Implemented via `GoogleAnalytics.tsx` component
+- Cookie consent integration
+
+### Cookie Consent
+- GDPR-compliant cookie banner
+- Required before tracking activation
+
+---
+
+## Testing Strategy
+
+### Manual Testing Workflow
+1. **Visual**: Check all components render correctly
+2. **Responsive**: Test on mobile, tablet, desktop
+3. **i18n**: Switch languages, verify translations
+4. **Performance**: Check Lighthouse scores
+5. **SEO**: Validate meta tags, structured data
+6. **Animations**: Verify smooth 60fps animations
+7. **Accessibility**: Test with screen reader, keyboard navigation
+8. **Cross-browser**: Test on Chrome, Firefox, Safari
+
+### Performance Targets
+- **Lighthouse Score**: >90 for all metrics
+- **FCP**: <1.8s (First Contentful Paint)
+- **LCP**: <2.5s (Largest Contentful Paint)
+- **CLS**: <0.1 (Cumulative Layout Shift)
+- **FID**: <100ms (First Input Delay)
+
+---
+
+## Common Pitfalls to Avoid
+
+❌ **Don't:**
+- Use App Router patterns (this is Pages Router)
+- Use `any` type without justification
+- Inline large CSS in JSX
+- Skip `getStaticProps` for i18n pages
+- Forget alt text on images
+- Use `<a>` instead of Next.js `<Link>`
+- Import entire libraries (e.g., `import _ from 'lodash'`)
+- Use `console.log` in production
+- Forget to cleanup animations/subscriptions
+- Skip responsive design testing
+- Use npm or yarn (use pnpm only)
+
+✅ **Do:**
+- Use TypeScript strictly
+- Follow component folder structure
+- Leverage Tailwind utilities first
+- Add proper i18n support
+- Optimize images with WebP
+- Use semantic HTML
+- Write accessible components
+- Test on multiple devices
+- Keep bundle size small
+- Document complex logic
+
+---
+
+## Emergency Debugging
+
+### Common Issues
+1. **Hydration Errors**: Check for SSR/client mismatches
+2. **Type Errors**: Run `pnpm build` to catch all TypeScript errors
+3. **Linting**: Run `pnpm lint` and fix all warnings
+4. **i18n Missing**: Ensure getStaticProps includes translations
+5. **Locomotive Scroll**: Verify `data-scroll-container` exists
+6. **Build Failures**: Check Next.js version compatibility
+
+### Debug Mode
+```bash
+NODE_OPTIONS='--inspect' pnpm dev  # Node debugger
+ANALYZE=true pnpm build            # Bundle analysis
+```
+
+---
+
+## Future Considerations
+
+### Potential Upgrades
+- Migrate to App Router (Next.js 15+)
+- Add E2E testing (Playwright/Cypress)
+- Implement unit tests (Vitest/Jest)
+- Add Storybook for component documentation
+- Consider Server Components for better performance
+- Upgrade to React 19 when stable
+
+### Maintenance
+- Keep dependencies updated (monthly check)
+- Monitor Web Vitals in production
+- Review Google Analytics data
+- Update SEO content regularly
+- Optimize based on Lighthouse reports
+
+---
+
+## Questions to Ask Before Implementation
+
+1. Does this change affect SEO? → Update meta tags
+2. Is new text added? → Add to i18n files
+3. Is it a heavy component? → Consider dynamic import
+4. Does it need animation? → Use Framer Motion patterns
+5. Is it responsive? → Test all breakpoints
+6. Is it accessible? → Add ARIA labels
+7. Does it impact performance? → Check bundle size
+8. Is TypeScript happy? → No type errors
+
+---
+
+**Remember**: Always plan, review, iterate, then execute. Quality over speed. Ask user to test after significant changes.

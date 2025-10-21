@@ -8,7 +8,7 @@ export default function Index() {
   const ref = useRef(null)
   const [displayText, setDisplayText] = useState('')
   const isInView = useInView(ref, { once: true })
-  const currentlyAt = 'Globant'
+  const currentlyAt = 'Gorilla Logic'
 
   useEffect(() => {
     if (isInView) {
@@ -41,7 +41,7 @@ export default function Index() {
         <div
           ref={ref}
           className={styles['input-container']}
-          onClick={() => window.open('https://www.globant.com', '_blank')}
+          onClick={() => window.open('https://gorillalogic.com/', '_blank')}
         >
           <span className="text-black-secondary text-4xl font-josefin font-bold">
             {displayText}

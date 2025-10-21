@@ -1,20 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import styles from './styles.module.css'
-
-const socials = [
-  {
-    title: 'Linkedin',
-    path: 'https://www.linkedin.com/in/juan-pablo-jimenez-h/',
-  },
-  {
-    title: 'Github',
-    path: 'https://github.com/juanp-ctrl',
-  },
-  {
-    title: 'Instagram',
-    path: 'https://instagram.com/pabloj_h',
-  },
-]
+import { socials } from '@/constants/socials'
 
 export default function Index() {
   const { t } = useTranslation('common')

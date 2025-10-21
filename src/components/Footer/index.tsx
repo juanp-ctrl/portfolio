@@ -3,21 +3,8 @@ import styles from './styles.module.css'
 import Link from 'next/link'
 import navItems from '@/constants/routes'
 import { useTranslation } from 'next-i18next'
+import { socials } from '@/constants/socials'
 
-const socials = [
-  {
-    title: 'Linkedin',
-    path: 'https://www.linkedin.com/in/juan-pablo-jimenez-h/',
-  },
-  {
-    title: 'Github',
-    path: 'https://github.com/juanp-ctrl',
-  },
-  {
-    title: 'Instagram',
-    path: 'https://instagram.com/pabloj_h',
-  },
-]
 
 const Nav = () => {
   const { t } = useTranslation('common')

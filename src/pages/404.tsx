@@ -5,13 +5,19 @@ import Text from '@/components/Text'
 import Footer from '@/components/Footer'
 
 import Head from 'next/head'
-import Link from 'next/link'
 import { motion, Variants } from 'framer-motion'
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
+import { useTransition } from '@/context/TransitionContext'
 
 export default function Custom404() {
   const { t } = useTranslation('common')
+  const { startTransition } = useTransition()
+
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    e.preventDefault()
+    startTransition(url)
+  }
   const anim = (variants: Variants) => ({
     initial: 'initial',
     animate: 'enter',
@@ -72,19 +78,21 @@ export default function Custom404() {
           <Text phrase={t('404_description')} customStyle="mb-8 text-lg" />
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
+            <a
               href="/"
+              onClick={(e) => handleNavigation(e, '/')}
               className="bg-yellow-primary text-black px-6 py-3 rounded-full font-josefin font-semibold hover:bg-yellow-600 transition-colors duration-300"
             >
               {t('404_button_1')}
-            </Link>
+            </a>
 
-            <Link
+            <a
               href="/projects"
+              onClick={(e) => handleNavigation(e, '/projects')}
               className="border border-white text-white px-6 py-3 rounded-full font-josefin font-semibold hover:bg-white hover:text-black transition-colors duration-300"
             >
               {t('404_button_2')}
-            </Link>
+            </a>
           </div>
 
           <div className="my-12">

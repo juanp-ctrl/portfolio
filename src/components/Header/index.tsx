@@ -2,18 +2,21 @@ import Nav from './Nav'
 import styles from './styles.module.css'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { gsap } from 'gsap'
 import { useTranslation } from 'next-i18next'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import Image from 'next/image'
 import useMedia from '@/hooks/useMedia'
+import { useTransition } from '@/context/TransitionContext'
 
 export default function Index() {
   const { t, i18n } = useTranslation('common')
+  const pathname = usePathname()
   const [isActive, setIsActive] = useState(false)
   const menuButton = useRef(null)
   const { isMobile } = useMedia()
+  const { locomotiveScroll, startTransition } = useTransition()
 
   const handleChangingLng = () => {
     const newLanguage = i18n.language === 'en' ? 'es' : 'en'
@@ -22,11 +25,19 @@ export default function Index() {
 
   useEffect(() => {
     if (isActive) {
+      // Stop Locomotive Scroll
+      if (locomotiveScroll.current) {
+        locomotiveScroll.current.stop()
+      }
       document.body.style.overflow = 'hidden'
     } else {
+      // Start Locomotive Scroll
+      if (locomotiveScroll.current) {
+        locomotiveScroll.current.start()
+      }
       document.body.style.overflow = 'auto'
     }
-  }, [isActive])
+  }, [isActive, locomotiveScroll])
 
   useLayoutEffect(() => {
     import('gsap/ScrollTrigger').then((ScrollTrigger) => {
@@ -59,13 +70,18 @@ export default function Index() {
     })
   }, [isActive])
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    startTransition('/')
+  }
+
   return (
     <div
       className={`flex justify-between items-center px-10 py-6 ${styles.header}`}
     >
-      <Link href={'/'} className={styles.logo}>
+      <a href="/" onClick={handleLogoClick} className={styles.logo}>
         JP
-      </Link>
+      </a>
       <div className="flex gap-8">
         <Popover>
           <PopoverTrigger>

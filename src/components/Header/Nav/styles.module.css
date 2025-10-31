@@ -1,5 +1,5 @@
 .menu {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: var(--yellow);
   position: fixed;
@@ -7,6 +7,7 @@
   top: 0;
   color: var(--black_alternative);
   font-family: var(--font-josefin-sans);
+  pointer-events: auto;
 }
 
 .menu .body {

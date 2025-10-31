@@ -1,33 +1,48 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import styles from './styles.module.css'
-import { motion } from 'framer-motion'
+import { gsap } from 'gsap'
 
 export default function Index() {
   const initialPath = `M100 0 L200 0 L200 1000 L100 1000 Q-100 500 100 0`
   const targetPath = `M100 0 L200 0 L200 1000 L100 1000 Q100 500 100 0`
+  
+  const pathRef = useRef<SVGPathElement>(null)
 
-  const curve = {
-    initial: {
-      d: initialPath,
-    },
-    enter: {
-      d: targetPath,
-      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
-    },
-    exit: {
-      d: initialPath,
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
-    },
-  }
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Set initial state
+      if (pathRef.current) {
+        pathRef.current.setAttribute('d', initialPath)
+      }
+
+      // Enter animation
+      gsap.to(pathRef.current, {
+        attr: { d: targetPath },
+        duration: 1,
+        ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
+      })
+    })
+
+    return () => ctx.revert()
+  }, [initialPath, targetPath])
+
+  useEffect(() => {
+    const path = pathRef.current
+    return () => {
+      // Exit animation on unmount
+      if (path) {
+        gsap.to(path, {
+          attr: { d: initialPath },
+          duration: 0.8,
+          ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
+        })
+      }
+    }
+  }, [initialPath])
 
   return (
-    <motion.svg className={styles.svgCurve}>
-      <motion.path
-        variants={curve}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-      ></motion.path>
-    </motion.svg>
+    <svg className={styles.svgCurve}>
+      <path ref={pathRef}></path>
+    </svg>
   )
 }

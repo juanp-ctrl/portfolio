@@ -1,8 +1,9 @@
 'use client'
-import { motion, Variants } from 'framer-motion'
 import localFont from 'next/font/local'
-import React from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 import styles from './layout.module.css'
+import { gsap } from 'gsap'
+import { useRouter } from 'next/router'
 
 const libreBaskerville = localFont({
   src: [
@@ -32,81 +33,49 @@ const josefinSans = localFont({
   variable: '--font-josefin-sans',
 })
 
-const perspective = {
-  initial: {
-    scale: 1,
-    y: 0,
-  },
-  enter: {
-    scale: 1,
-    y: 0,
-  },
-  exit: {
-    scale: 0.9,
-    y: -150,
-    opacity: 0,
-    filter: 'blur(10px)',
-    backgroundColor: '#1e1e1e',
-    transition: {
-      duration: 1.5,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-}
-
-const slide = {
-  initial: {
-    y: '100vh',
-  },
-  enter: {
-    y: '100vh',
-  },
-  exit: {
-    y: 0,
-    transition: {
-      duration: 1.5,
-      ease: [0.76, 0, 0.24, 1],
-    },
-  },
-}
-
-const opacity = {
-  initial: {
-    opacity: 0,
-  },
-  enter: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-  exit: {
-    opacity: 1,
-  },
-}
-
-const anim = (variants: Variants) => {
-  return {
-    initial: 'initial',
-    animate: 'enter',
-    exit: 'exit',
-    variants,
-  }
-}
-
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const pageRef = useRef<HTMLDivElement>(null)
+  const opacityRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Set initial states - page starts above viewport
+      gsap.set(pageRef.current, { y: '-100vh', opacity: 1, filter: 'blur(0px)' })
+      gsap.set(opacityRef.current, { opacity: 0 })
+
+      // Create timeline for enter animation
+      const tl = gsap.timeline({ delay: 0.2 })
+
+      // Slide page down from top to position
+      tl.to(pageRef.current, {
+        y: 0,
+        duration: 0.4,
+        ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
+      }, 0)
+
+      // Fade in opacity simultaneously
+      tl.to(opacityRef.current, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power1.inOut',
+      }, 0)
+    })
+
+    return () => ctx.revert()
+  }, [router.route])
+
   return (
     <div className={styles.inner}>
-      <motion.div className={styles.slide} {...anim(slide)} />
-      <motion.div className={styles.page} {...anim(perspective)}>
-        <motion.div {...anim(opacity)}>
+      <div ref={pageRef} className={styles.page}>
+        <div ref={opacityRef}>
           <main
             className={`${libreBaskerville.variable} ${josefinSans.variable} relative w-full overflow-hidden`}
           >
             {children}
           </main>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   )
 }

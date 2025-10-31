@@ -1,7 +1,8 @@
 import styles from './styles.module.css'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import { useTranslation } from 'next-i18next'
+import { useTransition } from '@/context/TransitionContext'
+import { gsap } from 'gsap'
 
 interface LinkProps {
   data: {
@@ -19,43 +20,54 @@ export default function Index({
   setSelectedIndicator,
 }: LinkProps) {
   const { t } = useTranslation('common')
-  const slide = {
-    initial: { x: 80 },
-    enter: (i: number) => ({
-      x: 0,
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i },
-    }),
-    exit: (i: number) => ({
-      x: 80,
-      transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i },
-    }),
-  }
-
-  const scale = {
-    open: { scale: 1, transition: { duration: 0.3 } },
-    closed: { scale: 0, transition: { duration: 0.4 } },
-  }
+  const { startTransition } = useTransition()
+  const linkRef = useRef<HTMLDivElement>(null)
+  const indicatorRef = useRef<HTMLDivElement>(null)
 
   const { title, path, index } = data
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    startTransition(path)
+  }
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      // Set initial state
+      gsap.set(linkRef.current, { x: 80 })
+      gsap.set(indicatorRef.current, { scale: 0 })
+
+      // Enter animation with stagger delay
+      gsap.to(linkRef.current, {
+        x: 0,
+        duration: 0.8,
+        ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
+        delay: 0.05 * index,
+      })
+    })
+
+    return () => ctx.revert()
+  }, [index])
+
+  useEffect(() => {
+    // Animate indicator based on isActive state
+    gsap.to(indicatorRef.current, {
+      scale: isActive ? 1 : 0,
+      duration: isActive ? 0.3 : 0.4,
+      ease: 'power1.inOut',
+    })
+  }, [isActive])
+
   return (
-    <motion.div
+    <div
+      ref={linkRef}
       className={styles.link}
       onMouseEnter={() => {
         setSelectedIndicator(path)
       }}
-      custom={index}
-      variants={slide}
-      initial="initial"
-      animate="enter"
-      exit="exit"
     >
-      <Link href={path}>{t(title)}</Link>
-      <motion.div
-        variants={scale}
-        animate={isActive ? 'open' : 'closed'}
-        className={styles.indicator}
-      ></motion.div>
-    </motion.div>
+      <a href={path} onClick={handleClick}>{t(title)}</a>
+      <div ref={indicatorRef} className={styles.indicator}></div>
+    </div>
   )
 }

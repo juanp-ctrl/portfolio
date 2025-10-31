@@ -2,11 +2,12 @@ import Image from 'next/image'
 import styles from './styles.module.css'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import router from 'next/router'
 import { useTranslation } from 'next-i18next'
+import { useTransition } from '@/context/TransitionContext'
 
 export default function Index() {
   const { t } = useTranslation('common')
+  const { startTransition } = useTransition()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false }) // once: true hace que la animación ocurra solo una vez
 
@@ -119,7 +120,7 @@ export default function Index() {
           <div className={`${styles.aboutButton} top-32 left-5`}>
             <p
               onClick={() => {
-                router.push('/about')
+                startTransition('/about')
               }}
               className={styles.aboutText}
             >

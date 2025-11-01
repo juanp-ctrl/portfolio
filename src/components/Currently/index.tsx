@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView } from 'motion/react'
 import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 

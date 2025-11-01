@@ -10,11 +10,12 @@ This is my personal portfolio website, designed to showcase my skills, projects,
 
 ## Technologies Used 💻
 
-- **Next.js** - React framework for server-side rendering and static site generation
-- **TypeScript** - For type-safe code
+- **Next.js 16** - React framework with App Router, server-side rendering and static site generation
+- **React 19** - Latest React runtime with improved performance and features
+- **TypeScript 5.8** - For type-safe code
 - **Framer Motion** - For advanced animations and transitions
 - **Tailwind CSS** - For utility-first styling
-- **i18next** - For internationalization (English/Spanish)
+- **next-intl** - For internationalization (English/Spanish) with cookie-based routing
 - **GSAP** - For complex animations
 - **Custom Cursor** - Enhanced user experience with custom cursor effects
 - **Responsive Design** - Mobile-first approach for all device compatibility
@@ -55,7 +56,7 @@ This is my personal portfolio website, designed to showcase my skills, projects,
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
+- Node.js (v18.18 or higher - required for Next.js 16)
 - pnpm package manager
 
 ### Installation

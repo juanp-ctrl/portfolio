@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import PageTransition from '@/components/PageTransition'
 import Text from '@/components/Text'
 import Footer from '@/components/Footer'
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants } from 'motion/react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
@@ -133,4 +133,3 @@ export default function Contact() {
     </PageTransition>
   )
 }
-

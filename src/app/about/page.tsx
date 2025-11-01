@@ -5,7 +5,7 @@ import Text from '@/components/Text'
 import Footer from '@/components/Footer'
 import styles from './styles.module.css'
 import Image from 'next/image'
-import { motion, useScroll, useTransform, Variants } from 'framer-motion'
+import { motion, useScroll, useTransform, Variants } from 'motion/react'
 import TrailImages from '@/components/TrailImages'
 import { useTranslations } from 'next-intl'
 
@@ -44,27 +44,27 @@ export default function About() {
         <Header />
         <TrailImages />
         <div className={styles['main-container']}>
-        <div>
-          <h1 className="text-[2.5rem] italic font-libre border-t-2 w-fit leading-[4rem]">
-            {t('developer')}
-          </h1>
+          <div>
+            <h1 className="text-[2.5rem] italic font-libre border-t-2 w-fit leading-[4rem]">
+              {t('developer')}
+            </h1>
+          </div>
+          <Image
+            src={'/images/about_juan_pablo_jimenez.webp'}
+            alt="Profile picture"
+            priority
+            width={400}
+            height={400}
+            className={styles['profile-picture']}
+          />
+          <div
+            className={`flex flex-row-reverse mb-6 mt-2 ${styles['second-title']}`}
+          >
+            <h2 className="text-[2.5rem] italic font-libre text-yellow-primary border-b-2 border-yellow-primary w-fit leading-[4rem]">
+              {t('engineer')}
+            </h2>
+          </div>
         </div>
-        <Image
-          src={'/images/about_juan_pablo_jimenez.webp'}
-          alt="Profile picture"
-          priority
-          width={400}
-          height={400}
-          className={styles['profile-picture']}
-        />
-        <div
-          className={`flex flex-row-reverse mb-6 mt-2 ${styles['second-title']}`}
-        >
-          <h2 className="text-[2.5rem] italic font-libre text-yellow-primary border-b-2 border-yellow-primary w-fit leading-[4rem]">
-            {t('engineer')}
-          </h2>
-        </div>
-      </div>
         <div className="flex justify-center">
           <motion.div
             style={{
@@ -92,7 +92,10 @@ export default function About() {
           height={400}
           className={`mx-auto my-16 ${styles.infoImage}`}
         />
-        <Text phrase="Some people told me that I should be more serious, but I think that being serious is boring. I prefer to be myself and enjoy what I do." customStyle="mb-24" />
+        <Text
+          phrase="Some people told me that I should be more serious, but I think that being serious is boring. I prefer to be myself and enjoy what I do."
+          customStyle="mb-24"
+        />
         <div className="bg-black-secondary pb-12">
           <h2 className="text-white font-libre italic text-5xl pt-20 pl-8 pb-4 md:pl-40 lg:pl-48">
             {t('skills_title')}
@@ -112,4 +115,3 @@ export default function About() {
     </PageTransition>
   )
 }
-

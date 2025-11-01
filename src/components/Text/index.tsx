@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import { useRef } from 'react'
-import { motion, useInView, Variants } from 'framer-motion'
+import { motion, useInView, Variants } from 'motion/react'
 
 const anim = (variants: Variants) => ({
   variants,

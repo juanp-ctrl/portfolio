@@ -6,13 +6,13 @@ import Socials from '../Socials'
 import navItems from '@/constants/routes'
 import globalSVG from '../../../../public/images/global.svg'
 import styles from './styles.module.css'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'motion/react'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
-const menuSlide = {
+const menuSlide: Variants = {
   initial: { x: 'calc(100% + 100px)' },
   enter: { x: '0', transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
   exit: {
@@ -30,7 +30,9 @@ export default function Index({ closeMenu }: NavProps) {
   const locale = useLocale()
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
-  const { changeLanguage, isPending } = LanguageSwitcher({ currentLocale: locale })
+  const { changeLanguage, isPending } = LanguageSwitcher({
+    currentLocale: locale,
+  })
 
   const handleChangingLng = () => {
     const newLanguage = locale === 'en' ? 'es' : 'en'

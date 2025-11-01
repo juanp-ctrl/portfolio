@@ -5,12 +5,14 @@ import { useTranslations } from 'next-intl'
 import { socials } from '@/constants/socials'
 import { useTransition } from '@/context/TransitionContext'
 
-
 const Nav = () => {
   const t = useTranslations('common')
   const { startTransition } = useTransition()
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    path: string,
+  ) => {
     e.preventDefault()
     startTransition(path)
   }

@@ -29,6 +29,7 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`${libreBaskerville.variable} ${josefinSans.variable}`}
+      data-scroll-behavior="smooth"
     >
       <head>
         <script

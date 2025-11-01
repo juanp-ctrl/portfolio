@@ -1,16 +1,17 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants } from 'motion/react'
 
 const CookieConsent = () => {
-  const [consent, setConsent] = useState<boolean | null>(null)
+  const [consent, setConsent] = useState<boolean | null>(() => {
+    if (typeof window === 'undefined') return null
+    const savedConsent = localStorage.getItem('cookie-consent')
+    return savedConsent !== null ? savedConsent === 'true' : null
+  })
   const [visible, setVisible] = useState<boolean>(false)
 
   useEffect(() => {
-    const savedConsent = localStorage.getItem('cookie-consent')
-    if (savedConsent !== null) {
-      setConsent(savedConsent === 'true')
-    } else {
+    if (consent === null) {
       // Mostrar el banner después de 3.2 segundos
       const timer = setTimeout(() => {
         setVisible(true)
@@ -18,7 +19,7 @@ const CookieConsent = () => {
 
       return () => clearTimeout(timer)
     }
-  }, [])
+  }, [consent])
 
   const handleAccept = () => {
     localStorage.setItem('cookie-consent', 'true')
@@ -71,7 +72,8 @@ const CookieConsent = () => {
     >
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
         <p className="mb-4 md:mb-0 font-libre italic text-lg">
-          This site uses cookies to analyze traffic. Do you accept the use of cookies?
+          This site uses cookies to analyze traffic. Do you accept the use of
+          cookies?
         </p>
         <div className="flex space-x-4 ">
           <button

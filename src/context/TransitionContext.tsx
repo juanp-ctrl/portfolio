@@ -1,5 +1,11 @@
 'use client'
-import React, { createContext, useContext, useState, useCallback, useRef } from 'react'
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useRef,
+} from 'react'
 import type LocomotiveScroll from 'locomotive-scroll'
 
 interface TransitionContextType {
@@ -11,74 +17,93 @@ interface TransitionContextType {
   startTransition: (url: string) => Promise<void>
 }
 
-const TransitionContext = createContext<TransitionContextType | undefined>(undefined)
+const TransitionContext = createContext<TransitionContextType | undefined>(
+  undefined,
+)
 
-export function TransitionProvider({ children }: { children: React.ReactNode }) {
+export function TransitionProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const [isTransitioning, setIsTransitioning] = useState(false)
   const locomotiveScroll = useRef<LocomotiveScroll | null>(null)
   const slideRef = useRef<HTMLDivElement | null>(null)
   const pageContainerRef = useRef<HTMLElement | null>(null)
   const transitionDuration = 700 // milliseconds
 
-  const startTransition = useCallback(async (url: string): Promise<void> => {
-    if (isTransitioning) return
+  const startTransition = useCallback(
+    async (url: string): Promise<void> => {
+      if (isTransitioning) return
 
-    setIsTransitioning(true)
+      setIsTransitioning(true)
 
-    // Import dynamically to avoid SSR issues
-    const { gsap } = await import('gsap')
-    
-    // Create timeline for exit animation
-    const exitTimeline = gsap.timeline()
+      // Import dynamically to avoid SSR issues
+      const { gsap } = await import('gsap')
 
-    // Scale down and fade out the current page
-    if (pageContainerRef.current) {
-      exitTimeline.to(pageContainerRef.current, {
-        scale: 0.95,
-        opacity: 0,
-        duration: transitionDuration / 1000,
-        ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
-      }, 0)
-    }
+      // Create timeline for exit animation
+      const exitTimeline = gsap.timeline()
 
-    // Slide overlay up from bottom simultaneously
-    if (slideRef.current) {
-      exitTimeline.to(slideRef.current, {
-        y: 0,
-        duration: transitionDuration / 1000,
-        ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
-      }, 0)
-    }
+      // Scale down and fade out the current page
+      if (pageContainerRef.current) {
+        exitTimeline.to(
+          pageContainerRef.current,
+          {
+            scale: 0.95,
+            opacity: 0,
+            duration: transitionDuration / 1000,
+            ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
+          },
+          0,
+        )
+      }
 
-    // Wait for exit animation to complete
-    await exitTimeline.then()
+      // Slide overlay up from bottom simultaneously
+      if (slideRef.current) {
+        exitTimeline.to(
+          slideRef.current,
+          {
+            y: 0,
+            duration: transitionDuration / 1000,
+            ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
+          },
+          0,
+        )
+      }
 
-    // Navigate to new page using window.location for now
-    // We'll handle this differently in the component that uses it
-    window.history.pushState(null, '', url)
-    
-    // Dispatch a custom event for navigation
-    window.dispatchEvent(new CustomEvent('appRouterNavigate', { detail: { url } }))
+      // Wait for exit animation to complete
+      await exitTimeline.then()
 
-    // Reset the page container for the new page
-    if (pageContainerRef.current) {
-      gsap.set(pageContainerRef.current, { scale: 1, opacity: 1 })
-    }
+      // Navigate to new page using window.location for now
+      // We'll handle this differently in the component that uses it
+      window.history.pushState(null, '', url)
 
-    // Wait a bit for new page to mount
-    await new Promise(resolve => setTimeout(resolve, 100))
+      // Dispatch a custom event for navigation
+      window.dispatchEvent(
+        new CustomEvent('appRouterNavigate', { detail: { url } }),
+      )
 
-    // Slide overlay back down
-    if (slideRef.current) {
-      await gsap.to(slideRef.current, {
-        y: '100vh',
-        duration: transitionDuration / 1000,
-        ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
-      })
-    }
+      // Reset the page container for the new page
+      if (pageContainerRef.current) {
+        gsap.set(pageContainerRef.current, { scale: 1, opacity: 1 })
+      }
 
-    setIsTransitioning(false)
-  }, [isTransitioning, transitionDuration])
+      // Wait a bit for new page to mount
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+      // Slide overlay back down
+      if (slideRef.current) {
+        await gsap.to(slideRef.current, {
+          y: '100vh',
+          duration: transitionDuration / 1000,
+          ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
+        })
+      }
+
+      setIsTransitioning(false)
+    },
+    [isTransitioning, transitionDuration],
+  )
 
   const value = {
     isTransitioning,
@@ -103,4 +128,3 @@ export function useTransition() {
   }
   return context
 }
-

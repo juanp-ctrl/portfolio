@@ -24,4 +24,3 @@ export default function ProjectsLayout({
 }) {
   return <>{children}</>
 }
-

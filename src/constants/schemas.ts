@@ -1,10 +1,13 @@
 // Structured Data (JSON-LD) for SEO
+// For more information on how to implement JSON-LD in your Next.js application, see https://nextjs.org/docs/app/guides/json-ld
+
 export const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Juan Pablo Jiménez',
   jobTitle: 'Frontend Developer',
-  description: 'Frontend Developer and Creative Engineer specializing in React, Next.js, and TypeScript',
+  description:
+    'Frontend Developer and Creative Engineer specializing in React, Next.js, and TypeScript',
   url: 'https://www.juanpablojimenez.dev',
   image: 'https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp',
   sameAs: [
@@ -42,7 +45,8 @@ export const websiteSchema = {
   '@type': 'WebSite',
   name: 'Juan Pablo Jiménez Portfolio',
   url: 'https://www.juanpablojimenez.dev',
-  description: 'Portfolio of Juan Pablo Jiménez, Frontend Developer and Creative Engineer',
+  description:
+    'Portfolio of Juan Pablo Jiménez, Frontend Developer and Creative Engineer',
   author: {
     '@type': 'Person',
     name: 'Juan Pablo Jiménez',
@@ -58,7 +62,6 @@ export const websiteSchema = {
   },
 }
 
-// ProfilePage schema - Can trigger rich results in Google Search
 export const profilePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
@@ -66,7 +69,8 @@ export const profilePageSchema = {
     '@type': 'Person',
     name: 'Juan Pablo Jiménez',
     jobTitle: 'Frontend Developer',
-    description: 'Frontend Developer and Creative Engineer specializing in React, Next.js, and TypeScript',
+    description:
+      'Frontend Developer and Creative Engineer specializing in React, Next.js, and TypeScript',
     url: 'https://www.juanpablojimenez.dev',
     image: 'https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp',
     sameAs: [
@@ -82,6 +86,8 @@ export const profilePageSchema = {
       'JavaScript',
       'Web Development',
       'Frontend Development',
+      'Software Engineering',
+      'Full Stack Development',
       'Web Accessibility',
       'Microfrontend Architecture',
     ],

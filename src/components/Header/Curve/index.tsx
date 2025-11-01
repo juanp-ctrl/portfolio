@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './styles.module.css'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'motion/react'
 
 export default function Index() {
   const initialPath = `M100 0 L200 0 L200 1000 L100 1000 Q-100 500 100 0`
   const targetPath = `M100 0 L200 0 L200 1000 L100 1000 Q100 500 100 0`
 
-  const curve = {
+  const curve: Variants = {
     initial: {
       d: initialPath,
     },

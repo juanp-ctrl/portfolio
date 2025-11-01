@@ -4,7 +4,7 @@ import Nav from './Nav'
 import styles from './styles.module.css'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'motion/react'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,7 +20,9 @@ export default function Index() {
   const menuButton = useRef(null)
   const { isMobile } = useMedia()
   const { locomotiveScroll, startTransition } = useTransition()
-  const { changeLanguage, isPending } = LanguageSwitcher({ currentLocale: locale })
+  const { changeLanguage, isPending } = LanguageSwitcher({
+    currentLocale: locale,
+  })
 
   const handleChangingLng = () => {
     const newLanguage = locale === 'en' ? 'es' : 'en'

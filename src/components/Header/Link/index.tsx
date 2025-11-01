@@ -34,13 +34,13 @@ export default function Index({
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    
+
     // If we're already on this page, just close the menu
     if (currentPathname === path) {
       closeMenu()
       return
     }
-    
+
     // Otherwise, navigate to the page (which will also close the menu via the transition)
     startTransition(path)
     closeMenu()
@@ -81,7 +81,9 @@ export default function Index({
         setSelectedIndicator(path)
       }}
     >
-      <a href={path} onClick={handleClick}>{t(title)}</a>
+      <a href={path} onClick={handleClick}>
+        {t(title)}
+      </a>
       <div ref={indicatorRef} className={styles.indicator}></div>
     </div>
   )

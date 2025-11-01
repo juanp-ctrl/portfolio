@@ -10,7 +10,9 @@ interface TransitionWrapperProps {
   children: React.ReactNode
 }
 
-export default function TransitionWrapper({ children }: TransitionWrapperProps) {
+export default function TransitionWrapper({
+  children,
+}: TransitionWrapperProps) {
   const { locomotiveScroll, slideRef, pageContainerRef } = useTransition()
   const pathname = usePathname()
   const router = useRouter()
@@ -18,13 +20,15 @@ export default function TransitionWrapper({ children }: TransitionWrapperProps) 
   /* Initialize Locomotive Scroll */
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const scrollContainer = document.querySelector('[data-scroll-container]') as HTMLElement
-      
+      const scrollContainer = document.querySelector(
+        '[data-scroll-container]',
+      ) as HTMLElement
+
       // Store page container ref for transitions
       if (scrollContainer) {
         pageContainerRef.current = scrollContainer
       }
-      
+
       const scroll = new LocomotiveScroll({
         el: scrollContainer,
         smooth: true,
@@ -46,7 +50,9 @@ export default function TransitionWrapper({ children }: TransitionWrapperProps) 
 
   /* Update page container ref on route change */
   useEffect(() => {
-    const scrollContainer = document.querySelector('[data-scroll-container]') as HTMLElement
+    const scrollContainer = document.querySelector(
+      '[data-scroll-container]',
+    ) as HTMLElement
     if (scrollContainer) {
       pageContainerRef.current = scrollContainer
     }
@@ -96,4 +102,3 @@ export default function TransitionWrapper({ children }: TransitionWrapperProps) 
     </>
   )
 }
-

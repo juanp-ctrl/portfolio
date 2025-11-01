@@ -18,7 +18,7 @@ import React from 'react'
 import Image from 'next/image'
 import Footer from '@/components/Footer'
 import useMedia from '@/hooks/useMedia'
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants } from 'motion/react'
 import { useTranslations } from 'next-intl'
 
 export default function Projects() {
@@ -219,4 +219,3 @@ export default function Projects() {
     </PageTransition>
   )
 }
-

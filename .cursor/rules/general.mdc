@@ -24,8 +24,8 @@ You are an expert in React, Next.js App Router, TypeScript, CSS Modules, Tailwin
 ## Project Architecture
 
 ### Tech Stack
-- **Framework**: Next.js 15.2.3 (App Router)
-- **Runtime**: React 18.3.1
+- **Framework**: Next.js 16.0.1+ (App Router)
+- **Runtime**: React 19.2.0+
 - **Language**: TypeScript 5.8.3 (strict mode enabled)
 - **Package Manager**: pnpm (required)
 - **Build Tool**: Turbopack (dev mode)
@@ -466,7 +466,7 @@ export const metadata: Metadata = {
 pnpm dev          # Start dev server with Turbopack
 pnpm build        # Production build
 pnpm start        # Start production server
-pnpm lint         # Run ESLint
+pnpm lint         # Run ESLint directly (next lint removed in Next.js 16)
 ```
 
 ### Git Workflow
@@ -633,9 +633,10 @@ startTransition('/about')
    - Verify `startTransition` wrapper is used
 
 6. **Build Failures**: 
-   - Check Next.js version compatibility
+   - Check Next.js version compatibility (Next.js 16+ requires React 19+)
    - Verify all 'use client' directives are at top of file
    - Check for server-only code in client components
+   - Ensure ESLint Flat Config is properly configured (eslint.config.mjs)
 
 ### Debug Mode
 ```bash
@@ -680,8 +681,8 @@ pnpm build                          # Check for build errors
 - Add E2E testing (Playwright/Cypress)
 - Implement unit tests (Vitest/Jest)
 - Add Storybook for component documentation
-- Upgrade to React 19 when stable
 - Consider parallel routes for advanced layouts
+- Explore Cache Components API for advanced caching strategies
 
 ### Maintenance
 - Keep dependencies updated (monthly check)

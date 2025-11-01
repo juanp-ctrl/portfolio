@@ -1,18 +1,15 @@
-import { motion, useScroll, useTransform, Variants } from 'framer-motion'
+import { motion, useScroll, useTransform, Variants } from 'motion/react'
 import { useTranslations } from 'next-intl'
-import { Suspense, useEffect, useState } from 'react'
+import { Suspense, useState } from 'react'
 import Image from 'next/image'
 import styles from './styles.module.css'
 
 export default function Index() {
   const t = useTranslations('home')
-  const [isClient, setIsClient] = useState(false)
+  // Use lazy initialization to check if we're on the client
+  const [isClient] = useState(() => typeof window !== 'undefined')
   const { scrollY } = useScroll()
   const rotateAstronaut = useTransform(scrollY, [0, 700], [0, 360])
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   const anim = (variants: Variants) => ({
     initial: 'initial',

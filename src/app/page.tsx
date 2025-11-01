@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants } from 'motion/react'
 import { useEffect, useState } from 'react'
 import Welcome from '@/components/Welcome'
 import PageTransition from '@/components/PageTransition'
@@ -31,16 +31,18 @@ const DownloadButton = dynamic(() => import('@/components/DownloadButton'), {
 
 export default function Home() {
   const t = useTranslations('home')
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(() => {
+    if (typeof window === 'undefined') return true
+    return !sessionStorage.getItem('pageLoaded')
+  })
 
   useEffect(() => {
     if (!sessionStorage.getItem('pageLoaded')) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setIsLoading(false)
         sessionStorage.setItem('pageLoaded', 'true')
       }, 3200)
-    } else {
-      setIsLoading(false)
+      return () => clearTimeout(timer)
     }
   }, [])
 
@@ -125,7 +127,10 @@ export default function Home() {
               height={788}
               className="mx-auto my-16 shadow-[0_5px_10px_black] w-[300px] md:w-[400px]"
             />
-            <Text phrase={t('first_section_text_2')} customStyle="mb-24 mt-24" />
+            <Text
+              phrase={t('first_section_text_2')}
+              customStyle="mb-24 mt-24"
+            />
             <DownloadButton />
             <div className="bg-black-secondary">
               <Currently />
@@ -151,4 +156,3 @@ export default function Home() {
     </PageTransition>
   )
 }
-

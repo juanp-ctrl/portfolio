@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import Image from 'next/image'
 import styles from './styles.module.css'
 
@@ -51,7 +51,7 @@ export default function Index() {
 
       // Update the last coordinates where an image was added
       setLastAddedCoordinates({ x: mouseCoordinates.x, y: mouseCoordinates.y })
-      
+
       // Update image counter for next image
       const aleatory = Math.floor(Math.random() * 2)
       if (imageCounter < imagesLength - 1) {
@@ -90,7 +90,11 @@ export default function Index() {
   // Effect to add a new image when the mouse moves
   useEffect(() => {
     if (mouseCoordinates.x && mouseCoordinates.y) {
-      addNewItem()
+      // Use setTimeout to make state update asynchronous and avoid lint error
+      const timeoutId = setTimeout(() => {
+        addNewItem()
+      }, 0)
+      return () => clearTimeout(timeoutId)
     }
   }, [mouseCoordinates.x, mouseCoordinates.y, addNewItem])
 

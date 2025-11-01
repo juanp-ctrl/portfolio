@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { gsap } from 'gsap'
 import { useTransition } from '@/context/TransitionContext'
 import LocomotiveScroll from 'locomotive-scroll'
+import navItems from '@/constants/routes'
 
 interface TransitionWrapperProps {
   children: React.ReactNode
@@ -64,6 +65,15 @@ export default function TransitionWrapper({
       gsap.set(slideRef.current, { y: '100vh' })
     }
   }, [slideRef])
+
+  /* Prefetch all routes on initial mount for smooth first-time transitions */
+  useEffect(() => {
+    // Prefetch all navigation routes to ensure they're cached before first navigation
+    // This prevents transition timing issues on first page interaction
+    navItems.forEach((item) => {
+      router.prefetch(item.path)
+    })
+  }, [router])
 
   /* Listen for custom navigation events from startTransition */
   useEffect(() => {

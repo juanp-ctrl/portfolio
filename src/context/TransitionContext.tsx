@@ -51,7 +51,7 @@ export function TransitionProvider({
           {
             scale: 0.95,
             opacity: 0,
-            duration: transitionDuration / 1000,
+            duration: 0.7,
             ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
           },
           0,
@@ -64,7 +64,7 @@ export function TransitionProvider({
           slideRef.current,
           {
             y: 0,
-            duration: transitionDuration / 1000,
+            duration: 1,
             ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
           },
           0,

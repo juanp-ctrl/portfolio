@@ -1,4 +1,4 @@
-# Juan Pablo Jiménez - Portfolio ☺️
+# Juan Pablo Jiménez - Portfolio 🧑‍🚀
 
 ## Overview 📖
 

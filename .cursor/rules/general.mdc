@@ -5,7 +5,7 @@ alwaysApply: true
 # Juan Pablo Portfolio Website - Comprehensive Development Guide
 
 ## Role & Approach
-You are an expert in React, Next.js SSR/SSG, TypeScript, CSS Modules, Tailwind CSS, Framer Motion, GSAP, and Locomotive Scroll.
+You are an expert in React, Next.js App Router, TypeScript, CSS Modules, Tailwind CSS, Framer Motion, and GSAP.
 
 **Workflow Protocol:**
 1. **Plan First**: Analyze the task and create a detailed implementation plan
@@ -24,44 +24,57 @@ You are an expert in React, Next.js SSR/SSG, TypeScript, CSS Modules, Tailwind C
 ## Project Architecture
 
 ### Tech Stack
-- **Framework**: Next.js 15.2.3 (Pages Router, not App Router)
+- **Framework**: Next.js 15.2.3 (App Router)
 - **Runtime**: React 18.3.1
 - **Language**: TypeScript 5.8.3 (strict mode enabled)
 - **Package Manager**: pnpm (required)
 - **Build Tool**: Turbopack (dev mode)
-- **Rendering**: SSG with getStaticProps (prefer static generation)
+- **Rendering Strategy**: Client-side rendering with 'use client' directive
 
 ### Key Dependencies
-- **Animation**: Framer Motion 12.0.0-alpha.1, GSAP 3.13.0, Locomotive Scroll 5.0.0-beta.21
+- **Animation**: Framer Motion 12.0.0-alpha.1, GSAP 3.13.0
 - **Styling**: Tailwind CSS 3.4.17 + CSS Modules
 - **UI Components**: Radix UI primitives (shadcn/ui pattern)
-- **Internationalization**: next-i18next 15.4.2 (en, es)
+- **Internationalization**: next-intl 4.0.0 (cookie-based, en/es)
 - **Icons**: Lucide React
 - **Utilities**: clsx, tailwind-merge, class-variance-authority
 
 ### Project Structure
 ```
 src/
-├── components/          # Feature components with CSS Modules
+├── app/                    # Next.js App Router
+│   ├── layout.tsx          # Root layout (NextIntlClientProvider)
+│   ├── page.tsx            # Home page
+│   ├── about/
+│   │   ├── page.tsx
+│   │   └── styles.module.css
+│   ├── projects/
+│   │   ├── page.tsx
+│   │   └── styles.module.css
+│   ├── contact/
+│   │   └── page.tsx
+│   └── not-found.tsx
+├── components/             # Feature components with CSS Modules
 │   ├── [Component]/
 │   │   ├── index.tsx
 │   │   └── styles.module.css
-│   └── ui/             # Reusable UI primitives (shadcn/ui)
-├── pages/              # Next.js Pages Router
-│   ├── _app.tsx        # App wrapper with Locomotive Scroll
-│   ├── _document.tsx   # HTML document setup
-│   └── [page]/         # Page components
-├── hooks/              # Custom React hooks
-├── constants/          # Constants and routes
-├── lib/               # Utilities (utils.ts)
-└── styles/            # Global styles
+│   ├── ui/                 # Reusable UI primitives (shadcn/ui)
+│   └── LanguageSwitcher/   # Cookie-based language switcher
+├── context/                # React Context providers
+│   └── TransitionContext.tsx  # GSAP page transitions
+├── hooks/                  # Custom React hooks
+├── constants/              # Constants and routes
+├── i18n/                   # i18n configuration
+│   └── request.ts          # next-intl config
+├── lib/                    # Utilities (utils.ts)
+└── styles/                 # Global styles
+messages/                   # i18n translations (next-intl)
+├── en.json                 # English translations (all namespaces)
+└── es.json                 # Spanish translations (all namespaces)
 public/
-├── locales/           # i18n translations (en, es)
-│   ├── en/
-│   └── es/
-├── images/            # Optimized images (WebP preferred)
-├── fonts/             # Custom fonts
-└── cv/               # Downloadable files
+├── images/                 # Optimized images (WebP preferred)
+├── fonts/                  # Custom fonts
+└── cv/                     # Downloadable files
 ```
 
 ---
@@ -76,10 +89,12 @@ public/
 - **Null Safety**: Handle null/undefined explicitly
 
 ### Component Patterns
+
+#### Client Components (Most Common)
 ```typescript
-// ✅ Preferred pattern for components
+'use client'  // Required for interactive components
 import styles from './styles.module.css'
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 
 interface ComponentProps {
@@ -87,20 +102,43 @@ interface ComponentProps {
 }
 
 export default function Component({ prop }: ComponentProps) {
-  const { t } = useTranslation('namespace')
+  const t = useTranslations('namespace')  // next-intl hook
   
   return (
     <div className={styles.container}>
+      <h1>{t('title')}</h1>
       {/* Component JSX */}
     </div>
   )
 }
 ```
 
+#### Page Components
+```typescript
+'use client'  // All pages use client-side rendering
+import Header from '@/components/Header'
+import PageTransition from '@/components/PageTransition'
+import { useTranslations } from 'next-intl'
+
+export default function AboutPage() {
+  const t = useTranslations('about')
+  
+  return (
+    <PageTransition>
+      <main className="relative w-full overflow-hidden bg-white">
+        <Header />
+        <h1>{t('title')}</h1>
+        {/* Page content */}
+      </main>
+    </PageTransition>
+  )
+}
+```
+
 ### File Naming Conventions
+- **Pages**: `page.tsx` in app router directories
 - **Components**: PascalCase folders with `index.tsx` + `styles.module.css`
 - **Hooks**: camelCase files prefixed with `use` (e.g., `useMedia.tsx`)
-- **Pages**: kebab-case or lowercase
 - **Types**: PascalCase interfaces/types
 - **Constants**: UPPER_SNAKE_CASE for constants, camelCase for files
 
@@ -159,38 +197,176 @@ export default function Component({ prop }: ComponentProps) {
 ## Animation Guidelines
 
 ### Framer Motion
-- **Page Transitions**: Use `<AnimatePresence mode="wait">`
-- **Scroll Animations**: Integrate with Locomotive Scroll attributes
+- **Component Animations**: Use motion components for interactive elements
 - **Variants Pattern**: Define animation variants for reusability
 - **Performance**: Use `layoutId` for shared element transitions
 - **Hardware Acceleration**: Animate transform and opacity only when possible
 
 ```typescript
 // ✅ Preferred animation pattern
-const variants = {
+'use client'
+import { motion, Variants } from 'framer-motion'
+
+const variants: Variants = {
   initial: { opacity: 0, y: 20 },
-  enter: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  exit: { opacity: 0, transition: { duration: 0.3 } }
+  enter: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: [0.45, 0, 0.55, 1] } 
+  },
+  exit: { 
+    opacity: 0, 
+    transition: { duration: 0.3 } 
+  }
 }
 
-<motion.div
-  initial="initial"
-  animate="enter"
-  exit="exit"
-  variants={variants}
->
+export default function AnimatedComponent() {
+  return (
+    <motion.div
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+    >
+      {/* Content */}
+    </motion.div>
+  )
+}
 ```
 
-### Locomotive Scroll
-- **Container**: `data-scroll-container` attribute required
-- **Elements**: Use `data-scroll`, `data-scroll-speed` attributes
-- **Configuration**: Set in `_app.tsx` (smooth: true, lerp: 0.1)
-- **Cleanup**: Always destroy on unmount
+### GSAP for Page Transitions
+- **TransitionContext**: Custom context managing GSAP-powered page transitions
+- **Timeline Animations**: Used for coordinated multi-element animations
+- **Performance**: GSAP for performance-critical animations
+- **Cleanup**: Always clear animations on component unmount
 
-### GSAP
-- **Use Cases**: Complex timeline animations, scroll triggers
-- **Performance**: Use GSAP for performance-critical animations
-- **Cleanup**: Clear animations on component unmount
+```typescript
+// Using TransitionContext for navigation
+'use client'
+import { useTransition } from '@/context/TransitionContext'
+
+export default function NavigationLink({ href, children }) {
+  const { startTransition } = useTransition()
+  
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    startTransition(href)
+  }
+  
+  return <a href={href} onClick={handleClick}>{children}</a>
+}
+```
+
+---
+
+## Internationalization (i18n)
+
+### Architecture
+- **Library**: next-intl 4.0.0
+- **Strategy**: Cookie-based locale detection (not URL routing)
+- **Cookie Name**: `NEXT_LOCALE`
+- **Supported Locales**: English (en - default), Spanish (es)
+- **Messages Location**: `/messages/{locale}.json`
+
+### Configuration Files
+
+#### `src/i18n/request.ts`
+```typescript
+import { getRequestConfig } from 'next-intl/server'
+import { cookies } from 'next/headers'
+
+export default getRequestConfig(async () => {
+  const cookieStore = await cookies()
+  const locale = cookieStore.get('NEXT_LOCALE')?.value || 'en'
+
+  return {
+    locale,
+    messages: (await import(`../../messages/${locale}.json`)).default,
+  }
+})
+```
+
+#### `next.config.ts`
+```typescript
+import createNextIntlPlugin from 'next-intl/plugin'
+
+const withNextIntl = createNextIntlPlugin()
+
+const nextConfig: NextConfig = {
+  // Your config
+}
+
+export default withNextIntl(nextConfig)
+```
+
+### Message File Structure
+```json
+// messages/en.json
+{
+  "common": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "welcome_hi": "Hi, I'm",
+    "welcome_name": "Juan Pablo Jiménez!"
+  },
+  "about": {
+    "developer": "DEVELOPER",
+    "engineer": "ENGINEER"
+  }
+}
+```
+
+### Implementation Patterns
+
+#### Using Translations in Components
+```typescript
+'use client'
+import { useTranslations } from 'next-intl'
+
+export default function Component() {
+  const t = useTranslations('namespace')
+  
+  return <h1>{t('key')}</h1>
+}
+```
+
+#### Language Switcher
+```typescript
+'use client'
+import { useTransition } from 'react'
+import { useRouter } from 'next/navigation'
+
+export default function LanguageSwitcher({ currentLocale }: { currentLocale: string }) {
+  const router = useRouter()
+  const [isPending, startTransition] = useTransition()
+
+  const changeLanguage = (newLocale: string) => {
+    startTransition(() => {
+      // Set cookie
+      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`
+      
+      // Refresh to apply new locale
+      router.refresh()
+    })
+  }
+
+  return (
+    <button onClick={() => changeLanguage(currentLocale === 'en' ? 'es' : 'en')}>
+      {isPending ? '...' : 'Change Language'}
+    </button>
+  )
+}
+```
+
+### Translation Keys Best Practices
+- **Naming**: Use snake_case (e.g., `home_title`, `about_description`)
+- **Organization**: Group by feature/page namespace
+- **Flat Structure**: Keep one level deep within namespaces
+- **Consistency**: Maintain same key structure across locales
 
 ---
 
@@ -202,18 +378,33 @@ const variants = {
 - **Priority**: Add `priority` prop to above-the-fold images
 - **Sizing**: Provide width and height props
 
+```typescript
+import Image from 'next/image'
+
+<Image
+  src="/images/photo.webp"
+  alt="Description"
+  width={400}
+  height={300}
+  priority  // For above-the-fold images
+/>
+```
+
 ### Code Splitting
 - **Dynamic Imports**: Use for heavy components not immediately visible
 ```typescript
-const Component = dynamic(() => import('@/components/Component'), {
-  loading: () => <div className="h-24" /> // Maintain layout
+import dynamic from 'next/dynamic'
+
+const HeavyComponent = dynamic(() => import('@/components/HeavyComponent'), {
+  loading: () => <div className="h-24" />,  // Maintain layout
+  ssr: false  // Skip server-side rendering if needed
 })
 ```
 
-### Loading States
-- **Session Storage**: Use to skip intro animation on subsequent visits
-- **Skeleton Loaders**: Provide loading fallbacks for dynamic imports
-- **Suspense**: Consider for future React 19 upgrade
+### Client-Side State
+- **Session Storage**: Used to skip intro animation on subsequent visits
+- **Local Storage**: For persistent user preferences
+- **Context API**: Used for TransitionContext (GSAP animations)
 
 ### Bundle Size
 - **Tree Shaking**: Import only needed functions
@@ -222,71 +413,38 @@ const Component = dynamic(() => import('@/components/Component'), {
 
 ---
 
-## Internationalization (i18n)
-
-### Structure
-- **Locales**: `public/locales/{locale}/{namespace}.json`
-- **Supported**: English (en - default), Spanish (es)
-- **Namespaces**: common, about, projects, contact
-
-### Implementation
-```typescript
-// Page component
-import { useTranslation } from 'next-i18next'
-
-export default function Page() {
-  const { t } = useTranslation('namespace')
-  return <h1>{t('key')}</h1>
-}
-
-// getStaticProps (required for each page)
-export async function getStaticProps({ locale }) {
-  const { serverSideTranslations } = await import('next-i18next/serverSideTranslations')
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['namespace'], null, ['en', 'es']))
-    }
-  }
-}
-```
-
-### Translation Keys
-- **Naming**: Use snake_case (e.g., `home_title`, `about_description`)
-- **Structure**: Organize by feature/section
-- **Fallbacks**: Always provide English as default
-
----
-
 ## SEO Best Practices
 
-### Meta Tags (Required for Every Page)
+### Meta Tags in Root Layout
 ```typescript
-<Head>
-  {/* Basic Meta */}
-  <title>{t('page_title')}</title>
-  <meta name="description" content={t('page_description')} />
-  <meta name="keywords" content="..." />
-  <meta name="author" content="Juan Pablo Jiménez" />
-  <link rel="canonical" href="https://www.juanpablojimenez.dev/page" />
-  
-  {/* Open Graph */}
-  <meta property="og:title" content="..." />
-  <meta property="og:description" content="..." />
-  <meta property="og:url" content="..." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="..." />
-  
-  {/* Twitter Card */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="..." />
-  <meta name="twitter:description" content="..." />
-  <meta name="twitter:image" content="..." />
-  
-  {/* Structured Data */}
-  <script type="application/ld+json">
-    {JSON.stringify(structuredData)}
-  </script>
-</Head>
+// src/app/layout.tsx
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.juanpablojimenez.dev'),
+  title: {
+    default: 'Juan Pablo Jiménez - Frontend Developer & Creative Engineer',
+    template: '%s | Juan Pablo Jiménez',
+  },
+  description: 'Frontend Developer from Medellín, Colombia, specializing in React, Next.js, and TypeScript',
+  keywords: ['frontend developer', 'react developer', 'nextjs developer', 'typescript'],
+  authors: [{ name: 'Juan Pablo Jiménez' }],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    alternateLocale: 'es_ES',
+    url: 'https://www.juanpablojimenez.dev',
+    siteName: 'Juan Pablo Jiménez Portfolio',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@JuanPabloJim_',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 ```
 
 ### SEO Checklist
@@ -294,9 +452,8 @@ export async function getStaticProps({ locale }) {
 - ✅ Alt text for all images
 - ✅ Semantic HTML (h1, h2, nav, main, footer)
 - ✅ Canonical URLs
-- ✅ robots.txt and sitemap.xml
-- ✅ Structured data (JSON-LD)
-- ✅ hreflang for multilingual content
+- ✅ robots.txt and sitemap.xml in public/
+- ✅ Structured data (JSON-LD) when applicable
 - ✅ Mobile-friendly and responsive
 - ✅ Fast loading (Web Vitals)
 
@@ -313,7 +470,7 @@ pnpm lint         # Run ESLint
 ```
 
 ### Git Workflow
-- **Husky**: Pre-commit hooks configured
+- **Husky**: Pre-commit and pre-push hooks configured
 - **Commits**: Write clear, descriptive commit messages
 - **Branches**: Feature branches for new features
 
@@ -321,8 +478,8 @@ pnpm lint         # Run ESLint
 - [ ] TypeScript: No type errors
 - [ ] Linting: No ESLint warnings/errors
 - [ ] Styling: Follows Tailwind + CSS Modules pattern
-- [ ] i18n: All text is translatable
-- [ ] SEO: Meta tags and structured data present
+- [ ] i18n: All text uses useTranslations hook
+- [ ] SEO: Metadata properly configured
 - [ ] Performance: Images optimized, components lazy-loaded
 - [ ] Accessibility: Semantic HTML, ARIA labels
 - [ ] Animations: Smooth, performant (60fps)
@@ -334,24 +491,25 @@ pnpm lint         # Run ESLint
 ## Component Development Best Practices
 
 ### Component Checklist
-1. **Structure**: Create folder with `index.tsx` + `styles.module.css`
-2. **Types**: Define props interface
-3. **i18n**: Use `useTranslation` for text content
-4. **Styling**: Tailwind for layout, CSS Modules for custom styles
-5. **Animation**: Use Framer Motion or GSAP consistently
-6. **Performance**: Consider dynamic import if heavy
-7. **Accessibility**: Add ARIA labels, keyboard navigation
-8. **Responsiveness**: Test on multiple breakpoints
+1. **'use client' Directive**: Add at top if component uses hooks, state, or events
+2. **Structure**: Create folder with `index.tsx` + `styles.module.css`
+3. **Types**: Define props interface
+4. **i18n**: Use `useTranslations` for text content
+5. **Styling**: Tailwind for layout, CSS Modules for custom styles
+6. **Animation**: Use Framer Motion or GSAP consistently
+7. **Performance**: Consider dynamic import if heavy
+8. **Accessibility**: Add ARIA labels, keyboard navigation
+9. **Responsiveness**: Test on multiple breakpoints
 
 ### State Management
 - **Local State**: useState for component-specific state
+- **Context API**: Used for TransitionContext (page transitions)
 - **URL State**: Use Next.js router for shareable state
-- **Global State**: Use Context API if needed (currently not used)
-- **Server State**: Use getStaticProps/getServerSideProps
+- **Cookies**: Used for locale persistence (NEXT_LOCALE)
 
 ### Error Handling
 - **Try-Catch**: Wrap async operations
-- **Fallbacks**: Provide error boundaries for critical components
+- **Error Boundaries**: Provide for critical components
 - **Logging**: Console errors in development only
 - **User Feedback**: Show user-friendly error messages
 
@@ -364,10 +522,18 @@ pnpm lint         # Run ESLint
 - Global: `cursor: none` in body
 - Replaces default cursor with custom component
 
-### Locomotive Scroll
-- Initialized in `_app.tsx`
-- Container: Must have `data-scroll-container` attribute
-- Smooth scrolling with lerp: 0.1, multiplier: 1.8
+### Page Transitions (TransitionContext)
+- Custom GSAP-powered page transition system
+- Provides smooth scale/fade animations between routes
+- Maintains state during transitions
+- Usage via `useTransition()` hook
+
+```typescript
+const { startTransition, isTransitioning } = useTransition()
+
+// Trigger transition on navigation
+startTransition('/about')
+```
 
 ### Service Worker
 - PWA capabilities via `serviceWorkerRegistration.ts`
@@ -380,6 +546,7 @@ pnpm lint         # Run ESLint
 ### Cookie Consent
 - GDPR-compliant cookie banner
 - Required before tracking activation
+- Implemented in `src/components/CookieConsent`
 
 ---
 
@@ -388,7 +555,7 @@ pnpm lint         # Run ESLint
 ### Manual Testing Workflow
 1. **Visual**: Check all components render correctly
 2. **Responsive**: Test on mobile, tablet, desktop
-3. **i18n**: Switch languages, verify translations
+3. **i18n**: Switch languages via language switcher, verify translations
 4. **Performance**: Check Lighthouse scores
 5. **SEO**: Validate meta tags, structured data
 6. **Animations**: Verify smooth 60fps animations
@@ -400,66 +567,121 @@ pnpm lint         # Run ESLint
 - **FCP**: <1.8s (First Contentful Paint)
 - **LCP**: <2.5s (Largest Contentful Paint)
 - **CLS**: <0.1 (Cumulative Layout Shift)
-- **FID**: <100ms (First Input Delay)
+- **INP**: <200ms (Interaction to Next Paint)
 
 ---
 
 ## Common Pitfalls to Avoid
 
 ❌ **Don't:**
-- Use App Router patterns (this is Pages Router)
+- Use Pages Router patterns (this is App Router)
+- Forget 'use client' directive for interactive components
 - Use `any` type without justification
 - Inline large CSS in JSX
-- Skip `getStaticProps` for i18n pages
+- Use getStaticProps/getServerSideProps (Pages Router only)
 - Forget alt text on images
-- Use `<a>` instead of Next.js `<Link>`
 - Import entire libraries (e.g., `import _ from 'lodash'`)
 - Use `console.log` in production
 - Forget to cleanup animations/subscriptions
 - Skip responsive design testing
 - Use npm or yarn (use pnpm only)
+- Mix next-i18next with next-intl patterns
 
 ✅ **Do:**
+- Use 'use client' for components with hooks/state/events
 - Use TypeScript strictly
 - Follow component folder structure
 - Leverage Tailwind utilities first
-- Add proper i18n support
+- Use useTranslations hook for all text
+- Store translations in `/messages/` directory
 - Optimize images with WebP
 - Use semantic HTML
 - Write accessible components
 - Test on multiple devices
 - Keep bundle size small
 - Document complex logic
+- Use router.refresh() after changing locale cookie
 
 ---
 
 ## Emergency Debugging
 
 ### Common Issues
-1. **Hydration Errors**: Check for SSR/client mismatches
-2. **Type Errors**: Run `pnpm build` to catch all TypeScript errors
-3. **Linting**: Run `pnpm lint` and fix all warnings
-4. **i18n Missing**: Ensure getStaticProps includes translations
-5. **Locomotive Scroll**: Verify `data-scroll-container` exists
-6. **Build Failures**: Check Next.js version compatibility
+
+1. **Hydration Errors**: 
+   - Check for SSR/client mismatches
+   - Verify 'use client' directive is present
+   - Check for browser-only APIs used without checks
+
+2. **Type Errors**: 
+   - Run `pnpm build` to catch all TypeScript errors
+   - Check tsconfig.json for path aliases
+
+3. **Linting**: 
+   - Run `pnpm lint` and fix all warnings
+   - Check for unused imports
+
+4. **i18n Not Working**:
+   - Verify cookie is set: `NEXT_LOCALE`
+   - Check `src/i18n/request.ts` configuration
+   - Ensure messages exist in `/messages/{locale}.json`
+   - Verify useTranslations hook has correct namespace
+
+5. **Language Not Switching**:
+   - Ensure `router.refresh()` is called after setting cookie
+   - Check that cookie path is set to `/`
+   - Verify `startTransition` wrapper is used
+
+6. **Build Failures**: 
+   - Check Next.js version compatibility
+   - Verify all 'use client' directives are at top of file
+   - Check for server-only code in client components
 
 ### Debug Mode
 ```bash
 NODE_OPTIONS='--inspect' pnpm dev  # Node debugger
-ANALYZE=true pnpm build            # Bundle analysis
+pnpm build                          # Check for build errors
 ```
+
+---
+
+## Architecture Decision Records
+
+### Why App Router?
+- Modern Next.js architecture (13+)
+- Better performance with React Server Components
+- Improved routing and layouts
+- Built-in loading and error states
+
+### Why next-intl over next-i18next?
+- Better App Router support
+- Cookie-based routing (no URL changes)
+- Simpler API for client components
+- Better TypeScript support
+
+### Why Cookie-Based i18n?
+- Cleaner URLs (no /en/ or /es/ prefix)
+- Persistent across navigation
+- Better UX (no URL changes on language switch)
+- SEO-friendly with proper hreflang tags
+
+### Why 'use client' for All Pages?
+- Heavy use of animations (Framer Motion, GSAP)
+- Interactive components throughout
+- Language switcher requires client state
+- Page transitions managed client-side
 
 ---
 
 ## Future Considerations
 
 ### Potential Upgrades
-- Migrate to App Router (Next.js 15+)
+- Consider React Server Components for static content
 - Add E2E testing (Playwright/Cypress)
 - Implement unit tests (Vitest/Jest)
 - Add Storybook for component documentation
-- Consider Server Components for better performance
 - Upgrade to React 19 when stable
+- Consider parallel routes for advanced layouts
 
 ### Maintenance
 - Keep dependencies updated (monthly check)
@@ -472,14 +694,16 @@ ANALYZE=true pnpm build            # Bundle analysis
 
 ## Questions to Ask Before Implementation
 
-1. Does this change affect SEO? → Update meta tags
-2. Is new text added? → Add to i18n files
-3. Is it a heavy component? → Consider dynamic import
-4. Does it need animation? → Use Framer Motion patterns
-5. Is it responsive? → Test all breakpoints
-6. Is it accessible? → Add ARIA labels
-7. Does it impact performance? → Check bundle size
-8. Is TypeScript happy? → No type errors
+1. Does this component need interactivity? → Add 'use client'
+2. Does this change affect SEO? → Update metadata in layout.tsx
+3. Is new text added? → Add to messages/en.json and messages/es.json
+4. Is it a heavy component? → Consider dynamic import
+5. Does it need animation? → Use Framer Motion or GSAP patterns
+6. Is it responsive? → Test all breakpoints
+7. Is it accessible? → Add ARIA labels
+8. Does it impact performance? → Check bundle size
+9. Is TypeScript happy? → No type errors
+10. Does it use browser APIs? → Ensure 'use client' and proper checks
 
 ---
 

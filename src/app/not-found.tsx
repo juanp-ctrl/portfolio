@@ -1,81 +1,95 @@
 'use client'
-import type React from 'react'
 import Header from '@/components/Header'
 import PageTransition from '@/components/PageTransition'
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useTransition } from '@/context/TransitionContext'
+import { useTranslations } from 'next-intl'
+import Text from '@/components/Text'
 
 export default function NotFound() {
-  const { startTransition } = useTransition()
+  const t = useTranslations('404')
 
-  const handleGoHome = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    startTransition('/')
+  const anim = (variants: Variants) => ({
+    initial: 'initial',
+    animate: 'enter',
+    exit: 'exit',
+    variants,
+  })
+
+  const errorVariants: Variants = {
+    initial: {
+      y: 200,
+      opacity: 0,
+    },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        duration: 1.2,
+        type: 'spring',
+        ease: [0.45, 0, 0.55, 1],
+      },
+    },
   }
 
   return (
     <PageTransition>
       <main className="relative w-full overflow-hidden min-h-screen bg-black-secondary text-white">
         <Header />
-        <div className="flex flex-col items-center justify-center min-h-[80vh] px-4">
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{
-              type: 'spring',
-              stiffness: 260,
-              damping: 20,
-              delay: 0.3,
-            }}
-            className="mb-8"
-          >
-            <Image
-              src="/images/free_astronaut.png"
-              alt="Lost astronaut"
-              width={300}
-              height={400}
-              className="opacity-80"
-              priority
-            />
-          </motion.div>
+        <motion.div
+        className="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-black-secondary text-white"
+        {...anim(errorVariants)}
+      >
+        <div className="max-w-2xl mx-auto">
+          <Image
+            src="/images/free_astronaut.png"
+            alt="Lost astronaut"
+            width={300}
+            height={300}
+            className="mx-auto mb-8 opacity-70"
+            priority
+          />
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-center"
-          >
-            <h1 className="text-8xl md:text-9xl font-libre italic text-yellow-primary mb-4">
-              404
-            </h1>
-            <h2 className="text-2xl md:text-4xl font-josefin mb-6">
-              Houston, we have a problem!
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-md mx-auto">
-              The page you&apos;re looking for has drifted into deep space. Let&apos;s get
-              you back to safety.
-            </p>
+          <h1 className="text-6xl md:text-8xl font-libre italic mb-6">404</h1>
 
+          <h2 className="text-2xl md:text-3xl font-libre mb-6">
+            {t('404_title')}
+          </h2>
+
+          <Text phrase={t('404_description')} customStyle="mb-8 md:text-lg" />
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/"
-              onClick={handleGoHome}
-              className="inline-block bg-yellow-primary text-black px-8 py-3 rounded-full font-josefin font-semibold hover:bg-yellow-600 transition-all duration-300 hover:scale-105"
+              className="bg-yellow-primary text-black px-6 py-3 rounded-full font-josefin font-semibold hover:bg-yellow-600 transition-colors duration-300"
             >
-              Return to Home Base
+              {t('404_button_1')}
             </Link>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-            className="mt-12 text-gray-600"
-          >
-            <p className="text-sm">Error Code: PAGE_NOT_FOUND</p>
-          </motion.div>
+            <Link
+              href="/projects"
+              className="border border-white text-white px-6 py-3 rounded-full font-josefin font-semibold hover:bg-white hover:text-black transition-colors duration-300"
+            >
+              {t('404_button_2')}
+            </Link>
+          </div>
+
+          <div className="my-12">
+            <p className="text-sm opacity-70">
+              {t('404_contact_me_text_1')}{' '}
+              <a
+                href="mailto:juanpablojimenez.dev@gmail.com"
+                className="text-yellow-primary hover:underline"
+              >
+                {t('404_contact_me')}
+              </a>{' '}
+              {t('404_contact_me_text_2')}
+            </p>
+          </div>
         </div>
+      </motion.div>
       </main>
     </PageTransition>
   )

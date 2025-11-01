@@ -10,7 +10,7 @@ interface DownloadButtonProps {
 export default function DownloadButton({
   className = '',
 }: DownloadButtonProps) {
-  const t = useTranslations('common')
+  const t = useTranslations('home')
   const locale = useLocale()
 
   const handleDownloadCV = () => {

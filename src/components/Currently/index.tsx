@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 
 export default function Index() {
-  const t = useTranslations('common')
+  const t = useTranslations('home')
   const ref = useRef(null)
   const [displayText, setDisplayText] = useState('')
   const isInView = useInView(ref, { once: true })

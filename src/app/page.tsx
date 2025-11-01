@@ -30,7 +30,7 @@ const DownloadButton = dynamic(() => import('@/components/DownloadButton'), {
 })
 
 export default function Home() {
-  const t = useTranslations('common')
+  const t = useTranslations('home')
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {

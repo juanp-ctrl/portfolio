@@ -1,0 +1,93 @@
+{
+  "common": {
+    "JP": "JP | Desarrollador Frontend",
+    "menu": "Menú",
+    "change_lng": "Cambiar a Inglés",
+    "home": "Inicio",
+    "about": "Perfil",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "socials": "Redes",
+    "version": "Versión",
+    "lng": "ES",
+    "cookies": {
+      "message": "Este sitio utiliza cookies para analizar el tráfico web. ¿Aceptas el uso de cookies?",
+      "accept": "Aceptar",
+      "reject": "Rechazar"
+    }
+  },
+  "home": {
+    "home_description": "El espacio en la web de Juan Pablo Jiménez, donde muestra sus trabajos, experimentos y proyectos relacionados con el desarrollo web. Un espacio donde puedes conocer mejor quién es Juan Pablo Jiménez, desarrollador frontend y creativo. ¡De Medellín para el mundo!",
+    "home_title_og": "Juan Pablo Jiménez | Desarrollador Frontend e Ingeniero Creativo | React Next.js TypeScript",
+    "welcome_hi": "Hola, soy",
+    "welcome_name": "Juan Pablo Jiménez!",
+    "dev_role": "Ingeniero de Software",
+    "first_section_text_1": "¡Hola! bienvenid@ a mi pequeño espacio en la web, aquí muestro mis trabajos, experimentos y proyectos relacionados con el desarrollo web. Actualmente estoy experimentando con efectos de animaciones y transiciones para crear una experiencia más profunda.",
+    "creative": "Creatividad +",
+    "engineer": "Ingeniería",
+    "first_section_text_2": "Soy ingeniero de sistemas e informática, vivo en Medellín, Colombia, impulsado por un constante espíritu de creación y mejora. Me apasiona la tecnología y siempre estoy en busca de nuevos desafíos y oportunidades para aprender y crecer.",
+    "currently": "Actualmente",
+    "at": "en",
+    "second_section_text_1": "He estado trabajando como Ingeniero de Software con expertise en React, NextJS y TypeScript, en Globant y ahora en Gorilla Logic, contribuyendo a aplicaciones web a gran escala con un fuerte enfoque en la arquitectura de microfrontends.",
+    "second_section_text_2": "He participado en la migración de sistemas heredados, eliminando tecnologías obsoletas, e implementado estándares de accesibilidad (WCAG AA/AAA) y soporte RTL para internacionalización. También he colaborado utilizando flujos de trabajo asistidos por IA con Cursor para iterar en el diseño de componentes y mejorar la eficiencia del desarrollo.",
+    "second_section_text_3": "¿Quieres saber más?",
+    "the": "EL",
+    "universe": "UNIVERSO",
+    "is": "ES",
+    "change": "CAMBIO",
+    "quote": "Cita (Marco Aurelio, Libro IV)",
+    "download_cv": "Descargar CV"
+  },
+  "about": {
+    "about_title": "Perfil",
+    "about_description": "Juan Pablo Jiménez, desarrollador frontend, con experiencia en TypeScript, Next.js y React, explorando constantemente nuevas herramientas, plataformas CMS y mejores prácticas para mantenerse a la vanguardia en el desarrollo frontend. Para mí, aprender no es solo una necesidad, sino una pasión que me impulsa a crear experiencias digitales innovadoras, eficientes y de impacto positivo.",
+    "developer": "DEVELOPER",
+    "engineer": "INGENIERO",
+    "about_me": "Soy Juan Pablo Jiménez, desarrollador frontend apasionado por combinar la precisión técnica con la creatividad artística. Me gradué en Ingeniería de Sistemas y Computación en la UPB de Medellín, Colombia, donde aprendí que el desarrollo de software no solo es técnico, sino también un arte.",
+    "about_me_2": "Mis intereses incluyen la programación, la resolución de problemas, el diseño visual, la música y la creación de contenido. Disfruto transformar ideas en soluciones del mundo real, asegurando que cada proyecto siga metodologías ágiles, mejoras iterativas, comunicación abierta y prácticas arquitectónicas limpias.",
+    "about_me_3": "En los últimos años he tenido la oportunidad de trabajar en proyectos frontend de alto impacto, impulsando la modernización de plataformas web empresariales. Contribuí a la migración de sistemas heredados reemplazando tecnologías deprecadas con soluciones escalables utilizando React y NextJS. Trabajando con arquitecturas de microfrontends, integré módulos complejos mientras aseguraba mantenibilidad y rendimiento.",
+    "about_me_4": "He implementado características de internacionalización, incluyendo soporte de derecha a izquierda (RTL) y adherido a altos estándares de accesibilidad (WCAG AA/AAA). A través de flujos de trabajo asistidos por IA con Cursor, mejoré la colaboración y la velocidad de iteración entre equipos. Estas experiencias han agudizado mis habilidades para resolver problemas y profundizado mi pasión por construir aplicaciones web inclusivas y de alta calidad.",
+    "skills_title": "Habilidades",
+    "skills": "Me especializo en TypeScript, Next.js y React, y estoy constantemente explorando nuevas herramientas, plataformas CMS y mejores prácticas para mantenerme a la vanguardia en el desarrollo frontend. Para mí, aprender no es solo una necesidad, sino una pasión que me impulsa a crear experiencias digitales innovadoras, eficientes y de impacto positivo.",
+    "contact": "Contacto"
+  },
+  "contact": {
+    "contact": "Contacto",
+    "contact_description": "Ponte en contacto con Juan Pablo Jiménez, desarrollador frontend de Medellín, Colombia. Disponible para proyectos y colaboraciones.",
+    "lets_connect": "Conectemos",
+    "ready_to_bring_your_ideas_to_life": "¿List@ para llevar las ideas a la realidad? Estoy siempre emocionado de trabajar en nuevos proyectos y colaborar con personas increíbles.",
+    "based_in_medellin_colombia": "Desde Medellín, Colombia",
+    "available_for_remote_work_worldwide": "Disponible para trabajo remoto en todo el mundo. Abierto a nuevas oportunidades y proyectos emocionantes.",
+    "start_a_conversation": "Iniciar una conversación",
+    "lets_discuss_your_next_project": "Hablemos!",
+    "professional_network": "Red profesional",
+    "check_out_my_code": "Echa un vistazo a mi código",
+    "behind_the_scenes": "Detrás de escena"
+  },
+  "projects": {
+    "projects": "Proyectos",
+    "techStack": "Stack Tecnológico:",
+    "overview": "Descripción general:",
+    "developedWith": "Desarrollado junto a:",
+    "purpose": "Proposito e Impacto:",
+    "name_rq": "Random-Q",
+    "description_rq_1": "Random-Q es una aplicación web dinámica diseñada para generar conversaciones interesantes a través de una colección diversa de preguntas provocadoras. Ya sea que desees profundizar las conexiones en una cita, animar reuniones sociales o simplemente explorar temas intrigantes, Random-Q proporciona el inicio de conversación perfecto para cada ocasión.",
+    "description_rq_2": "Preguntas cuidadosamente categorizadas: Random-Q organiza sus preguntas en categorías distintas, adaptándose a una variedad de intereses y contextos sociales: Preguntas filosóficas para discusiones profundas y reflexivas. Rompehielos atrevidos para agregar un toque juguetón a cualquier interacción. Preguntas nerdy e inspiradas en la cultura geek para entusiastas de la cultura pop y amantes de la trivia. Consultas curiosas y poco convencionales para encender la creatividad y la curiosidad.",
+    "description_rq_3": "La aplicación presenta una selección cuidadosamente seleccionada de preguntas bilingües (español e inglés), asegurando inclusión y accesibilidad para una audiencia más amplia. Cada pregunta se enriquece con elementos de diseño intuitivos, incluidos íconos específicos de la categoría, etiquetas codificadas por colores y un control deslizante de intensidad que permite a los usuarios filtrar preguntas según su nivel de comodidad o estado de ánimo.",
+    "impact_rq": "Random-Q es más que un simple generador de preguntas: es una herramienta para la conexión. Al combinar un diseño reflexivo, funcionalidad intuitiva y una amplia gama de temas, la aplicación empodera a los usuarios para romper el hielo, reflexionar profundamente y participar de manera significativa en cualquier entorno social. Su soporte bilingüe y características personalizables la convierten en un compañero versátil para individuos y grupos por igual, fomentando la curiosidad y el diálogo entre culturas y contextos.",
+    "tech_highlight_rq_1": "Framework Next.js: Aprovechado por sus capacidades de renderizado del lado del servidor (SSR) y generación de sitios estáticos (SSG), asegurando un rendimiento óptimo y optimización SEO.",
+    "tech_highlight_rq_2": "Firebase Firestore: Utilizado como base de datos backend para gestionar el sistema de likes y almacenar datos de preguntas de manera eficiente.",
+    "tech_highlight_rq_3": "Hosting de Firebase: La aplicación se implementó con la robusta solución de hosting de Firebase, asegurando tiempos de carga rápidos y escalabilidad.",
+    "tech_highlight_rq_4": "Pipeline CI/CD: Los flujos de trabajo automatizados mediante GitHub Actions agilizan el proceso de desarrollo e implementación, permitando iteraciones rápidas y entregas consistentes.",
+    "name_soon": "Pronto..."
+  },
+  "404": {
+    "404_title": "Houston, tenemos un problema!",
+    "404_description": "La página que estás buscando parece haberse perdido en el espacio. Vamos a llevarte de vuelta a una órbita segura.",
+    "404_button_1": "Volver a la base de inicio",
+    "404_button_2": "Explorar proyectos",
+    "404_contact_me": "Contactame",
+    "404_contact_me_text_1": "O puedes",
+    "404_contact_me_text_2": "si crees que esto es un error."
+  }
+}

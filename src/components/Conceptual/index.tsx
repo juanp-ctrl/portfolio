@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 import { useTranslations } from 'next-intl'
 
 export default function Index() {
-  const t = useTranslations('common')
+  const t = useTranslations('home')
 
   return (
     <div className={styles.container}>

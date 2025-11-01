@@ -756,6 +756,5 @@ All animations use GSAP for consistent timing and smooth 60fps performance.
 ---
 
 **Created:** October 31, 2025  
-**Author:** AI Assistant (Claude)  
 **Purpose:** Complete documentation of GSAP page transition system in App Router
 

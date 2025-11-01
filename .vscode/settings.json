@@ -6,7 +6,7 @@
     ["@apply\\s+([^;]+);", "([a-zA-Z0-9\\-:]+)"]
   ],
   "files.associations": {
-    "*.css": "tailwindcss"
+    "*.css": "css"
   },
   "tailwindCSS.validate": true,
   "css.validate": false

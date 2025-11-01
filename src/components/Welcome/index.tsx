@@ -5,7 +5,7 @@ import Image from 'next/image'
 import styles from './styles.module.css'
 
 export default function Index() {
-  const t = useTranslations('common')
+  const t = useTranslations('home')
   const [isClient, setIsClient] = useState(false)
   const { scrollY } = useScroll()
   const rotateAstronaut = useTransform(scrollY, [0, 700], [0, 360])

@@ -101,7 +101,7 @@ export default function TransitionWrapper({
           left: 0,
           width: '100%',
           height: '100vh',
-          backgroundColor: 'var(--white_alternative)',
+          backgroundColor: 'var(--black_alternative)',
           zIndex: 60,
           pointerEvents: 'none',
         }}

@@ -47,7 +47,7 @@ const useProjects = () => {
         'Firebase App Hosting',
         'CI/CD via GitHub',
       ],
-      url: 'https://www.random-q.com/',
+      url: 'https://random-q.com/',
       collaborators: [
         {
           name: 'Natalia Suárez V.',

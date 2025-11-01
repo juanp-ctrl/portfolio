@@ -73,7 +73,6 @@ export const layoutMetadata = {
     canonical: 'https://www.juanpablojimenez.dev',
   },
   other: {
-    'theme-color': '#1e1e1e',
     'color-scheme': 'light dark',
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'black-translucent',

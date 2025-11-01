@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import type React from 'react'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -17,6 +17,10 @@ import { libreBaskerville, josefinSans } from '@/constants/fonts'
 import { layoutMetadata } from '@/constants/metadata'
 
 export const metadata = layoutMetadata as Metadata
+
+export const viewport: Viewport = {
+  themeColor: '#1e1e1e', // bg-black-secondary color for mobile browser UI
+}
 
 export default async function RootLayout({
   children,
@@ -47,7 +51,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="bg-black-secondary">
+      <body className="bg-white">
         <NextIntlClientProvider messages={messages}>
           <TransitionProvider>
             <GoogleAnalytics />

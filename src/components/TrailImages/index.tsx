@@ -17,7 +17,7 @@ export default function Index() {
   const [lastAddedCoordinates, setLastAddedCoordinates] = useState({
     x: 0,
     y: 0,
-  }) // Última posición donde se agregó una imagen
+  }) // Last position where an image was added
   const [images, setImages] = useState<ImageItem[]>([])
   const [imageCounter, setImageCounter] = useState<number>(0)
   const imagePool = Array.from(
@@ -25,27 +25,12 @@ export default function Index() {
     (_, i) => `/images/IMG_${i + 1}.webp`,
   )
 
-  const handleGetImage = () => {
-    const aleatory = Math.floor(Math.random() * 2)
-    if (imageCounter < imagesLength - 1) {
-      if (aleatory === 0) {
-        setImageCounter((prevNumber) => prevNumber + 1)
-      } else {
-        setImageCounter((prevNumber) =>
-          prevNumber < imagesLength - 2 ? prevNumber + 2 : 0,
-        )
-      }
-    } else {
-      setImageCounter(0)
-    }
-  }
-
-  // Manejar el movimiento del mouse
+  // Handle mouse movement
   const handleMouseMovement = (event: React.MouseEvent<HTMLDivElement>) => {
     setMouseCoordinates({ x: event.clientX, y: event.clientY })
   }
 
-  // Agregar una nueva imagen si el desplazamiento es mayor a 100 píxeles
+  // Add a new image if the displacement is greater than 100 pixels
   const addNewItem = useCallback(() => {
     const distance = Math.sqrt(
       Math.pow(mouseCoordinates.x - lastAddedCoordinates.x, 2) +
@@ -55,26 +40,39 @@ export default function Index() {
     if (distance > 100) {
       const imgIndex = imageCounter
       const newImage: ImageItem = {
-        id: Date.now(), // Identificador único
+        id: Date.now(), // Unique identifier
         x: mouseCoordinates.x - 75,
         y: mouseCoordinates.y - 100,
         src: imagePool[imgIndex],
       }
 
-      // Agregar la nueva imagen al estado
+      // Add the new image to the state
       setImages((prevImages) => [...prevImages, newImage])
 
-      // Actualizar las últimas coordenadas donde se agregó una imagen
+      // Update the last coordinates where an image was added
       setLastAddedCoordinates({ x: mouseCoordinates.x, y: mouseCoordinates.y })
-      handleGetImage()
+      
+      // Update image counter for next image
+      const aleatory = Math.floor(Math.random() * 2)
+      if (imageCounter < imagesLength - 1) {
+        if (aleatory === 0) {
+          setImageCounter((prevNumber) => prevNumber + 1)
+        } else {
+          setImageCounter((prevNumber) =>
+            prevNumber < imagesLength - 2 ? prevNumber + 2 : 0,
+          )
+        }
+      } else {
+        setImageCounter(0)
+      }
     }
-  }, [mouseCoordinates])
+  }, [mouseCoordinates, lastAddedCoordinates, imageCounter, imagePool])
 
   useEffect(() => {
     let timeoutId = null
     if (images.length < 2) {
       timeoutId = setTimeout(() => {
-        setImages((prevImages) => prevImages.slice(1)) // Eliminar la imagen más antigua
+        setImages((prevImages) => prevImages.slice(1)) // Remove the oldest image
       }, 500)
     } else if (images.length < 7) {
       timeoutId = setTimeout(() => {
@@ -86,10 +84,10 @@ export default function Index() {
       }, 20)
     }
 
-    return () => clearTimeout(timeoutId) // Limpiar el timeout al desmontar
+    return () => clearTimeout(timeoutId) // Clear the timeout on unmount
   }, [images.length])
 
-  // Efecto para agregar una nueva imagen cuando se mueve el mouse
+  // Effect to add a new image when the mouse moves
   useEffect(() => {
     if (mouseCoordinates.x && mouseCoordinates.y) {
       addNewItem()
@@ -103,12 +101,12 @@ export default function Index() {
           <motion.div
             key={image.id}
             className={styles.item}
-            initial={{ opacity: 0, scale: 0 }} // Comienza invisible y contraída
-            animate={{ opacity: 1, scale: 1 }} // Aparece expandiéndose desde el centro
-            exit={{ opacity: 0, y: 10 }} // Fade out hacia abajo
+            initial={{ opacity: 0, scale: 0 }} // Starts invisible and contracted
+            animate={{ opacity: 1, scale: 1 }} // Appears expanding from the center
+            exit={{ opacity: 0, y: 10 }} // Fade out downward
             transition={{
-              duration: 0.5, // Duración de la animación
-              ease: 'easeOut', // Easing para un efecto suave
+              duration: 0.5, // Animation duration
+              ease: 'easeOut', // Easing for a smooth effect
             }}
             style={{ left: `${image.x}px`, top: `${image.y}px` }}
           >

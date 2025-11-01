@@ -1,9 +1,8 @@
+'use client'
 import { useState, useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
 import { motion, Variants } from 'framer-motion'
 
 const CookieConsent = () => {
-  const { t } = useTranslation('common')
   const [consent, setConsent] = useState<boolean | null>(null)
   const [visible, setVisible] = useState<boolean>(false)
 
@@ -72,23 +71,20 @@ const CookieConsent = () => {
     >
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
         <p className="mb-4 md:mb-0 font-libre italic text-lg">
-          {t(
-            'cookies.message',
-            'Este sitio utiliza cookies para analizar el tráfico. ¿Aceptas el uso de cookies?',
-          )}
+          This site uses cookies to analyze traffic. Do you accept the use of cookies?
         </p>
         <div className="flex space-x-4 ">
           <button
             onClick={handleAccept}
             className="px-4 py-2 bg-yellow-primary text-black-primary rounded hover:opacity-90 font-josefin transition-opacity"
           >
-            {t('cookies.accept', 'Aceptar')}
+            Accept
           </button>
           <button
             onClick={handleReject}
             className="px-4 py-2 bg-[#3a3a3a] text-white-primary rounded hover:opacity-90 font-josefin transition-opacity"
           >
-            {t('cookies.reject', 'Rechazar')}
+            Reject
           </button>
         </div>
       </div>

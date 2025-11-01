@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform, Variants } from 'framer-motion'
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 import { Suspense, useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from './styles.module.css'
 
 export default function Index() {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
   const [isClient, setIsClient] = useState(false)
   const { scrollY } = useScroll()
   const rotateAstronaut = useTransform(scrollY, [0, 700], [0, 360])

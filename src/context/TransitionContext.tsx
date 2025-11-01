@@ -18,7 +18,7 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
   const locomotiveScroll = useRef<LocomotiveScroll | null>(null)
   const slideRef = useRef<HTMLDivElement | null>(null)
   const pageContainerRef = useRef<HTMLElement | null>(null)
-  const transitionDuration = 400 // milliseconds
+  const transitionDuration = 700 // milliseconds
 
   const startTransition = useCallback(async (url: string): Promise<void> => {
     if (isTransitioning) return
@@ -27,16 +27,15 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
 
     // Import dynamically to avoid SSR issues
     const { gsap } = await import('gsap')
-    const router = await import('next/router').then(mod => mod.default)
-
+    
     // Create timeline for exit animation
     const exitTimeline = gsap.timeline()
 
     // Scale down and fade out the current page
     if (pageContainerRef.current) {
       exitTimeline.to(pageContainerRef.current, {
-        scale: 0.9,
-        opacity: 0.8,
+        scale: 0.95,
+        opacity: 0,
         duration: transitionDuration / 1000,
         ease: 'cubic-bezier(0.76, 0, 0.24, 1)',
       }, 0)
@@ -54,8 +53,12 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
     // Wait for exit animation to complete
     await exitTimeline.then()
 
-    // Navigate to new page
-    await router.push(url)
+    // Navigate to new page using window.location for now
+    // We'll handle this differently in the component that uses it
+    window.history.pushState(null, '', url)
+    
+    // Dispatch a custom event for navigation
+    window.dispatchEvent(new CustomEvent('appRouterNavigate', { detail: { url } }))
 
     // Reset the page container for the new page
     if (pageContainerRef.current) {

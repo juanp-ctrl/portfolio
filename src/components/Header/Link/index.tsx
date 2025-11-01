@@ -1,6 +1,8 @@
+'use client'
+import type React from 'react'
 import styles from './styles.module.css'
 import { useEffect, useLayoutEffect, useRef } from 'react'
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 import { useTransition } from '@/context/TransitionContext'
 import { gsap } from 'gsap'
 
@@ -12,14 +14,18 @@ interface LinkProps {
   }
   isActive: boolean
   setSelectedIndicator: (path: string) => void
+  currentPathname: string
+  closeMenu: () => void
 }
 
 export default function Index({
   data,
   isActive,
   setSelectedIndicator,
+  currentPathname,
+  closeMenu,
 }: LinkProps) {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
   const { startTransition } = useTransition()
   const linkRef = useRef<HTMLDivElement>(null)
   const indicatorRef = useRef<HTMLDivElement>(null)
@@ -28,7 +34,16 @@ export default function Index({
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
+    
+    // If we're already on this page, just close the menu
+    if (currentPathname === path) {
+      closeMenu()
+      return
+    }
+    
+    // Otherwise, navigate to the page (which will also close the menu via the transition)
     startTransition(path)
+    closeMenu()
   }
 
   useLayoutEffect(() => {

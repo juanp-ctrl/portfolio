@@ -1,3 +1,4 @@
+'use client'
 import Curve from '../Curve'
 import Image from 'next/image'
 import Link from '../Link'
@@ -8,7 +9,8 @@ import styles from './styles.module.css'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { useTranslation } from 'next-i18next'
+import { useTranslations, useLocale } from 'next-intl'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 const menuSlide = {
   initial: { x: 'calc(100% + 100px)' },
@@ -19,14 +21,20 @@ const menuSlide = {
   },
 }
 
-export default function Index() {
-  const { t, i18n } = useTranslation('common')
+interface NavProps {
+  closeMenu: () => void
+}
+
+export default function Index({ closeMenu }: NavProps) {
+  const t = useTranslations('common')
+  const locale = useLocale()
   const pathname = usePathname()
   const [selectedIndicator, setSelectedIndicator] = useState(pathname)
+  const { changeLanguage, isPending } = LanguageSwitcher({ currentLocale: locale })
 
   const handleChangingLng = () => {
-    const newLanguage = i18n.language === 'en' ? 'es' : 'en'
-    i18n.changeLanguage(newLanguage)
+    const newLanguage = locale === 'en' ? 'es' : 'en'
+    changeLanguage(newLanguage)
   }
 
   return (
@@ -55,6 +63,8 @@ export default function Index() {
                   data={{ ...data, index }}
                   isActive={selectedIndicator == data.path}
                   setSelectedIndicator={setSelectedIndicator}
+                  currentPathname={pathname}
+                  closeMenu={closeMenu}
                 ></Link>
               )
             })}
@@ -66,7 +76,7 @@ export default function Index() {
           onClick={handleChangingLng}
         >
           <Image src={globalSVG} alt="Global icon" width={18} height={18} />
-          <p>{t('change_lng')}</p>
+          <p>{isPending ? '...' : t('change_lng')}</p>
         </div>
       </div>
       <Curve />

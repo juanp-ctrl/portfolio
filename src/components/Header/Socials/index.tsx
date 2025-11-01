@@ -1,9 +1,9 @@
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 import styles from './styles.module.css'
 import { socials } from '@/constants/socials'
 
 export default function Index() {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
   return (
     <div className={styles['socials-footer']}>
       <div className={styles.header}>

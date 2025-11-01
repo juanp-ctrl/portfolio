@@ -1,4 +1,4 @@
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 
 interface Friend {
   name: string
@@ -18,7 +18,7 @@ export interface Project {
 }
 
 const useProjects = () => {
-  const { t } = useTranslation('projects')
+  const t = useTranslations('projects')
 
   const projects: Project[] = [
     {

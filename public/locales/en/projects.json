@@ -13,5 +13,7 @@
   "tech_highlight_rq_2": "Firebase Firestore: Used as the backend database to manage the like system and store question data efficiently.",
   "tech_highlight_rq_3": "Firebase Hosting: Deployed the app with Firebase's robust hosting solution, ensuring fast load times and scalability.",
   "tech_highlight_rq_4": "CI/CD Pipeline: Automated workflows via GitHub Actions streamline the development and deployment process, enabling rapid iteration and consistent delivery.",
-  "name_soon": "Coming soon..."
+  "name_soon": "Coming soon...",
+  "previous_project": "Previous project",
+  "next_project": "Next project"
 }

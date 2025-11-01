@@ -1,13 +1,13 @@
 import React from 'react'
 import styles from './styles.module.css'
 import navItems from '@/constants/routes'
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 import { socials } from '@/constants/socials'
 import { useTransition } from '@/context/TransitionContext'
 
 
 const Nav = () => {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
   const { startTransition } = useTransition()
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
@@ -30,7 +30,7 @@ const Nav = () => {
 }
 
 const Social = () => {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
   return (
     <div className={`flex flex-col gap-1 ${styles.social}`}>
       <p>{t('socials')}</p>
@@ -62,7 +62,7 @@ const Section1 = () => {
 }
 
 const Section2 = () => {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
   return (
     <div className="flex justify-between items-end">
       <h2 className="text-black-primary text-4xl font-libre italic">

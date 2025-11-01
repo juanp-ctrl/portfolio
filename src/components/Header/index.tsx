@@ -1,26 +1,30 @@
+'use client'
+import type React from 'react'
 import Nav from './Nav'
 import styles from './styles.module.css'
-import { AnimatePresence } from 'framer-motion'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { usePathname } from 'next/navigation'
 import { gsap } from 'gsap'
-import { useTranslation } from 'next-i18next'
+import { AnimatePresence } from 'framer-motion'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import Image from 'next/image'
+import Link from 'next/link'
+import { useTranslations, useLocale } from 'next-intl'
 import useMedia from '@/hooks/useMedia'
 import { useTransition } from '@/context/TransitionContext'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function Index() {
-  const { t, i18n } = useTranslation('common')
-  const pathname = usePathname()
+  const t = useTranslations('common')
+  const locale = useLocale()
   const [isActive, setIsActive] = useState(false)
   const menuButton = useRef(null)
   const { isMobile } = useMedia()
   const { locomotiveScroll, startTransition } = useTransition()
+  const { changeLanguage, isPending } = LanguageSwitcher({ currentLocale: locale })
 
   const handleChangingLng = () => {
-    const newLanguage = i18n.language === 'en' ? 'es' : 'en'
-    i18n.changeLanguage(newLanguage)
+    const newLanguage = locale === 'en' ? 'es' : 'en'
+    changeLanguage(newLanguage)
   }
 
   useEffect(() => {
@@ -79,9 +83,9 @@ export default function Index() {
     <div
       className={`flex justify-between items-center px-10 py-6 ${styles.header}`}
     >
-      <a href="/" onClick={handleLogoClick} className={styles.logo}>
+      <Link href="/" onClick={handleLogoClick} className={styles.logo}>
         JP
-      </a>
+      </Link>
       <div className="flex gap-8">
         <Popover>
           <PopoverTrigger>
@@ -103,7 +107,7 @@ export default function Index() {
               className="text-white font-libre cursor-pointer text-base"
               onClick={handleChangingLng}
             >
-              {t('change_lng')}
+              {isPending ? '...' : t('change_lng')}
             </p>
           </PopoverContent>
         </Popover>
@@ -146,7 +150,9 @@ export default function Index() {
           </div>
         </div>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Nav />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isActive && <Nav closeMenu={() => setIsActive(false)} />}
+      </AnimatePresence>
     </div>
   )
 }

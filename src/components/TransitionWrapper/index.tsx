@@ -1,20 +1,21 @@
-import '@/styles/globals.css'
-import CustomCursor from '@/components/Cursor'
-import CookieConsent from '@/components/CookieConsent'
-import GoogleAnalytics from '@/components/GoogleAnalytics.tsx'
-import { TransitionProvider, useTransition } from '@/context/TransitionContext'
-import { appWithTranslation } from 'next-i18next'
-import '../../serviceWorkerRegistration.ts'
-import type { AppProps } from 'next/app'
-
-import LocomotiveScroll from 'locomotive-scroll'
+'use client'
+import type React from 'react'
 import { useEffect } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { gsap } from 'gsap'
+import { useTransition } from '@/context/TransitionContext'
+import LocomotiveScroll from 'locomotive-scroll'
 
-function AppContent({ Component, pageProps, router }: AppProps) {
+interface TransitionWrapperProps {
+  children: React.ReactNode
+}
+
+export default function TransitionWrapper({ children }: TransitionWrapperProps) {
   const { locomotiveScroll, slideRef, pageContainerRef } = useTransition()
+  const pathname = usePathname()
+  const router = useRouter()
 
-  /* Locomotive scroll instance, thank you locomotive <3*/
+  /* Initialize Locomotive Scroll */
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const scrollContainer = document.querySelector('[data-scroll-container]') as HTMLElement
@@ -49,7 +50,7 @@ function AppContent({ Component, pageProps, router }: AppProps) {
     if (scrollContainer) {
       pageContainerRef.current = scrollContainer
     }
-  }, [router.route, pageContainerRef])
+  }, [pathname, pageContainerRef])
 
   /* Initialize slide overlay position */
   useEffect(() => {
@@ -58,10 +59,23 @@ function AppContent({ Component, pageProps, router }: AppProps) {
     }
   }, [slideRef])
 
+  /* Listen for custom navigation events from startTransition */
+  useEffect(() => {
+    const handleAppRouterNavigate = (e: Event) => {
+      const customEvent = e as CustomEvent<{ url: string }>
+      const { url } = customEvent.detail
+      router.push(url)
+    }
+
+    window.addEventListener('appRouterNavigate', handleAppRouterNavigate)
+
+    return () => {
+      window.removeEventListener('appRouterNavigate', handleAppRouterNavigate)
+    }
+  }, [router])
+
   return (
     <>
-      <GoogleAnalytics />
-      <CustomCursor />
       {/* Global transition slide overlay */}
       <div
         ref={slideRef}
@@ -76,18 +90,10 @@ function AppContent({ Component, pageProps, router }: AppProps) {
           pointerEvents: 'none',
         }}
       />
-      <Component data-scroll-container key={router.route} {...pageProps} />
-      <CookieConsent />
+      <div data-scroll-container key={pathname}>
+        {children}
+      </div>
     </>
   )
 }
 
-function App(props: AppProps) {
-  return (
-    <TransitionProvider>
-      <AppContent {...props} />
-    </TransitionProvider>
-  )
-}
-
-export default appWithTranslation(App)

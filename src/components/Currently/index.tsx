@@ -1,10 +1,10 @@
 import styles from './styles.module.css'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 
 export default function Index() {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
   const ref = useRef(null)
   const [displayText, setDisplayText] = useState('')
   const isInView = useInView(ref, { once: true })

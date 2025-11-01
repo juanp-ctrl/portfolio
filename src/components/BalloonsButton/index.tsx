@@ -2,11 +2,11 @@ import Image from 'next/image'
 import styles from './styles.module.css'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 import { useTransition } from '@/context/TransitionContext'
 
 export default function Index() {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
   const { startTransition } = useTransition()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false }) // once: true hace que la animación ocurra solo una vez

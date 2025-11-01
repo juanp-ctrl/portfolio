@@ -1,6 +1,6 @@
+'use client'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
+import { useTranslations, useLocale } from 'next-intl'
 import styles from './styles.module.css'
 
 interface DownloadButtonProps {
@@ -10,12 +10,11 @@ interface DownloadButtonProps {
 export default function DownloadButton({
   className = '',
 }: DownloadButtonProps) {
-  const { t } = useTranslation('common')
-  const router = useRouter()
+  const t = useTranslations('common')
+  const locale = useLocale()
 
   const handleDownloadCV = () => {
     const cvFileName = 'CV Juan Pablo Jiménez Heredia.pdf'
-    const currentLocale = router.locale || 'en'
 
     window.open(`/cv/${encodeURIComponent(cvFileName)}`, '_blank')
 
@@ -24,7 +23,7 @@ export default function DownloadButton({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ;(window as any).gtag('event', 'download', {
         event_category: 'CV',
-        event_label: currentLocale,
+        event_label: locale,
         value: 1,
       })
     }

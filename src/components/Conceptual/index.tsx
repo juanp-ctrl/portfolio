@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import styles from './styles.module.css'
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl'
 
 export default function Index() {
-  const { t } = useTranslation('common')
+  const t = useTranslations('common')
 
   return (
     <div className={styles.container}>

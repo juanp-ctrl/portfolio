@@ -54,7 +54,7 @@
   "contact": {
     "contact": "Contacto",
     "contact_description": "Ponte en contacto con Juan Pablo Jiménez, desarrollador frontend de Medellín, Colombia. Disponible para proyectos y colaboraciones.",
-    "lets_connect": "Conectemos",
+    "lets_connect": "Hablemos!",
     "ready_to_bring_your_ideas_to_life": "¿List@ para llevar las ideas a la realidad? Estoy siempre emocionado de trabajar en nuevos proyectos y colaborar con personas increíbles.",
     "based_in_medellin_colombia": "Desde Medellín, Colombia",
     "available_for_remote_work_worldwide": "Disponible para trabajo remoto en todo el mundo. Abierto a nuevas oportunidades y proyectos emocionantes.",
@@ -88,6 +88,26 @@
     "404_button_2": "Explorar proyectos",
     "404_contact_me": "Contactame",
     "404_contact_me_text_1": "O puedes",
-    "404_contact_me_text_2": "si crees que esto es un error."
+    "404_contact_me_text_2": "si crees que esto es un error.",
+    "seo_title": "404 - Página No Encontrada | Juan Pablo Jiménez",
+    "seo_description": "La página que buscas no existe. Regresa a la página principal del portafolio de Juan Pablo Jiménez o explora proyectos de desarrollo web."
+  },
+  "seo": {
+    "home_title": "Juan Pablo Jiménez | Desarrollador Frontend e Ingeniero Creativo",
+    "home_og_title": "Juan Pablo Jiménez | Desarrollador Frontend | React Next.js TypeScript",
+    "home_description": "Portafolio de Juan Pablo Jiménez, Desarrollador Frontend e Ingeniero Creativo de Medellín, Colombia. Especializado en React, Next.js y TypeScript. Explora proyectos, habilidades y experiencia.",
+    "about_title": "Perfil | Juan Pablo Jiménez",
+    "about_og_title": "Sobre Juan Pablo Jiménez | Desarrollador Frontend de Medellín",
+    "projects_title": "Proyectos | Juan Pablo Jiménez",
+    "projects_description": "Explora los proyectos de desarrollo web de Juan Pablo Jiménez. Desde Random-Q hasta aplicaciones empresariales, descubre cómo la creatividad se encuentra con la excelencia técnica en proyectos de React y Next.js.",
+    "projects_og_title": "Proyectos de Desarrollo Web | Portafolio Juan Pablo Jiménez",
+    "contact_title": "Contacto | Juan Pablo Jiménez",
+    "contact_og_title": "Ponte en Contacto | Juan Pablo Jiménez",
+    "og_image_alt": "Portafolio Juan Pablo Jiménez - Astronauta flotando en el espacio con texto de portafolio",
+    "site_name": "Portafolio Juan Pablo Jiménez",
+    "keywords_home": "desarrollador frontend, desarrollador react, desarrollador nextjs, desarrollador typescript, desarrollador web, desarrollador creativo, desarrollador medellín, desarrollador colombia, desarrollador javascript, portafolio",
+    "keywords_about": "Juan Pablo Jiménez, desarrollador frontend, ingeniero de software, graduado UPB, desarrollador Medellín, especialista React, experto TypeScript, accesibilidad web, WCAG, arquitectura microfrontend",
+    "keywords_projects": "proyectos desarrollo web, proyectos React, aplicaciones Next.js, apps TypeScript, Random-Q, proyectos portafolio, showcase desarrollo frontend, aplicaciones web creativas",
+    "keywords_contact": "contactar desarrollador frontend, contratar desarrollador React, servicios desarrollo web, desarrollador freelance Medellín, desarrollador remoto, contacto Juan Pablo Jiménez"
   }
 }

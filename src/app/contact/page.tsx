@@ -38,25 +38,25 @@ export default function Contact() {
       title: 'Email',
       value: 'juanpablojimenez.dev@gmail.com',
       href: 'mailto:juanpablojimenez.dev@gmail.com',
-      description: "Let's discuss your next project",
+      description: t('lets_discuss_your_next_project'),
     },
     {
       title: 'LinkedIn',
       value: '/in/juan-pablo-jimenez-h/',
       href: 'https://www.linkedin.com/in/juan-pablo-jimenez-h/',
-      description: 'Professional network',
+      description: t('professional_network'),
     },
     {
       title: 'GitHub',
       value: '@juanp-ctrl',
       href: 'https://github.com/juanp-ctrl',
-      description: 'Check out my code',
+      description: t('check_out_my_code'),
     },
     {
       title: 'Instagram',
       value: '@pabloj_h',
       href: 'https://instagram.com/pabloj_h',
-      description: 'Behind the scenes',
+      description: t('behind_the_scenes'),
     },
   ]
 

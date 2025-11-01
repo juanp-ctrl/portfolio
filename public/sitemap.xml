@@ -5,7 +5,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://www.juanpablojimenez.dev/</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/" />
@@ -16,7 +16,7 @@
   <!-- About Page -->
   <url>
     <loc>https://www.juanpablojimenez.dev/about</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/about" />
@@ -27,7 +27,7 @@
   <!-- Projects Page -->
   <url>
     <loc>https://www.juanpablojimenez.dev/projects</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/projects" />
@@ -38,7 +38,7 @@
   <!-- Contact Page -->
   <url>
     <loc>https://www.juanpablojimenez.dev/contact</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/contact" />

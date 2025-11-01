@@ -6,7 +6,11 @@ import { useTranslations } from 'next-intl'
 export default function Index() {
   const t = useTranslations('home')
   const ref = useRef(null)
-  const isInView = useInView(ref)
+  const isInView = useInView(ref, {
+    amount: 0.1,
+    once: true,
+    margin: '-50px',
+  })
 
   return (
     <motion.div

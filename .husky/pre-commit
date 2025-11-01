@@ -1,1 +1,2 @@
+pnpm prettier src --write
 pnpm lint

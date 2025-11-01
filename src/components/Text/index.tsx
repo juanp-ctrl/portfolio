@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { motion, useInView, Variants } from 'motion/react'
 
 const anim = (variants: Variants) => ({
@@ -28,7 +28,24 @@ export default function Index({
   customStyle?: string
 }) {
   const descriptionText = useRef<HTMLDivElement>(null)
-  const isInView = useInView(descriptionText)
+  const isInView = useInView(descriptionText, {
+    amount: 0.1,
+    once: true,
+    margin: '-50px',
+  })
+  const [forceShow, setForceShow] = useState(false)
+
+  // Fallback: ensure text is visible after a timeout, even if useInView doesn't trigger
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setForceShow(true)
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  // Determine if text should be visible
+  const shouldShow = isInView || forceShow
 
   return (
     <div ref={descriptionText} className={styles.description}>
@@ -41,7 +58,8 @@ export default function Index({
                 custom={index}
                 key={index}
                 {...anim(lettersVariants)}
-                animate={isInView ? 'open' : 'closed'}
+                initial="initial"
+                animate={shouldShow ? 'open' : 'initial'}
                 className={styles.word}
               >
                 {word}

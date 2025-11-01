@@ -1,4 +1,6 @@
 .container p {
-  font-family: var(--font-libre-baskerville);
+  font-family:
+    var(--font-libre-baskerville), 'Libre Baskerville', Georgia, serif;
   font-size: 2.25rem;
+  color: var(--black);
 }

@@ -4,7 +4,10 @@
 }
 
 .social {
-  font-family: var(--font-josefin-sans);
+  font-family:
+    var(--font-josefin-sans), 'Josefin Sans', 'Helvetica Neue', Arial,
+    sans-serif;
+  color: var(--black);
 }
 
 .social h4 {

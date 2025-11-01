@@ -10,9 +10,9 @@ import type LocomotiveScroll from 'locomotive-scroll'
 
 interface TransitionContextType {
   isTransitioning: boolean
-  locomotiveScroll: React.MutableRefObject<LocomotiveScroll | null>
-  slideRef: React.MutableRefObject<HTMLDivElement | null>
-  pageContainerRef: React.MutableRefObject<HTMLElement | null>
+  locomotiveScroll: React.RefObject<LocomotiveScroll | null>
+  slideRef: React.RefObject<HTMLDivElement | null>
+  pageContainerRef: React.RefObject<HTMLElement | null>
   transitionDuration: number
   startTransition: (url: string) => Promise<void>
 }
@@ -82,14 +82,6 @@ export function TransitionProvider({
       window.dispatchEvent(
         new CustomEvent('appRouterNavigate', { detail: { url } }),
       )
-
-      // Reset the page container for the new page
-      if (pageContainerRef.current) {
-        gsap.set(pageContainerRef.current, { scale: 1, opacity: 1 })
-      }
-
-      // Wait a bit for new page to mount
-      await new Promise((resolve) => setTimeout(resolve, 200))
 
       // Slide overlay back down
       if (slideRef.current) {

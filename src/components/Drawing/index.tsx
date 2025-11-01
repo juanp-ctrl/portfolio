@@ -1,4 +1,3 @@
-import styles from './styles.module.css'
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
 import { useTranslations } from 'next-intl'
@@ -15,7 +14,7 @@ export default function Index() {
   return (
     <motion.div
       ref={ref}
-      className={`flex flex-col items-center justify-center my-20 ${styles.container}`}
+      className="flex flex-col items-center justify-center my-20 [&_p]:font-libre [&_p]:text-[2.25rem] [&_p]:text-black-primary"
     >
       <p>{t('creative')}</p>
       <p>{t('engineer')}</p>

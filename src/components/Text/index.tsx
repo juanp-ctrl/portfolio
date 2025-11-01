@@ -1,4 +1,3 @@
-import styles from './styles.module.css'
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView, Variants } from 'motion/react'
 
@@ -39,7 +38,7 @@ export default function Index({
   useEffect(() => {
     const timer = setTimeout(() => {
       setForceShow(true)
-    }, 500)
+    }, 1000)
 
     return () => clearTimeout(timer)
   }, [])
@@ -48,11 +47,14 @@ export default function Index({
   const shouldShow = isInView || forceShow
 
   return (
-    <div ref={descriptionText} className={styles.description}>
+    <div ref={descriptionText} className="px-8 md:px-40 lg:px-48">
       <p className={`text-2xl md:text-3xl ${customStyle}`}>
         {phrase.split(' ').map((word, index) => {
           return (
-            <span key={index} className={styles.mask}>
+            <span
+              key={index}
+              className="relative overflow-hidden inline-flex mr-[3px]"
+            >
               {' '}
               <motion.span
                 custom={index}
@@ -60,7 +62,7 @@ export default function Index({
                 {...anim(lettersVariants)}
                 initial="initial"
                 animate={shouldShow ? 'open' : 'initial'}
-                className={styles.word}
+                className="mr-[3px]"
               >
                 {word}
               </motion.span>{' '}

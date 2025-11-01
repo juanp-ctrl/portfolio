@@ -39,3 +39,30 @@ p {
     --radius: 0.5rem;
   }
 }
+
+/* Welcome page - complex responsive utilities for height-based media queries */
+@media (max-height: 700px) {
+  .welcome-astronaut {
+    top: -9rem;
+  }
+
+  .welcome-astronaut-img {
+    width: 270px;
+  }
+
+  .role-text-p {
+    margin-top: 5%;
+  }
+}
+
+@media (max-height: 650px) {
+  .role-text-p {
+    margin-top: 3%;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 580px) {
+  .role-text-p {
+    margin-top: 15%;
+  }
+}

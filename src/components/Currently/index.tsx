@@ -1,4 +1,3 @@
-import styles from './styles.module.css'
 import { motion, useInView } from 'motion/react'
 import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
@@ -40,7 +39,7 @@ export default function Index() {
         <p className="font-libre text-yellow-primary text-4xl">{t('at')}</p>
         <div
           ref={ref}
-          className={styles['input-container']}
+          className="flex items-center justify-center bg-white-primary rounded-md px-[10px] pt-[5px] cursor-pointer"
           onClick={() => window.open('https://gorillalogic.com/', '_blank')}
         >
           <span className="text-black-secondary text-4xl font-josefin font-bold">

@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import styles from './styles.module.css'
 
 export default function Index() {
   const cursorRef = useRef<HTMLDivElement>(null)
@@ -26,5 +25,10 @@ export default function Index() {
     }
   }, [])
 
-  return <div ref={cursorRef} className={styles.cursor} />
+  return (
+    <div
+      ref={cursorRef}
+      className="fixed w-[30px] h-[30px] bg-[url('/images/moon.png')] bg-no-repeat bg-center bg-contain pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform,width,height] duration-200 ease-out max-md:hidden"
+    />
+  )
 }

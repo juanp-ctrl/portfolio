@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import Image from 'next/image'
-import styles from './styles.module.css'
 
 interface ImageItem {
   id: number
@@ -99,12 +98,15 @@ export default function Index() {
   }, [mouseCoordinates.x, mouseCoordinates.y, addNewItem])
 
   return (
-    <div className={styles.container} onMouseMove={handleMouseMovement}>
+    <div
+      className="absolute w-full h-[95vh] overflow-hidden z-[2]"
+      onMouseMove={handleMouseMovement}
+    >
       <AnimatePresence>
         {images.map((image) => (
           <motion.div
             key={image.id}
-            className={styles.item}
+            className="absolute w-[150px] h-[200px] overflow-hidden pointer-events-none"
             initial={{ opacity: 0, scale: 0 }} // Starts invisible and contracted
             animate={{ opacity: 1, scale: 1 }} // Appears expanding from the center
             exit={{ opacity: 0, y: 10 }} // Fade out downward
@@ -120,7 +122,7 @@ export default function Index() {
               width={150}
               height={200}
               priority
-              className={styles.image}
+              className="w-full h-full object-cover"
             />
           </motion.div>
         ))}

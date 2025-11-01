@@ -3,7 +3,6 @@ import type React from 'react'
 import { useLayoutEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { gsap } from 'gsap'
-import styles from './styles.module.css'
 
 interface PageTransitionProps {
   children: React.ReactNode
@@ -54,8 +53,8 @@ export default function PageTransition({ children }: PageTransitionProps) {
   }, [pathname])
 
   return (
-    <div className={styles.inner}>
-      <div ref={pageRef} className={styles.page}>
+    <div className="relative w-full">
+      <div ref={pageRef} className="relative w-full">
         <div ref={opacityRef}>{children}</div>
       </div>
     </div>

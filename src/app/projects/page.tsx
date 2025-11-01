@@ -2,7 +2,6 @@
 import Header from '@/components/Header'
 import PageTransition from '@/components/PageTransition'
 import Text from '@/components/Text'
-import styles from './styles.module.css'
 import {
   Carousel,
   CarouselApi,
@@ -81,7 +80,7 @@ export default function Projects() {
               </a>
             </motion.div>
             <motion.div
-              className={`p-0 w-3/4 max-w-[950px] h-[60vh] mb-8 ${styles.carousel}`}
+              className="p-0 w-3/4 max-w-[950px] h-[60vh] mb-8 max-md:h-[55vh] max-md:mb-20 max-md:[&_img]:[object-position:32%]"
               {...anim(upperVariants)}
             >
               <Carousel
@@ -198,7 +197,7 @@ export default function Projects() {
           )}
           <div className="pb-8">
             <div
-              className={styles['continue-button']}
+              className="border border-white-primary rounded-[25px] cursor-pointer m-8 bg-transparent transition-colors duration-[0.8s] hover:bg-yellow-primary group"
               onClick={() => {
                 setProjectIndex((currIndex) =>
                   currIndex + 1 === projects.length ? 0 : currIndex + 1,
@@ -206,7 +205,7 @@ export default function Projects() {
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }}
             >
-              <p>
+              <p className="font-josefin font-light text-white-primary text-2xl leading-8 p-3 text-center group-hover:text-black-primary group-hover:font-extrabold">
                 {projectIndex + 1 === projects.length
                   ? t('previous_project')
                   : t('next_project')}

@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './styles.module.css'
 import { motion, Variants } from 'motion/react'
 
 export default function Index() {
@@ -21,7 +20,7 @@ export default function Index() {
   }
 
   return (
-    <motion.svg className={styles.svgCurve}>
+    <motion.svg className="absolute top-0 -left-[99px] w-[100px] h-full fill-yellow-primary stroke-none">
       <motion.path
         variants={curve}
         initial="initial"

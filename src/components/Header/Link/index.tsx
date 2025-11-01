@@ -1,6 +1,5 @@
 'use client'
 import type React from 'react'
-import styles from './styles.module.css'
 import { useEffect, useLayoutEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import { useTransition } from '@/context/TransitionContext'
@@ -76,15 +75,22 @@ export default function Index({
   return (
     <div
       ref={linkRef}
-      className={styles.link}
+      className="relative flex items-center"
       onMouseEnter={() => {
         setSelectedIndicator(path)
       }}
     >
-      <a href={path} onClick={handleClick}>
+      <a
+        href={path}
+        onClick={handleClick}
+        className="no-underline font-semibold w-full"
+      >
         {t(title)}
       </a>
-      <div ref={indicatorRef} className={styles.indicator}></div>
+      <div
+        ref={indicatorRef}
+        className="w-[10px] h-[10px] bg-white rounded-full absolute right-[10px]"
+      ></div>
     </div>
   )
 }

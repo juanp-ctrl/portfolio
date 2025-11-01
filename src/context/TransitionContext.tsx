@@ -89,7 +89,7 @@ export function TransitionProvider({
       }
 
       // Wait a bit for new page to mount
-      await new Promise((resolve) => setTimeout(resolve, 100))
+      await new Promise((resolve) => setTimeout(resolve, 200))
 
       // Slide overlay back down
       if (slideRef.current) {

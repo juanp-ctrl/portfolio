@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import styles from './styles.module.css'
 import { motion, useInView } from 'motion/react'
 import { useRef } from 'react'
 import { useTranslations } from 'next-intl'
@@ -14,7 +13,7 @@ export default function Index() {
   return (
     <>
       <div className="flex flex-col items-center justify-center mt-20 pr-16 pb-44">
-        <div className={styles['balloons-container']}>
+        <div className="relative w-[200px] h-[200px]">
           <Image
             src="/images/balloon1.svg"
             alt="yellow balloon"
@@ -117,12 +116,12 @@ export default function Index() {
           </svg>
         </div>
         <div ref={ref} className="relative">
-          <div className={`${styles.aboutButton} top-32 left-5`}>
+          <div className="bg-white-secondary py-2 px-6 rounded-lg relative z-40 top-32 left-5 transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-0.5">
             <p
               onClick={() => {
                 startTransition('/about')
               }}
-              className={styles.aboutText}
+              className="font-libre text-4xl underline text-black-primary italic cursor-pointer transition-opacity duration-300 ease-in-out hover:opacity-50"
             >
               {t('about')}
             </p>

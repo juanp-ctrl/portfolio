@@ -1,6 +1,5 @@
 {
   "common": {
-    "JP": "JP | Desarrollador Frontend",
     "menu": "Menú",
     "change_lng": "Cambiar a Inglés",
     "home": "Inicio",
@@ -17,8 +16,6 @@
     }
   },
   "home": {
-    "home_description": "El espacio en la web de Juan Pablo Jiménez, donde muestra sus trabajos, experimentos y proyectos relacionados con el desarrollo web. Un espacio donde puedes conocer mejor quién es Juan Pablo Jiménez, desarrollador frontend y creativo. ¡De Medellín para el mundo!",
-    "home_title_og": "Juan Pablo Jiménez | Desarrollador Frontend e Ingeniero Creativo | React Next.js TypeScript",
     "welcome_hi": "Hola, soy",
     "welcome_name": "Juan Pablo Jiménez!",
     "dev_role": "Ingeniero de Software",
@@ -93,7 +90,7 @@
     "seo_description": "La página que buscas no existe. Regresa a la página principal del portafolio de Juan Pablo Jiménez o explora proyectos de desarrollo web."
   },
   "seo": {
-    "home_title": "Juan Pablo Jiménez | Desarrollador Frontend e Ingeniero Creativo",
+    "home_title": "Juan Pablo Jiménez | Ingeniero de Software & Desarrollador Creativo",
     "home_og_title": "Juan Pablo Jiménez | Desarrollador Frontend | React Next.js TypeScript",
     "home_description": "Portafolio de Juan Pablo Jiménez, Desarrollador Frontend e Ingeniero Creativo de Medellín, Colombia. Especializado en React, Next.js y TypeScript. Explora proyectos, habilidades y experiencia.",
     "about_title": "Perfil | Juan Pablo Jiménez",

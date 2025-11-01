@@ -57,3 +57,46 @@ export const websiteSchema = {
     'query-input': 'required name=search_term_string',
   },
 }
+
+// ProfilePage schema - Can trigger rich results in Google Search
+export const profilePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    name: 'Juan Pablo Jiménez',
+    jobTitle: 'Frontend Developer',
+    description: 'Frontend Developer and Creative Engineer specializing in React, Next.js, and TypeScript',
+    url: 'https://www.juanpablojimenez.dev',
+    image: 'https://www.juanpablojimenez.dev/images/juan_pablo_jimenez.webp',
+    sameAs: [
+      'https://github.com/juanp-ctrl',
+      'https://www.linkedin.com/in/juan-pablo-jimenez-h/',
+      'https://twitter.com/JuanPabloJim_',
+      'https://instagram.com/pabloj_h',
+    ],
+    knowsAbout: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'JavaScript',
+      'Web Development',
+      'Frontend Development',
+      'Web Accessibility',
+      'Microfrontend Architecture',
+    ],
+    alumniOf: {
+      '@type': 'Organization',
+      name: 'Universidad Pontificia Bolivariana',
+    },
+    workLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Medellín',
+        addressCountry: 'Colombia',
+      },
+    },
+  },
+  url: 'https://www.juanpablojimenez.dev',
+}

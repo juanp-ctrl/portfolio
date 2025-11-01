@@ -1,6 +1,5 @@
 {
   "common": {
-    "JP": "JP | Software Engineer",
     "menu": "Menu",
     "change_lng": "Change to Spanish",
     "home": "Home",
@@ -17,8 +16,6 @@
     }
   },
   "home": {
-    "home_description": "The space in the web of Juan Pablo Jiménez, where he showcases his works, experiments, and projects related to web development. A space where you can get to know better who is Juan Pablo Jiménez, frontend and creative developer. From Medellín to the world!",
-    "home_title_og": "Juan Pablo Jiménez | Frontend Developer & Creative Engineer | React Next.js TypeScript",
     "welcome_hi": "Hi, I'm",
     "welcome_name": "Juan Pablo Jiménez!",
     "dev_role": "Software Engineer",
@@ -95,11 +92,11 @@
     "seo_description": "The page you're looking for doesn't exist. Return to Juan Pablo Jiménez's portfolio homepage or explore web development projects."
   },
   "seo": {
-    "home_title": "Juan Pablo Jiménez | Frontend Developer & Creative Engineer",
-    "home_og_title": "Juan Pablo Jiménez | Frontend Developer | React Next.js TypeScript",
-    "home_description": "Portfolio of Juan Pablo Jiménez, Frontend Developer and Creative Engineer from Medellín, Colombia. Specialized in React, Next.js, and TypeScript. Explore projects, skills, and experience.",
+    "home_title": "Juan Pablo Jiménez | Software Engineer & Creative Developer",
+    "home_og_title": "Juan Pablo Jiménez | Software Engineer & Creative Developer | React Next.js TypeScript",
+    "home_description": "Portfolio of Juan Pablo Jiménez, Software Engineer and Creative Developer from Medellín, Colombia. Specialized in React, Next.js, and TypeScript. Explore projects, skills, and experience.",
     "about_title": "About Me | Juan Pablo Jiménez",
-    "about_og_title": "About Juan Pablo Jiménez | Frontend Developer from Medellín",
+    "about_og_title": "About Juan Pablo Jiménez | Software Engineer from Medellín",
     "projects_title": "Projects | Juan Pablo Jiménez",
     "projects_description": "Explore the web development projects of Juan Pablo Jiménez. From Random-Q to enterprise applications, see how creativity meets technical excellence in React and Next.js projects.",
     "projects_og_title": "Web Development Projects | Juan Pablo Jiménez Portfolio",
@@ -107,9 +104,9 @@
     "contact_og_title": "Get in Touch | Juan Pablo Jiménez",
     "og_image_alt": "Juan Pablo Jiménez Portfolio - Astronaut floating in space with portfolio text",
     "site_name": "Juan Pablo Jiménez Portfolio",
-    "keywords_home": "frontend developer, react developer, nextjs developer, typescript developer, web developer, creative developer, medellín developer, colombia developer, javascript developer, portfolio",
+    "keywords_home": "software engineer, frontend developer, react developer, nextjs developer, typescript developer, web developer, creative developer, medellín developer, colombia developer, javascript developer, portfolio",
     "keywords_about": "Juan Pablo Jiménez, frontend developer, software engineer, UPB graduate, Medellín developer, React specialist, TypeScript expert, web accessibility, WCAG, microfrontend architecture",
     "keywords_projects": "web development projects, React projects, Next.js applications, TypeScript apps, Random-Q, portfolio projects, frontend development showcase, creative web applications",
-    "keywords_contact": "contact frontend developer, hire React developer, web development services, freelance developer Medellín, remote developer, Juan Pablo Jiménez contact"
+    "keywords_contact": "contact frontend developer software engineer, hire React developer, web development services, freelance developer Medellín, remote developer, Juan Pablo Jiménez contact"
   }
 }

@@ -8,7 +8,11 @@ import CustomCursor from '@/components/Cursor'
 import CookieConsent from '@/components/CookieConsent'
 import GoogleAnalytics from '@/components/GoogleAnalytics.tsx'
 import TransitionWrapper from '@/components/TransitionWrapper'
-import { personSchema, websiteSchema } from '@/constants/schemas'
+import {
+  personSchema,
+  websiteSchema,
+  profilePageSchema,
+} from '@/constants/schemas'
 import { libreBaskerville, josefinSans } from '@/constants/fonts'
 import { layoutMetadata } from '@/constants/metadata'
 
@@ -34,6 +38,12 @@ export default async function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(profilePageSchema),
+          }}
         />
       </head>
       <body className="bg-black-secondary">

@@ -1,5 +1,5 @@
 'use client'
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 import PageTransition from '@/components/PageTransition'
 import { motion, Variants } from 'motion/react'
 import Image from 'next/image'

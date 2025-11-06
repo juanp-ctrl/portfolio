@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import Welcome from '@/components/Welcome'
 import PageTransition from '@/components/PageTransition'
 import Text from '@/components/Text'
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 import dynamic from 'next/dynamic'
 import { useTranslations } from 'next-intl'
 

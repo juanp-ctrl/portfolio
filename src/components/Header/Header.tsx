@@ -3,7 +3,6 @@ import type React from 'react'
 import Nav from './Nav'
 import styles from './styles.module.css'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
 import { AnimatePresence } from 'motion/react'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import Image from 'next/image'
@@ -12,14 +11,15 @@ import { useTranslations, useLocale } from 'next-intl'
 import useMedia from '@/hooks/useMedia'
 import { useTransition } from '@/context/TransitionContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { gsap } from 'gsap'
 
-export default function Index() {
+export default function Header() {
   const t = useTranslations('common')
   const locale = useLocale()
-  const [isActive, setIsActive] = useState(false)
+  const [isMenuActive, setIsMenuActive] = useState(false)
   const menuButton = useRef(null)
   const { isMobile } = useMedia()
-  const { locomotiveScroll, startTransition } = useTransition()
+  const { startTransition } = useTransition()
   const { changeLanguage, isPending } = LanguageSwitcher({
     currentLocale: locale,
   })
@@ -29,56 +29,77 @@ export default function Index() {
     changeLanguage(newLanguage)
   }
 
+  // Control body overflow when menu is active
   useEffect(() => {
-    if (isActive) {
-      // Stop Locomotive Scroll
-      if (locomotiveScroll.current) {
-        locomotiveScroll.current.stop()
-      }
+    if (isMenuActive) {
       document.body.style.overflow = 'hidden'
     } else {
-      // Start Locomotive Scroll
-      if (locomotiveScroll.current) {
-        locomotiveScroll.current.start()
-      }
       document.body.style.overflow = 'auto'
     }
-  }, [isActive, locomotiveScroll])
+  }, [isMenuActive])
 
+  // Setup ScrollTrigger for hamburger button visibility
   useLayoutEffect(() => {
-    import('gsap/ScrollTrigger').then((ScrollTrigger) => {
+    import('gsap/ScrollTrigger').then((module) => {
+      const ScrollTrigger = module.ScrollTrigger
       gsap.registerPlugin(ScrollTrigger)
-      gsap.to(menuButton.current, {
-        scale: isActive ? 1 : 0,
-        duration: 0.25,
-        ease: 'power1.out',
-        scrollTrigger: {
-          trigger: document.documentElement,
-          start: 0,
-          end: window.innerHeight - 100,
-          onLeave: () => {
+
+      // Create ScrollTrigger instance
+      ScrollTrigger.create({
+        trigger: document.documentElement,
+        start: 'top top',
+        end: () => window.innerHeight - 100,
+        onLeave: () => {
+          // Show button when scrolling past threshold
+          if (!isMenuActive) {
             gsap.to(menuButton.current, {
               scale: 1,
               duration: 0.25,
               ease: 'power1.out',
             })
-          },
-          onEnterBack: () => {
+          }
+        },
+        onEnterBack: () => {
+          // Hide button when scrolling back to top
+          if (!isMenuActive) {
             gsap.to(menuButton.current, {
               scale: 0,
               duration: 0.25,
               ease: 'power1.out',
             })
-            setIsActive(false)
-          },
+          }
+          setIsMenuActive(false)
         },
       })
     })
-  }, [isActive])
+  }, [isMenuActive])
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     startTransition('/')
+  }
+
+  const handleMenuClick = () => {
+    const newIsActive = !isMenuActive
+    gsap.to(menuButton.current, {
+      scale: newIsActive ? 1 : 0,
+      duration: 0.25,
+      delay: 0.5,
+      ease: 'power1.out',
+    })
+    setIsMenuActive(newIsActive)
+  }
+
+  const handleBurgerClick = () => {
+    const newIsActive = !isMenuActive
+    const scrollY = window.scrollY || document.documentElement.scrollTop
+    gsap.to(menuButton.current, {
+      scale: newIsActive ? 1 : scrollY < window.innerHeight - 100 ? 0 : 1,
+      duration: 0.25,
+      delay: 0.1,
+      ease: 'power1.out',
+    })
+    setIsMenuActive(newIsActive)
   }
 
   return (
@@ -115,37 +136,19 @@ export default function Index() {
         </Popover>
         <p
           className="italic text-base border-b-2 border-white_alternative font-libre cursor-pointer"
-          onClick={() => {
-            const newIsActive = !isActive
-            gsap.to(menuButton.current, {
-              scale: newIsActive ? 1 : 0,
-              duration: 0.25,
-              delay: 0.5,
-              ease: 'power1.out',
-            })
-            setIsActive(newIsActive)
-          }}
+          onClick={handleMenuClick}
         >
           {t('menu')}
         </p>
       </div>
       <div ref={menuButton} className={styles['header-menu']}>
         <div
-          onClick={() => {
-            const newIsActive = !isActive
-            gsap.to(menuButton.current, {
-              scale: newIsActive ? 1 : window.scrollY < 300 ? 0 : 1,
-              duration: 0.25,
-              delay: 0.1,
-              ease: 'power1.out',
-            })
-            setIsActive(newIsActive)
-          }}
-          className={`${styles.button} ${isActive ? styles.active : ''}`}
+          onClick={handleBurgerClick}
+          className={`${styles.button} ${isMenuActive ? styles.active : ''}`}
         >
           <div
             className={`${styles.burger} ${
-              isActive ? styles.burgerActive : ''
+              isMenuActive ? styles.burgerActive : ''
             }`}
           >
             <div></div>
@@ -153,7 +156,7 @@ export default function Index() {
         </div>
       </div>
       <AnimatePresence mode="wait">
-        {isActive && <Nav closeMenu={() => setIsActive(false)} />}
+        {isMenuActive && <Nav closeMenu={() => setIsMenuActive(false)} />}
       </AnimatePresence>
     </div>
   )

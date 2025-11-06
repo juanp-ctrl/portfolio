@@ -1,5 +1,5 @@
 'use client'
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 import PageTransition from '@/components/PageTransition'
 import Text from '@/components/Text'
 import {
@@ -197,7 +197,7 @@ export default function Projects() {
           )}
           <div className="pb-8">
             <div
-              className="border border-white-primary rounded-[25px] cursor-pointer m-8 bg-transparent transition-colors duration-[0.8s] hover:bg-yellow-primary group"
+              className="border border-white-primary rounded-[25px] cursor-pointer m-8 bg-transparent transition-colors duration-[800ms] hover:bg-yellow-primary group"
               onClick={() => {
                 setProjectIndex((currIndex) =>
                   currIndex + 1 === projects.length ? 0 : currIndex + 1,

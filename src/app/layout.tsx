@@ -19,7 +19,7 @@ import { layoutMetadata } from '@/constants/metadata'
 export const metadata = layoutMetadata as Metadata
 
 export const viewport: Viewport = {
-  themeColor: '#1e1e1e', // bg-black-secondary color for mobile browser UI
+  themeColor: '#1e1e1e',
 }
 
 export default async function RootLayout({

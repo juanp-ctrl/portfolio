@@ -18,7 +18,7 @@ export default function TransitionWrapper({
   const pathname = usePathname()
   const router = useRouter()
 
-  /* Initialize Locomotive Scroll */
+  /* Initialize Locomotive Scroll v5 */
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const scrollContainer = document.querySelector(
@@ -30,19 +30,27 @@ export default function TransitionWrapper({
         pageContainerRef.current = scrollContainer
       }
 
-      const scroll = new LocomotiveScroll({
-        el: scrollContainer,
-        smooth: true,
-        lerp: 0.1,
-        multiplier: 1.8,
-        /* eslint-disable @typescript-eslint/no-explicit-any */
-      } as any)
+      // Initialize Locomotive Scroll v5
+      try {
+        const scroll = new LocomotiveScroll({
+          el: scrollContainer,
+          smooth: true,
+          lerp: 0.1,
+          multiplier: 1.8,
+          /* eslint-disable @typescript-eslint/no-explicit-any */
+        } as any)
 
-      // Store in context for global access
-      locomotiveScroll.current = scroll
+        locomotiveScroll.current = scroll
 
-      return () => {
-        scroll.destroy()
+        return () => {
+          if (scroll && typeof scroll.destroy === 'function') {
+            scroll.destroy()
+          }
+          locomotiveScroll.current = null
+        }
+      } catch (error) {
+        console.warn('Locomotive Scroll initialization failed:', error)
+        // Fallback to native scroll if Locomotive fails
         locomotiveScroll.current = null
       }
     }

@@ -1,5 +1,5 @@
 'use client'
-import Header from '@/components/Header'
+import Header from '@/components/Header/Header'
 import PageTransition from '@/components/PageTransition'
 import Text from '@/components/Text'
 import Footer from '@/components/Footer'

@@ -1,12 +1,13 @@
 export const layoutMetadata = {
   metadataBase: new URL('https://www.juanpablojimenez.dev'),
   title: {
-    default: 'Juan Pablo Jiménez - Frontend Developer & Creative Engineer',
+    default: 'Juan Pablo Jiménez - Software Engineer & Creative Developer',
     template: '%s | Juan Pablo Jiménez',
   },
   description:
-    'Frontend Developer and Creative Engineer from Medellín, Colombia, specializing in React, Next.js, and TypeScript. Building modern web applications with focus on performance and user experience.',
+    'Software Engineer and Creative Developer, specializing in React, Next.js, and TypeScript. Building modern web applications with focus on performance and user experience.',
   keywords: [
+    'software engineer',
     'frontend developer',
     'react developer',
     'nextjs developer',
@@ -37,9 +38,9 @@ export const layoutMetadata = {
     alternateLocale: 'es_ES',
     url: 'https://www.juanpablojimenez.dev',
     siteName: 'Juan Pablo Jiménez Portfolio',
-    title: 'Juan Pablo Jiménez - Frontend Developer & Creative Engineer',
+    title: 'Juan Pablo Jiménez - Software Engineer & Creative Developer',
     description:
-      'Frontend Developer and Creative Engineer from Medellín, Colombia, specializing in React, Next.js, and TypeScript. Building modern web applications with focus on performance and user experience.',
+      'Software Engineer and Creative Developer from Medellín, Colombia, specializing in React, Next.js, and TypeScript. Building modern web applications with focus on performance and user experience.',
     images: [
       {
         url: '/images/OG_brand.png',
@@ -53,9 +54,9 @@ export const layoutMetadata = {
   twitter: {
     card: 'summary_large_image',
     creator: '@JuanPabloJim_',
-    title: 'Juan Pablo Jiménez - Frontend Developer & Creative Engineer',
+    title: 'Juan Pablo Jiménez - Software Engineer & Creative Developer',
     description:
-      'Frontend Developer and Creative Engineer from Medellín, Colombia, specializing in React, Next.js, and TypeScript.',
+      'Software Engineer and Creative Developer from Medellín, Colombia, specializing in React, Next.js, and TypeScript.',
     images: ['/images/OG_brand.png'],
   },
   robots: {

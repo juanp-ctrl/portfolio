@@ -1,12 +1,13 @@
 'use client'
 import type React from 'react'
-import Nav from './Nav'
+import Nav from './Nav/Nav'
 import styles from './styles.module.css'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { AnimatePresence } from 'motion/react'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import useMedia from '@/hooks/useMedia'
 import { useTransition } from '@/context/TransitionContext'
@@ -16,9 +17,11 @@ import { gsap } from 'gsap'
 export default function Header() {
   const t = useTranslations('common')
   const locale = useLocale()
+  const pathname = usePathname()
   const [isMenuActive, setIsMenuActive] = useState(false)
   const menuButton = useRef(null)
   const { isMobile } = useMedia()
+  const { locomotiveScroll } = useTransition()
   const { startTransition } = useTransition()
   const { changeLanguage, isPending } = LanguageSwitcher({
     currentLocale: locale,
@@ -29,14 +32,21 @@ export default function Header() {
     changeLanguage(newLanguage)
   }
 
-  // Control body overflow when menu is active
   useEffect(() => {
     if (isMenuActive) {
+      // Stop Locomotive Scroll
+      if (locomotiveScroll.current) {
+        locomotiveScroll.current.stop()
+      }
       document.body.style.overflow = 'hidden'
     } else {
+      // Start Locomotive Scroll
+      if (locomotiveScroll.current) {
+        locomotiveScroll.current.start()
+      }
       document.body.style.overflow = 'auto'
     }
-  }, [isMenuActive])
+  }, [isMenuActive, locomotiveScroll])
 
   // Setup ScrollTrigger for hamburger button visibility
   useLayoutEffect(() => {
@@ -76,7 +86,9 @@ export default function Header() {
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
-    startTransition('/')
+    if (pathname !== '/') {
+      startTransition('/')
+    }
   }
 
   const handleMenuClick = () => {
@@ -100,6 +112,17 @@ export default function Header() {
       ease: 'power1.out',
     })
     setIsMenuActive(newIsActive)
+  }
+
+  const handleCloseMenu = () => {
+    const scrollY = window.scrollY || document.documentElement.scrollTop
+    // Hide button if at top, show if scrolled down
+    gsap.to(menuButton.current, {
+      scale: scrollY < window.innerHeight - 100 ? 0 : 1,
+      duration: 0.25,
+      ease: 'power1.out',
+    })
+    setIsMenuActive(false)
   }
 
   return (
@@ -156,7 +179,7 @@ export default function Header() {
         </div>
       </div>
       <AnimatePresence mode="wait">
-        {isMenuActive && <Nav closeMenu={() => setIsMenuActive(false)} />}
+        {isMenuActive && <Nav closeMenu={handleCloseMenu} />}
       </AnimatePresence>
     </div>
   )

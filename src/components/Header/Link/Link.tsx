@@ -17,7 +17,7 @@ interface LinkProps {
   closeMenu: () => void
 }
 
-export default function Index({
+export default function Link({
   data,
   isActive,
   setSelectedIndicator,

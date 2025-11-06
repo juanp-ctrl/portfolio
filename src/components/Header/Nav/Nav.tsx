@@ -1,7 +1,7 @@
 'use client'
 import Curve from '../Curve'
 import Image from 'next/image'
-import Link from '../Link'
+import Link from '../Link/Link'
 import Socials from '../Socials'
 import navItems from '@/constants/routes'
 import globalSVG from '../../../../public/images/global.svg'
@@ -25,7 +25,7 @@ interface NavProps {
   closeMenu: () => void
 }
 
-export default function Index({ closeMenu }: NavProps) {
+export default function Nav({ closeMenu }: NavProps) {
   const t = useTranslations('common')
   const locale = useLocale()
   const pathname = usePathname()

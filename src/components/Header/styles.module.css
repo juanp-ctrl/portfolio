@@ -7,6 +7,12 @@
   z-index: 50;
 }
 
+.header.dark {
+  background-color: var(--black);
+  color: var(--white);
+  position: relative;
+}
+
 .logo {
   font-family: var(--font-libre-baskerville);
   font-style: italic;

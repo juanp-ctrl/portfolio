@@ -53,9 +53,9 @@ export default function Contact() {
       description: t('check_out_my_code'),
     },
     {
-      title: 'Instagram',
-      value: '@pabloj_h',
-      href: 'https://instagram.com/pabloj_h',
+      title: 'Twitter',
+      value: '@JuanPabloJim_',
+      href: 'https://x.com/JuanPabloJim_',
       description: t('behind_the_scenes'),
     },
   ]

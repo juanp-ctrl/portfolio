@@ -45,5 +45,38 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.juanpablojimenez.dev/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.juanpablojimenez.dev/contact" />
   </url>
+  
+  <!-- Fullstack Course Main Page -->
+  <url>
+    <loc>https://www.juanpablojimenez.dev/fullstack-course</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/fullstack-course" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.juanpablojimenez.dev/fullstack-course" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.juanpablojimenez.dev/fullstack-course" />
+  </url>
+  
+  <!-- Fullstack Course Resources -->
+  <url>
+    <loc>https://www.juanpablojimenez.dev/fullstack-course/resources</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/fullstack-course/resources" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.juanpablojimenez.dev/fullstack-course/resources" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.juanpablojimenez.dev/fullstack-course/resources" />
+  </url>
+  
+  <!-- Professor Profile -->
+  <url>
+    <loc>https://www.juanpablojimenez.dev/fullstack-course/students/juan-pablo-jimenez</loc>
+    <lastmod>2025-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.juanpablojimenez.dev/fullstack-course/students/juan-pablo-jimenez" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.juanpablojimenez.dev/fullstack-course/students/juan-pablo-jimenez" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.juanpablojimenez.dev/fullstack-course/students/juan-pablo-jimenez" />
+  </url>
 
 </urlset> 

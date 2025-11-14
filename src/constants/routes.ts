@@ -12,6 +12,14 @@ const navItems = [
     path: '/projects',
   },
   {
+    title: 'fullstack_course',
+    path: '/fullstack-course',
+  },
+  {
+    title: 'resources',
+    path: '/fullstack-course/resources',
+  },
+  {
     title: 'contact',
     path: '/contact',
   },

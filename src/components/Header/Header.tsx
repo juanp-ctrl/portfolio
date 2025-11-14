@@ -14,7 +14,11 @@ import { useTransition } from '@/context/TransitionContext'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { gsap } from 'gsap'
 
-export default function Header() {
+interface HeaderProps {
+  variant?: 'light' | 'dark'
+}
+
+export default function Header({ variant = 'light' }: HeaderProps) {
   const t = useTranslations('common')
   const locale = useLocale()
   const pathname = usePathname()
@@ -127,7 +131,9 @@ export default function Header() {
 
   return (
     <div
-      className={`flex justify-between items-center px-10 py-6 ${styles.header}`}
+      className={`flex justify-between items-center px-10 py-6 ${styles.header} ${
+        variant === 'dark' ? styles.dark : ''
+      }`}
     >
       <Link href="/" onClick={handleLogoClick} className={styles.logo}>
         JP
@@ -148,7 +154,11 @@ export default function Header() {
               />
             </div>
           </PopoverTrigger>
-          <PopoverContent className="bg-[#ffffff3d] text-center w-30 p-3 mt-2">
+          <PopoverContent
+            className={`${
+              variant === 'dark' ? 'bg-[#000000aa]' : 'bg-[#ffffff3d]'
+            } text-center w-30 p-3 mt-2`}
+          >
             <p
               className="text-white font-libre cursor-pointer text-base"
               onClick={handleChangingLng}

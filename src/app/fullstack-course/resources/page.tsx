@@ -28,7 +28,7 @@ const resources = [
   },
   {
     fileName: 'Git History and Essentials',
-    filePath: '/fullstack-course/resources/2. Git | History + Essentials.pdf',
+    filePath: '/fullstack-course/resources/2.Git_History_Essentials.pdf',
     fileSize: '2.9 MB',
     fileType: 'pdf' as const,
   },

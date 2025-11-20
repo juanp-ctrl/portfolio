@@ -8,13 +8,28 @@ import Image from 'next/image'
 import { motion } from 'motion/react'
 import { getProfessorProfile, getStudentsOnly } from '@/lib/students'
 import { useTransition } from '@/context/TransitionContext'
+import { useState } from 'react'
+import { Check } from 'lucide-react'
 
 export default function FullstackCoursePage() {
   const t = useTranslations('fullstack_course')
   const { startTransition } = useTransition()
+  const [checkedSteps, setCheckedSteps] = useState<Set<number>>(new Set())
 
   const professor = getProfessorProfile()
   const studentsList = getStudentsOnly()
+
+  const toggleStep = (step: number) => {
+    setCheckedSteps((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(step)) {
+        newSet.delete(step)
+      } else {
+        newSet.add(step)
+      }
+      return newSet
+    })
+  }
 
   const handleNavigation = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -210,21 +225,57 @@ export default function FullstackCoursePage() {
               {t('how_to_title')}
             </h2>
 
-            <div className="space-y-4 max-w-4xl">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((step) => (
-                <motion.div
-                  key={step}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: step * 0.05 }}
-                  className="p-4 border-l-[3px] border-yellow-secondary bg-[rgba(242,223,107,0.1)] transition-all duration-300 ease-in-out hover:bg-[rgba(242,223,107,0.2)] hover:translate-x-2"
-                >
-                  <p className="font-josefin text-base md:text-lg text-black-primary">
-                    {t(`step_${step}`)}
-                  </p>
-                </motion.div>
-              ))}
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((step) => {
+                  const isChecked = checkedSteps.has(step)
+                  return (
+                    <motion.div
+                      key={step}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: step * 0.05 }}
+                      className="p-4 border-l-[3px] border-yellow-secondary bg-[rgba(242,223,107,0.1)] transition-all duration-300 ease-in-out hover:bg-[rgba(242,223,107,0.2)] hover:translate-x-2 flex items-start gap-3"
+                    >
+                      <button
+                        onClick={() => toggleStep(step)}
+                        className="flex-shrink-0 mt-0.5 transition-all duration-200 ease-in-out hover:scale-110 focus:outline-none focus:ring-2 focus:ring-black-primary focus:ring-offset-2 rounded"
+                        aria-label={`Mark step ${step} as ${isChecked ? 'incomplete' : 'complete'}`}
+                      >
+                        <div
+                          className={`w-6 h-6 border-2 rounded flex items-center justify-center transition-all duration-200 ${
+                            isChecked
+                              ? 'bg-black-primary border-black-primary'
+                              : 'bg-white border-black-primary'
+                          }`}
+                        >
+                          {isChecked && (
+                            <Check
+                              className="w-4 h-4 text-white-primary"
+                              strokeWidth={3}
+                            />
+                          )}
+                        </div>
+                      </button>
+                      <p className="font-josefin text-base md:text-lg text-black-primary flex-1">
+                        {step === 1 ? (
+                          <a
+                            href="https://github.com/juanp-ctrl/portfolio"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-black-secondary underline decoration-yellow-secondary decoration-2 underline-offset-2"
+                          >
+                            {t(`step_${step}`)}
+                          </a>
+                        ) : (
+                          t(`step_${step}`)
+                        )}
+                      </p>
+                    </motion.div>
+                  )
+                })}
+              </div>
             </div>
           </motion.div>
         </section>

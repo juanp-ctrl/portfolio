@@ -1,7 +1,6 @@
 import type { Student } from './types'
 
 export const sebastianPerez: Student = {
-
   username: 'sesasan',
   name: 'Sebastián Jesús Pérez Araujo',
   bio: 'Junior full-stack developer from Medellín, Colombia, focused on process automation and web application development.',
@@ -29,5 +28,5 @@ export const sebastianPerez: Student = {
     twitter: 'https://x.com/SESASAN_555',
     website: 'https://sesasan.is-a.dev',
     instagram: 'https://www.instagram.com/sebastian.perezaraujo',
-  }
+  },
 }

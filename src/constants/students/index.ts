@@ -41,6 +41,7 @@ export type { Student, StudentSocials } from './types'
 // Import all student profiles
 // EN: Add your import here / ES: Agrega tu import aquí
 import { juanPabloJimenez } from './juan-pablo-jimenez'
+import { sebastianPerez } from './sesasan'
 import { juanjosevillegas } from './juan-jose-villegas'
 
 /**
@@ -56,6 +57,7 @@ export const students = [
   juanPabloJimenez, // Professor / Profesor
   // EN: Add your profile here / ES: Agrega tu perfil aquí
   // Example / Ejemplo: mariaGarcia,
+  sebastianPerez,
   juanjosevillegas,
 ] as const
 

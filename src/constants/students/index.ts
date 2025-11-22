@@ -62,6 +62,7 @@ export const students: Student[] = studentModules
   })
   .filter((student): student is Student => student !== undefined)
 
+
 /**
  * Get all students (mutable array for utility functions)
  * This is used by the utility functions in src/lib/students.ts

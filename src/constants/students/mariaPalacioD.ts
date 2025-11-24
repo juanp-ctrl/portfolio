@@ -61,7 +61,7 @@ export const mariaPalacioD: Student = {
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/juan-pablo-jimenez/profile.webp',
+  profileImage: '/fullstack-course/students/mariaPalacioD/Profile.jpg',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)

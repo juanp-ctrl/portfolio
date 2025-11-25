@@ -14,16 +14,24 @@
  * ============================================================================
  *
  * EN:
- * 1. Copy this file
+ * 1. Copy this file to the same directory (src/constants/students/)
  * 2. Rename it to: your-username.ts (e.g., maria-garcia.ts)
- * 3. Update all the information below with your data
- * 4. The file will be automatically imported by index.ts
+ *    - Use lowercase letters only
+ *    - Use hyphens (-) instead of spaces
+ *    - Example: maria-garcia.ts, john-smith.ts
+ * 3. Update all the information below with your personal data
+ * 4. That's it! Your profile will be automatically discovered and displayed
+ *    - No need to edit index.ts or any other files!
  *
  * ES:
- * 1. Copia este archivo
+ * 1. Copia este archivo en el mismo directorio (src/constants/students/)
  * 2. Renómbralo a: tu-usuario.ts (ej., maria-garcia.ts)
- * 3. Actualiza toda la información abajo con tus datos
- * 4. El archivo será importado automáticamente por index.ts
+ *    - Usa solo letras minúsculas
+ *    - Usa guiones (-) en lugar de espacios
+ *    - Ejemplo: maria-garcia.ts, john-smith.ts
+ * 3. Actualiza toda la información abajo con tus datos personales
+ * 4. ¡Eso es todo! Tu perfil será descubierto y mostrado automáticamente
+ *    - ¡No necesitas editar index.ts ni ningún otro archivo!
  *
  * ============================================================================
  */
@@ -33,43 +41,43 @@ import type { Student } from './types'
 // EN: TODO: Update all fields with your information
 // ES: TODO: Actualiza todos los campos con tu información
 
-export const mariaPalacioD: Student = {
+export const anyelohoyoszapata: Student = {
   // EN: Your username (lowercase, use hyphens for spaces)
   // ES: Tu nombre de usuario (minúsculas, usa guiones para espacios)
   // This will be used in the URL: /fullstack-course/students/YOUR-USERNAME
-  username: 'mepalaciod',
+  username: 'anyelo-hoyos-zapata',
 
   // EN: Your full name
   // ES: Tu nombre completo
-  name: 'Maria Palacio Duque',
+  name: 'Anyelo Hoyos ZApata',
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)
-  bio: 'Biotechnologist with interest in social media, data science, agriculture and learning a lot of things',
+  bio: 'Web development student with a great passion for technology and creating digital solutions',
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
   interests: [
-    'Biotechnology',
-    'Biology',
-    'Plants',
-    'Agriculture',
-    'Researching',
-    'Data Science',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Web Animations',
+    'Teaching',
+    'Open Source',
   ],
 
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/mariaPalacioD/Profile.jpg',
+  profileImage: '/fullstack-course/students/anyelo-hoyos/anyelo.jpg',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
-    github: 'https://github.com/mepalaciod',
-    linkedin: 'https://www.linkedin.com/in/mar%C3%ADa-palacio-duque-71845911a/',
-    twitter: 'https://x.com/Maepalaciod',
-    // website: 'https://www.juanpablojimenez.dev',
+    github: 'https://github.com/anyelohzapata597',
+    Instagram: 'https://instagram.com/anyelohoyos22?igsh=NDNraGVjM244MW85',
+    Facebook: 'https://www.facebook.com/share/14KFBxzznSx/',
+    
     // instagram: '', // Optional / Opcional
   },
 }
@@ -80,16 +88,20 @@ export const mariaPalacioD: Student = {
  * ============================================================================
  *
  * EN:
- * - Make sure your username matches your folder name in /public/fullstack-course/students/
- * - Use lowercase and hyphens for the username (e.g., maria-garcia, not Maria Garcia)
+ * - Your filename must match your username (e.g., maria-garcia.ts for username: 'maria-garcia')
+ * - Your username must match your folder name in /public/fullstack-course/students/
+ * - Use lowercase and hyphens for both filename and username (e.g., maria-garcia, not Maria Garcia)
  * - The profile image should be named 'profile.webp' and placed in your folder
  * - All social links are optional except GitHub (recommended)
+ * - DO NOT edit index.ts - your file will be automatically discovered!
  *
  * ES:
- * - Asegúrate de que tu usuario coincida con el nombre de tu carpeta en /public/fullstack-course/students/
- * - Usa minúsculas y guiones para el usuario (ej., maria-garcia, no Maria Garcia)
+ * - El nombre de tu archivo debe coincidir con tu usuario (ej., maria-garcia.ts para username: 'maria-garcia')
+ * - Tu usuario debe coincidir con el nombre de tu carpeta en /public/fullstack-course/students/
+ * - Usa minúsculas y guiones tanto para el archivo como para el usuario (ej., maria-garcia, no Maria Garcia)
  * - La imagen de perfil debe llamarse 'profile.webp' y estar en tu carpeta
  * - Todos los enlaces sociales son opcionales excepto GitHub (recomendado)
+ * - NO edites index.ts - ¡tu archivo será descubierto automáticamente!
  *
  * ============================================================================
  */

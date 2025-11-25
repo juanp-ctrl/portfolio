@@ -22,7 +22,8 @@ export const yesicaGonzalez: Student = {
   ],
 
   // Imagen de perfil (cuando la tengas, creas la carpeta con tu username)
-  profileImage: '/fullstack-course/students/yesica-maria-gonzalez-v/Profile-yesica.webp',
+  profileImage:
+    '/fullstack-course/students/yesica-maria-gonzalez-v/Profile-yesica.webp',
 
   // Redes sociales (puedes agregar más si quieres)
   socials: {

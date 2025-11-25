@@ -76,7 +76,7 @@ export const anyelohoyoszapata: Student = {
   socials: {
     github: 'https://github.com/anyelohzapata597',
     instagram: 'https://instagram.com/anyelohoyos22?igsh=NDNraGVjM244MW85',
-    facebook: 'https://www.facebook.com/share/14KFBxzznSx/',
+    
 
     // instagram: '', // Optional / Opcional
   },

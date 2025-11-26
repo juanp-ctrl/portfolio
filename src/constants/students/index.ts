@@ -55,7 +55,7 @@ export const students = [
   juanPabloJimenez, // Professor / Profesor
   // EN: Add your profile here / ES: Agrega tu perfil aquí
   // Example / Ejemplo: mariaGarcia,
-  JaimeLondonoSaldarriaga,  
+  JaimeLondonoSaldarriaga,
 ] as const
 
 /**

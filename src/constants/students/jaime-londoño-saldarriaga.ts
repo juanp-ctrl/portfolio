@@ -45,7 +45,7 @@ export const JaimeLondonoSaldarriaga: Student = {
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)
-  bio: 'Industrial Engineer, MBA and Frontend Student from Medellín, Colombia. Passionate about teaching web development and open-source contribution.',
+  bio: 'Industrial Engineer, MBA and Supply Chain & Logistics Specialist, and finally and happily Fullstack Student at UPB Medellin, Colombia. Passionate about family, sports and house-music' 
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
@@ -54,7 +54,7 @@ export const JaimeLondonoSaldarriaga: Student = {
     'Supply Chain',
     'Logistics',
     'Manufacturing',
-    'automation',
+    'Automation',
     'Web Development',
     'React',
     'javaScript',
@@ -73,7 +73,7 @@ export const JaimeLondonoSaldarriaga: Student = {
   socials: {
     github: 'https://github.com/jalsalda-hub',
     linkedin: 'https://www.linkedin.com/in/jaimelondonos/',
-    
+
     // instagram: '', // Optional / Opcional
   },
 }

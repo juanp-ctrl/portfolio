@@ -66,7 +66,7 @@ export const JaimeLondonoSaldarriaga: Student = {
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/Foto perfil 3.jpg/profile.webp',
+  profileImage: '/fullstack-course/students/Foto Perfil 3.jpg/profile.webp',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)

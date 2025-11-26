@@ -53,7 +53,7 @@ export const MCamilaHolguin: Student = {
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)
-  bio: 'Student from Medellín, Colombia. Passionate about tecnology and knowledge.',
+  bio: 'Hi! I´m a student from Medellín, Colombia, passionate about continuous learning and everything related to technology. I enjoy exploring new tools, understanding how things work, and developing my skills to create useful and innovative solutions.',
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
@@ -61,8 +61,8 @@ export const MCamilaHolguin: Student = {
     'Software',
     'Hardware',
     'Technology',
-    'Music',
     'Learning',
+    'Music',
     'Art',
   ],
 
@@ -75,8 +75,7 @@ export const MCamilaHolguin: Student = {
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
     github: 'https://github.com/MariaNiugloh',
-    linkedin: "There´s nothing yet :(",
-    website: "There´s nothing yet :(",
+    
     // instagram: '', // Optional / Opcional
   },
 }

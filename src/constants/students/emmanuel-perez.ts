@@ -33,43 +33,35 @@ import type { Student } from './types'
 // EN: TODO: Update all fields with your information
 // ES: TODO: Actualiza todos los campos con tu información
 
-export const mariaPalacioD: Student = {
+export const emmanuelPerezCastrillon: Student = {
   // EN: Your username (lowercase, use hyphens for spaces)
   // ES: Tu nombre de usuario (minúsculas, usa guiones para espacios)
   // This will be used in the URL: /fullstack-course/students/YOUR-USERNAME
-  username: 'mepalaciod',
+  username: 'tiz787',
 
   // EN: Your full name
   // ES: Tu nombre completo
-  name: 'Maria Palacio Duque',
+  name: 'Emmanuel Pérez Castrillón',
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)
-  bio: 'Biotechnologist with interest in social media, data science, agriculture and learning a lot of things',
+  bio: 'i like to code and learn new things. im a web developer and a student of the course Full Stack Developer.',
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
-  interests: [
-    'Biotechnology',
-    'Biology',
-    'Plants',
-    'Agriculture',
-    'Researching',
-    'Data Science',
-  ],
+  interests: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Music'],
 
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/mariaPalacioD/Profile.jpg',
+  profileImage:
+    '/fullstack-course/students/emmanuel-perez-castrillon/profile.png',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
-    github: 'https://github.com/mepalaciod',
-    linkedin: 'https://www.linkedin.com/in/mar%C3%ADa-palacio-duque-71845911a/',
-    twitter: 'https://x.com/Maepalaciod',
-    // website: 'https://www.juanpablojimenez.dev',
+    github: 'https://github.com/tiz787',
+
     // instagram: '', // Optional / Opcional
   },
 }

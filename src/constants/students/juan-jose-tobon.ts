@@ -57,18 +57,13 @@ export const juanjosetobon: Student = {
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
-  interests: [
-    'JavaScript',
-    'Next.js',
-    'Java',
-    'Soccer',
-    'Series',
-  ],
+  interests: ['JavaScript', 'Next.js', 'Java', 'Soccer', 'Series'],
 
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/juan-jose-tobon/profile-juan-jose-tobon',
+  profileImage:
+    '/fullstack-course/students/juan-jose-tobon/profile-juan-jose-tobon.jpg',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)

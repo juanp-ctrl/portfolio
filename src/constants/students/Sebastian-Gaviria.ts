@@ -53,7 +53,7 @@ export const juanSebastianGaviria: Student = {
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)
-  bio: 'Junior Software Developer and designer from Medellín, Colombia. Passionate about learning fullstack web development.',
+  bio: 'Junior Software Developer and designer from Medellín, Colombia. Passionate about learning fullstack web development and make awesome designs.',
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
@@ -69,7 +69,8 @@ export const juanSebastianGaviria: Student = {
     'JavaScript',
     'Databases',
     'SQL',
-
+    'Collaboration working',
+    'Git/GitHub',
   ],
 
   // EN: Path to your profile image

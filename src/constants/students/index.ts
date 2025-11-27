@@ -54,13 +54,13 @@ const studentModules = require.context(
 // Extract student objects from all modules
 export const students: Student[] = studentModules
   .keys()
-  .map((fileName) => {
+  .map((fileName:string) => {
     const studentModule = studentModules(fileName) as Record<string, Student>
     // Get the first exported value (the student object)
     const studentKey = Object.keys(studentModule)[0]
     return studentModule[studentKey]
   })
-  .filter((student): student is Student => student !== undefined)
+  .filter((student: Student): student is Student => student !== undefined)
 
 /**
  * Get all students (mutable array for utility functions)

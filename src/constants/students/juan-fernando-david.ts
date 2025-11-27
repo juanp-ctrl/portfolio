@@ -41,7 +41,7 @@ export const juanFernandoDavid: Student = {
 
   // EN: Your full name
   // ES: Tu nombre completo
-  name: 'JUan Fernando David',
+  name: 'Juan Fernando David',
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)

@@ -69,7 +69,7 @@ export const mariaPalacioD: Student = {
     github: 'https://github.com/mepalaciod',
     linkedin: 'https://www.linkedin.com/in/mar%C3%ADa-palacio-duque-71845911a/',
     twitter: 'https://x.com/Maepalaciod',
-   // website: 'https://www.juanpablojimenez.dev',
+    // website: 'https://www.juanpablojimenez.dev',
     // instagram: '', // Optional / Opcional
   },
 }

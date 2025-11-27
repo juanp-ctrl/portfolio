@@ -41,29 +41,13 @@
 
 // Re-export types
 export type { Student, StudentSocials } from './types'
-import type { Student } from './types'
 
-// Dynamic import using webpack's require.context
-// This will import all .ts files except index.ts and types.ts
-const studentModules = require.context(
-  './', // Directory to search
-  false, // Don't search subdirectories
-  /^(?!.*(?:index|types)).*\.ts$/, // Match .ts files except index.ts and types.ts
-)
+import { juanPabloJimenez } from './juan-pablo-jimenez'
+import {luisarenas} from './Luis-Arenas'
 
-// Extract student objects from all modules
-export const students: Student[] = studentModules
-  .keys()
-  .map((fileName) => {
-    const studentModule = studentModules(fileName) as Record<string, Student>
-    // Get the first exported value (the student object)
-    const studentKey = Object.keys(studentModule)[0]
-    return studentModule[studentKey]
-  })
-  .filter((student): student is Student => student !== undefined)
+export const students = [
+  juanPabloJimenez,
+  luisarenas
+  ]as const
 
-/**
- * Get all students (mutable array for utility functions)
- * This is used by the utility functions in src/lib/students.ts
- */
-export const allStudents = [...students]
+  export const allStudents = [ ...students]

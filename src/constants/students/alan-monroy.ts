@@ -64,7 +64,7 @@ export const alanmonroy: Student = {
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
   profileImage:
-    '/fullstack-course/students/alanmonroy/profile.jpg',
+    '/fullstack-course/students/alanmonroy/profile.jpeg',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)

@@ -37,7 +37,7 @@ export const JaimeLondonoSaldarriaga: Student = {
   // EN: Your username (lowercase, use hyphens for spaces)
   // ES: Tu nombre de usuario (minúsculas, usa guiones para espacios)
   // This will be used in the URL: /fullstack-course/students/YOUR-USERNAME
-  username: 'jaime-londoño-saldarriaga',
+  username: 'jaime-londono-saldarriaga',
 
   // EN: Your full name
   // ES: Tu nombre completo

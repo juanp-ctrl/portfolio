@@ -78,6 +78,7 @@ export const juanSebastianGaviria: Student = {
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
   profileImage: '/fullstack-course/students/SebasGaviria/profile.webp',
   gallery: [
+    '/fullstack-course/students/SebasGaviria/profile.webp',
     '/fullstack-course/students/SebasGaviria/profile2.webp',
     '/fullstack-course/students/SebasGaviria/profile3.webp',
     '/fullstack-course/students/SebasGaviria/profile4.webp',

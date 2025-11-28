@@ -65,10 +65,10 @@ export default function StudentProfilePage() {
   return (
     <PageTransition>
       <main className="relative w-full overflow-hidden bg-white">
-        <Header />
+        <Header variant="dark" />
 
         {/* Back Button */}
-        <section className="px-6 md:px-20 py-8 md:py-12">
+        <section className="px-6 md:px-20 pt-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

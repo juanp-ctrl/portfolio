@@ -77,6 +77,11 @@ export const juanSebastianGaviria: Student = {
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
   profileImage: '/fullstack-course/students/SebasGaviria/profile.webp',
+  gallery: [
+    '/fullstack-course/students/SebasGaviria/profile2.webp',
+    '/fullstack-course/students/SebasGaviria/profile3.webp',
+    '/fullstack-course/students/SebasGaviria/profile4.webp',
+  ],
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)

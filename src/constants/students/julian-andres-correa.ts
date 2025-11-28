@@ -72,7 +72,8 @@ export const julianandrescorrea: Student = {
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/julian-andres-correa/julian_correa.png',
+  profileImage:
+    '/fullstack-course/students/julian-andres-correa/julian_correa.png',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)

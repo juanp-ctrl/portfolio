@@ -74,7 +74,8 @@ export const jeiksonGomez: Student = {
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
     github: 'https://github.com/jeikson',
-    linkedin: 'https://co.linkedin.com/in/jeikson-g%C3%B3mez-9793814a?trk=public_profile_samename-profile',
+    linkedin:
+      'https://co.linkedin.com/in/jeikson-g%C3%B3mez-9793814a?trk=public_profile_samename-profile',
     twitter: 'https://x.com/jeikgo',
     website: 'https://jeik.digital',
     // instagram: '', // Optional / Opcional

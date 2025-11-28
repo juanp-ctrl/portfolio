@@ -57,14 +57,7 @@ export const MCamilaHolguin: Student = {
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
-  interests: [
-    'Software',
-    'Hardware',
-    'Technology',
-    'Learning',
-    'Music',
-    'Art',
-  ],
+  interests: ['Software', 'Hardware', 'Technology', 'Learning', 'Music', 'Art'],
 
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
@@ -75,7 +68,7 @@ export const MCamilaHolguin: Student = {
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
     github: 'https://github.com/MariaNiugloh',
-    
+
     // instagram: '', // Optional / Opcional
   },
 }

@@ -55,7 +55,6 @@ export const juanPabloJimenez: Student = {
   // ES: Una biografía corta sobre ti (2-3 oraciones)
   bio: 'Soy una mujer de 35 años, madre soltera con un hijo de 12 años, trabajo en un call center en atencion al cliente.',
 
-
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
   interests: [
@@ -71,7 +70,6 @@ export const juanPabloJimenez: Student = {
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
   profileImage: '/fullstack-course/students/marcela-quintero/foto.jpeg',
-
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)

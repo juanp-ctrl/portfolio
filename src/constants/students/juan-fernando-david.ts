@@ -49,14 +49,7 @@ export const juanFernandoDavid: Student = {
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
-  interests: [
-    'React',
-    'SQL',
-    'TypeScript',
-    'Python',
-    'Java',
-    'Open Source',
-  ],
+  interests: ['React', 'SQL', 'TypeScript', 'Python', 'Java', 'Open Source'],
 
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil

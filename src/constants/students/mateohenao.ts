@@ -77,7 +77,7 @@ export const mateoHenao: Student = {
   socials: {
     github: 'https://github.com/MattHenao',
     linkedin: 'https://co.linkedin.com/in/matthenao',
-    instagram: 'https://www.instagram.com/matthenao1'
+    instagram: 'https://www.instagram.com/matthenao1',
   },
 }
 

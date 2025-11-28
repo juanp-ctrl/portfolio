@@ -41,43 +41,41 @@ import type { Student } from './types'
 // EN: TODO: Update all fields with your information
 // ES: TODO: Actualiza todos los campos con tu información
 
-export const juanPabloJimenez: Student = {
+export const MCamilaHolguin: Student = {
   // EN: Your username (lowercase, use hyphens for spaces)
   // ES: Tu nombre de usuario (minúsculas, usa guiones para espacios)
   // This will be used in the URL: /fullstack-course/students/YOUR-USERNAME
-  username: 'juan-pablo-jimenez',
+  username: 'camilaNiugloh',
 
   // EN: Your full name
   // ES: Tu nombre completo
-  name: 'Juan Pablo Jiménez',
+  name: 'Maria Camila Holguín',
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)
-  bio: 'Software Engineer and Frontend Developer from Medellín, Colombia. Passionate about teaching web development and open-source contribution.',
+  bio: 'Hi! I´m a student from Medellín, Colombia, passionate about continuous learning and everything related to technology. I enjoy exploring new tools, understanding how things work, and developing my skills to create useful and innovative solutions.',
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
   interests: [
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Web Animations',
-    'Teaching',
-    'Open Source',
+    'Software',
+    'Hardware',
+    'Technology',
+    'Learning',
+    'Music',
+    'Art',
   ],
 
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/juan-pablo-jimenez/profile.webp',
+  profileImage: '/fullstack-course/students/CamilaHolguin/Cami.jpg',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
-    github: 'https://github.com/juanpablojimenezheredia',
-    linkedin: 'https://www.linkedin.com/in/juanpablojimenezheredia',
-    twitter: 'https://x.com/JuanPabloJim_',
-    website: 'https://www.juanpablojimenez.dev',
+    github: 'https://github.com/MariaNiugloh',
+    
     // instagram: '', // Optional / Opcional
   },
 }

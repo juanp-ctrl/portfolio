@@ -41,15 +41,15 @@ import type { Student } from './types'
 // EN: TODO: Update all fields with your information
 // ES: TODO: Actualiza todos los campos con tu información
 
-export const juanPabloJimenez: Student = {
+export const mateoHenao: Student = {
   // EN: Your username (lowercase, use hyphens for spaces)
   // ES: Tu nombre de usuario (minúsculas, usa guiones para espacios)
   // This will be used in the URL: /fullstack-course/students/YOUR-USERNAME
-  username: 'juan-pablo-jimenez',
+  username: 'mateo-henao',
 
   // EN: Your full name
   // ES: Tu nombre completo
-  name: 'Juan Pablo Jiménez',
+  name: 'Mateo Henao',
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)
@@ -62,23 +62,22 @@ export const juanPabloJimenez: Student = {
     'Next.js',
     'TypeScript',
     'Web Animations',
-    'Teaching',
+    'Java',
+    'Springboot',
     'Open Source',
   ],
 
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/juan-pablo-jimenez/profile.webp',
+  profileImage: '/fullstack-course/students/mateo-henao/profile.jpg',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
-    github: 'https://github.com/juanpablojimenezheredia',
-    linkedin: 'https://www.linkedin.com/in/juanpablojimenezheredia',
-    twitter: 'https://x.com/JuanPabloJim_',
-    website: 'https://www.juanpablojimenez.dev',
-    // instagram: '', // Optional / Opcional
+    github: 'https://github.com/MattHenao',
+    linkedin: 'https://co.linkedin.com/in/matthenao',
+    instagram: 'https://www.instagram.com/matthenao1'
   },
 }
 

@@ -9,6 +9,7 @@ import { motion } from 'motion/react'
 import { useTransition } from '@/context/TransitionContext'
 import { findStudentByUsername } from '@/lib/students'
 import { useParams } from 'next/navigation'
+import ImageCarousel from '@/components/ImageCarousel'
 
 export default function StudentProfilePage() {
   const t = useTranslations('fullstack_course')
@@ -64,10 +65,10 @@ export default function StudentProfilePage() {
   return (
     <PageTransition>
       <main className="relative w-full overflow-hidden bg-white">
-        <Header />
+        <Header variant="dark" />
 
         {/* Back Button */}
-        <section className="px-6 md:px-20 py-8 md:py-12">
+        <section className="px-6 md:px-20 pt-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,21 +102,28 @@ export default function StudentProfilePage() {
         {/* Profile Header */}
         <section className="px-6 md:px-20 py-12 md:py-20">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-            {/* Profile Image */}
+            {/* Profile Image or Carousel */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
               className="flex-shrink-0"
             >
-              <Image
-                src={student.profileImage}
-                alt={`Profile picture of ${student.name}`}
-                width={300}
-                height={300}
-                className="rounded-lg shadow-[0_8px_16px_rgba(0,0,0,0.2)] w-[200px] h-[200px] md:w-[300px] md:h-[300px] object-cover"
-                priority
-              />
+              {student.gallery && student.gallery.length > 0 ? (
+                <ImageCarousel
+                  images={student.gallery}
+                  alt={`Profile pictures of ${student.name}`}
+                />
+              ) : (
+                <Image
+                  src={student.profileImage}
+                  alt={`Profile picture of ${student.name}`}
+                  width={300}
+                  height={300}
+                  className="rounded-lg shadow-[0_8px_16px_rgba(0,0,0,0.2)] w-[200px] h-[200px] md:w-[300px] md:h-[300px] object-cover"
+                  priority
+                />
+              )}
             </motion.div>
 
             {/* Name and Badge */}

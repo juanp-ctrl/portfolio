@@ -41,25 +41,28 @@ import type { Student } from './types'
 // EN: TODO: Update all fields with your information
 // ES: TODO: Actualiza todos los campos con tu información
 
-export const juanPabloJimenez: Student = {
+export const julianandrescorrea: Student = {
   // EN: Your username (lowercase, use hyphens for spaces)
   // ES: Tu nombre de usuario (minúsculas, usa guiones para espacios)
   // This will be used in the URL: /fullstack-course/students/YOUR-USERNAME
-  username: 'juan-pablo-jimenez',
+  username: 'julian-andres-correa',
 
   // EN: Your full name
   // ES: Tu nombre completo
-  name: 'Juan Pablo Jiménez',
+  name: 'Julian Andres Correa',
 
   // EN: A short biography about yourself (2-3 sentences)
   // ES: Una biografía corta sobre ti (2-3 oraciones)
-  bio: 'Software Engineer and Frontend Developer from Medellín, Colombia. Passionate about teaching web development and open-source contribution.',
+  bio: 'Software Engineer and Full Stack Developer based in Medellín, Colombia, dedicated to web development education and active open-source collaboration.',
 
   // EN: Your interests and skills (as an array)
   // ES: Tus intereses y habilidades (como un array)
   interests: [
     'React',
     'Next.js',
+    'Node.js',
+    'UI/UX Design',
+    'Performance Optimization',
     'TypeScript',
     'Web Animations',
     'Teaching',
@@ -69,15 +72,15 @@ export const juanPabloJimenez: Student = {
   // EN: Path to your profile image
   // ES: Ruta a tu imagen de perfil
   // The image should be in: /public/fullstack-course/students/YOUR-USERNAME/profile.webp
-  profileImage: '/fullstack-course/students/juan-pablo-jimenez/profile.webp',
+  profileImage: '/fullstack-course/students/julian-andres-correa/julian_correa.png',
 
   // EN: Your social media links (optional fields)
   // ES: Tus enlaces de redes sociales (campos opcionales)
   socials: {
-    github: 'https://github.com/juanpablojimenezheredia',
-    linkedin: 'https://www.linkedin.com/in/juanpablojimenezheredia',
-    twitter: 'https://x.com/JuanPabloJim_',
-    website: 'https://www.juanpablojimenez.dev',
+    github: 'https://github.com/JulianAndresCorrea',
+    //linkedin: 'https://www.linkedhttps://github.com/juanpablojimenezherediain.com/in/juanpablojimenezheredia',
+    //twitter: 'https://x.com/JuanPabloJim_',
+    //website: 'https://www.juanpablojimenez.dev',
     // instagram: '', // Optional / Opcional
   },
 }
